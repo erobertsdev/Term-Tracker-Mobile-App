@@ -59,6 +59,10 @@
     <string name="notifications">Notifications</string>
     <string name="addAssessment">Add Assessment</string>
     <string name="addMentor">Add Mentor</string>
+    <string name="name_assessment">No Word</string>
+    <string name="name_course">No Word</string>
+    <string name="name_mentor">No Word</string>
+    <string name="name_term">No Word</string>
     <!-- Assessment Type Strings -->
     <string-array name="type">
         <item>Objective Assessment</item>
