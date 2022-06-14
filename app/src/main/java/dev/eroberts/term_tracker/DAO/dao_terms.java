@@ -12,7 +12,7 @@ import dev.eroberts.term_tracker.Entities.TermEntity;
 import java.util.List;
 
 @Dao
-public interface TermsDAO {
+public interface dao_terms {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(TermEntity term);
 

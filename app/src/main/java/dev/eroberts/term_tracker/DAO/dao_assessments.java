@@ -13,7 +13,7 @@ import dev.eroberts.term_tracker.Entities.AssessmentEntity;
 import java.util.List;
 
 @Dao
-public interface AssessmentsDAO {
+public interface dao_assessments {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(AssessmentEntity assessment);
 

@@ -1,6 +1,4 @@
 package dev.eroberts.term_tracker.DAO;
-
-
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -13,7 +11,7 @@ import dev.eroberts.term_tracker.Entities.MentorEntity;
 import java.util.List;
 
 @Dao
-public interface MentorsDAO {
+public interface dao_mentors {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(MentorEntity mentor);
 
