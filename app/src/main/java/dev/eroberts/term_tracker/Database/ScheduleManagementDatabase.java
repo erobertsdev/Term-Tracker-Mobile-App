@@ -9,9 +9,6 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import dev.eroberts.term_tracker.DAO.*;
-import dev.eroberts.term_tracker.Entities.*;
-
 import dev.eroberts.term_tracker.DAO.AssessmentsDAO;
 import dev.eroberts.term_tracker.DAO.CoursesDAO;
 import dev.eroberts.term_tracker.DAO.MentorsDAO;
