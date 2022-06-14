@@ -12,8 +12,8 @@ import java.util.List;
 
 public class AssessmentViewModel extends AndroidViewModel {
     int courseID;
-    private ScheduleManagementRepository mRepository;
-    private LiveData<List<AssessmentEntity>> mAssociatedAssessments;
+    private final ScheduleManagementRepository mRepository;
+    private final LiveData<List<AssessmentEntity>> mAssociatedAssessments;
     private LiveData<List<AssessmentEntity>> mAllAssessments;
 
     public AssessmentViewModel(Application application, int courseID){
