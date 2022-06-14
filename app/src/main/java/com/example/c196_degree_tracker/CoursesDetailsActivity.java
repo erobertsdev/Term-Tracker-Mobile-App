@@ -12,8 +12,8 @@ import com.example.c196_degree_tracker.ViewModel.AssessmentViewModel;
 import com.example.c196_degree_tracker.ViewModel.CourseViewModel;
 import com.example.c196_degree_tracker.ViewModel.MentorViewModel;
 import com.example.c196_degree_tracker.ViewModel.MyReceiver;
-import com.example.c196_degree_tracker.ui.AssessmentAdapter;
-import com.example.c196_degree_tracker.ui.MentorAdapter;
+import com.example.c196_degree_tracker.UI.AssessmentAdapter;
+import com.example.c196_degree_tracker.UI.MentorAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;

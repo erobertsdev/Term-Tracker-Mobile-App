@@ -1,4 +1,4 @@
-package com.example.c196_degree_tracker.ui;
+package com.example.c196_degree_tracker.UI;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.c196_degree_tracker.AssessmentsDetailsActivity;
 import com.example.c196_degree_tracker.Entities.AssessmentEntity;
-import com.example.c196_degree_tracker.AssessmentsActivity;
 import com.example.c196_degree_tracker.R;
 
 import java.util.List;

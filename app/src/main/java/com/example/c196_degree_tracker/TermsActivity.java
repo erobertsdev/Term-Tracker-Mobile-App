@@ -5,9 +5,8 @@ import android.os.Bundle;
 
 import com.example.c196_degree_tracker.Entities.TermEntity;
 import com.example.c196_degree_tracker.ViewModel.TermViewModel;
-import com.example.c196_degree_tracker.ui.TermAdapter;
+import com.example.c196_degree_tracker.UI.TermAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +16,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.View;
 import android.widget.ImageView;
 
 import java.util.List;

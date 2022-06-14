@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdk 29
+    compileSdk 33
 
     defaultConfig {
         applicationId 'dev.eroberts.term_tracker'
         minSdkVersion 26
-        targetSdk 32
+        targetSdk 29
         versionCode 1
         versionName "1.0"
 
@@ -20,8 +20,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility = 11
+        targetCompatibility = 11
+    }
+    dependenciesInfo {
+        includeInApk false
     }
 
 }
@@ -46,6 +49,7 @@ dependencies {
 
     // Lifecycle components
         implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
+        //noinspection LifecycleAnnotationProcessorWithJava8
         annotationProcessor "androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion"
 
     // UI

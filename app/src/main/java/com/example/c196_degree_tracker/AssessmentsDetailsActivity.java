@@ -6,35 +6,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.c196_degree_tracker.Entities.CourseEntity;
 import com.example.c196_degree_tracker.ViewModel.AssessmentViewModel;
-import com.example.c196_degree_tracker.ViewModel.CourseViewModel;
-import com.example.c196_degree_tracker.ViewModel.MentorViewModel;
 import com.example.c196_degree_tracker.ViewModel.MyReceiver;
-import com.example.c196_degree_tracker.ui.CourseAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class AssessmentsDetailsActivity extends AppCompatActivity {
     private AssessmentViewModel mAssessmentViewModel;

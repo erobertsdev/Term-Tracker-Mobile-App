@@ -3,13 +3,10 @@ package com.example.c196_degree_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.c196_degree_tracker.Entities.AssessmentEntity;
 import com.example.c196_degree_tracker.Entities.CourseEntity;
 import com.example.c196_degree_tracker.ViewModel.CourseViewModel;
-import com.example.c196_degree_tracker.ui.AssessmentAdapter;
-import com.example.c196_degree_tracker.ui.CourseAdapter;
+import com.example.c196_degree_tracker.UI.CourseAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +16,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.View;
 import android.widget.ImageView;
 
 import java.util.List;
