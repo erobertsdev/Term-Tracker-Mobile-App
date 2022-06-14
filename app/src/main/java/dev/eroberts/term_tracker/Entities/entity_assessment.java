@@ -4,7 +4,7 @@ import androidx.room.*;
 
 @Entity(tableName = "assessment_table")
 
-public class AssessmentEntity {
+public class entity_assessment {
     @PrimaryKey
     private int assessmentID;
 
@@ -15,7 +15,7 @@ public class AssessmentEntity {
 
     @Override
     public String toString() {
-        return "AssessmentEntity{" +
+        return "entity_assessment{" +
                 "assessmentID=" + assessmentID +
                 ", assessmentName=" + assessmentName +
                 ", assessmentDate=" + assessmentDate +
@@ -24,7 +24,7 @@ public class AssessmentEntity {
                 '}';
     }
 
-    public AssessmentEntity(int assessmentID, String assessmentName, String assessmentDate, String assessmentType, Integer courseID) {
+    public entity_assessment(int assessmentID, String assessmentName, String assessmentDate, String assessmentType, Integer courseID) {
         this.assessmentID = assessmentID;
         this.assessmentName = assessmentName;
         this.assessmentDate = assessmentDate;

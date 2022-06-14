@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import dev.eroberts.term_tracker.Entities.MentorEntity;
+import dev.eroberts.term_tracker.Entities.entity_mentor;
 import dev.eroberts.term_tracker.MentorsDetailsActivity;
 import dev.eroberts.term_tracker.R;
 
@@ -25,7 +25,7 @@ public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.MentorView
             mentorItemView = itemView.findViewById(R.id.mentorsTextView);
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
-                final MentorEntity current = mMentors.get(position);
+                final entity_mentor current = mMentors.get(position);
                 Intent intent = new Intent(context, MentorsDetailsActivity.class);
                 intent.putExtra("mentorID", current.getMentorID());
                 intent.putExtra("mentorName", current.getMentorName());
@@ -39,7 +39,7 @@ public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.MentorView
 
     private final LayoutInflater mInflater;
     private final Context context;
-    private List<MentorEntity> mMentors;
+    private List<entity_mentor> mMentors;
 
     public MentorAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
@@ -56,14 +56,14 @@ public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.MentorView
     public void onBindViewHolder(MentorAdapter.MentorViewHolder holder, int position) {
 
         if(mMentors != null) {
-            final MentorEntity current = mMentors.get(position);
+            final entity_mentor current = mMentors.get(position);
             holder.mentorItemView.setText(current.getMentorName());
         } else {
             holder.mentorItemView.setText("No Word");
         }
     }
 
-    public void setWords(List<MentorEntity> words) {
+    public void setWords(List<entity_mentor> words) {
         mMentors = words;
         notifyDataSetChanged();
     }

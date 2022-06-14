@@ -4,7 +4,7 @@ import androidx.room.*;
 
 @Entity(tableName = "term_table")
 
-public class TermEntity {
+public class entity_term {
 
     @PrimaryKey
     private int termID;
@@ -13,7 +13,7 @@ public class TermEntity {
     private String termStart;
     private String termEnd;
 
-    public TermEntity(int termID, String termName, String termStart, String termEnd) {
+    public entity_term(int termID, String termName, String termStart, String termEnd) {
         this.termID = termID;
         this.termName = termName;
         this.termStart = termStart;

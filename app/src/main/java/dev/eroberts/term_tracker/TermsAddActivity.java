@@ -6,9 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.TermEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_term;
 
 import dev.eroberts.term_tracker.ViewModel.TermViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -94,9 +92,9 @@ public class TermsAddActivity extends AppCompatActivity {
 
         try {
 
-            mTermViewModel.getAllTerms().observe(this, new Observer<List<TermEntity>>() {
+            mTermViewModel.getAllTerms().observe(this, new Observer<List<entity_term>>() {
                 @Override
-                public void onChanged(List<TermEntity> termEntities) {
+                public void onChanged(List<entity_term> termEntities) {
 
                 }
             });
@@ -118,7 +116,7 @@ public class TermsAddActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Name and Date fields cannot be blank.",Toast.LENGTH_LONG).show();
                     }
                     else {
-                        TermEntity term = new TermEntity(mTermViewModel.lastID() + 1, mEditName.getText().toString(), mEditStart.getText().toString(),
+                        entity_term term = new entity_term(mTermViewModel.lastID() + 1, mEditName.getText().toString(), mEditStart.getText().toString(),
                                 mEditEnd.getText().toString());
                         mTermViewModel.insert(term);
                         Intent intent = new Intent(TermsAddActivity.this, TermsActivity.class);

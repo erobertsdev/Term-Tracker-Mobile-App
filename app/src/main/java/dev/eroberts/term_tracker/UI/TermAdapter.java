@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import dev.eroberts.term_tracker.Entities.TermEntity;
+import dev.eroberts.term_tracker.Entities.entity_term;
 import dev.eroberts.term_tracker.R;
 import dev.eroberts.term_tracker.TermsDetailsActivity;
 
@@ -25,7 +25,7 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
             termItemView = itemView.findViewById(R.id.termsTextView);
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
-                final TermEntity current = mTerms.get(position);
+                final entity_term current = mTerms.get(position);
                 Intent intent = new Intent(context, TermsDetailsActivity.class);
                 intent.putExtra("termID", current.getTermID());
                 intent.putExtra("termName", current.getTermName());
@@ -38,7 +38,7 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
 
     private final LayoutInflater mInflater;
     private final Context context;
-    private List<TermEntity> mTerms;
+    private List<entity_term> mTerms;
 
     public TermAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
@@ -55,14 +55,14 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
     public void onBindViewHolder(TermViewHolder holder, int position) {
 
         if(mTerms != null) {
-            final TermEntity current = mTerms.get(position);
+            final entity_term current = mTerms.get(position);
             holder.termItemView.setText(current.getTermName());
         } else {
             holder.termItemView.setText("No Word");
         }
     }
 
-    public void setWords(List<TermEntity> words) {
+    public void setWords(List<entity_term> words) {
         mTerms = words;
         notifyDataSetChanged();
     }

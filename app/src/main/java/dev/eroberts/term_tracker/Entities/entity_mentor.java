@@ -4,7 +4,7 @@ import androidx.room.*;
 
 @Entity(tableName = "mentor_table")
 
-public class MentorEntity {
+public class entity_mentor {
     @PrimaryKey
     private int mentorID;
 
@@ -15,7 +15,7 @@ public class MentorEntity {
 
     @Override
     public String toString() {
-        return "MentorEntity{" +
+        return "entity_mentor{" +
                 "mentorID=" + mentorID +
                 ", mentorName=" + mentorName +
                 ", mentorEmail=" + mentorEmail +
@@ -24,7 +24,7 @@ public class MentorEntity {
                 '}';
     }
 
-    public MentorEntity(int mentorID, String mentorName, String mentorEmail, String mentorPhone, Integer courseID) {
+    public entity_mentor(int mentorID, String mentorName, String mentorEmail, String mentorPhone, Integer courseID) {
         this.mentorID = mentorID;
         this.mentorName = mentorName;
         this.mentorEmail = mentorEmail;

@@ -3,9 +3,7 @@ package dev.eroberts.term_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.MentorEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_mentor;
 
 import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
 import dev.eroberts.term_tracker.UI.MentorAdapter;
@@ -49,9 +47,9 @@ public class MentorsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mMentorViewModel.getAllMentors().observe(this, new Observer<List<MentorEntity>>() {
+        mMentorViewModel.getAllMentors().observe(this, new Observer<List<entity_mentor>>() {
             @Override
-            public void onChanged(@Nullable final List<MentorEntity> words) {
+            public void onChanged(@Nullable final List<entity_mentor> words) {
                 adapter.setWords(words);
             }
         });
@@ -61,7 +59,7 @@ public class MentorsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK) {
 
-            MentorEntity mentor = new MentorEntity(mMentorViewModel.lastID()+1, data.getStringExtra("mentorName"), data.getStringExtra("mentorEmail"),
+            entity_mentor mentor = new entity_mentor(mMentorViewModel.lastID()+1, data.getStringExtra("mentorName"), data.getStringExtra("mentorEmail"),
                                                     data.getStringExtra("mentorPhone"), data.getIntExtra("courseID", 0));
             mMentorViewModel.insert(mentor);
         }

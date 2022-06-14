@@ -6,9 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.TermEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_term;
 
 import dev.eroberts.term_tracker.ViewModel.TermViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -113,7 +111,7 @@ public class TermsEditActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Name and Date fields cannot be blank.",Toast.LENGTH_LONG).show();
                     }
                     else {
-                        TermEntity term = new TermEntity(getIntent().getIntExtra("termID", 0), mEditName.getText().toString(), mEditStart.getText().toString(),
+                        entity_term term = new entity_term(getIntent().getIntExtra("termID", 0), mEditName.getText().toString(), mEditStart.getText().toString(),
                                 mEditEnd.getText().toString());
                         mTermViewModel.insert(term);
                         Intent intent = new Intent(TermsEditActivity.this, TermsActivity.class);
@@ -132,7 +130,7 @@ public class TermsEditActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             if(getIntent().getIntExtra("numCourses", 0)==0) {
-                TermEntity term = new TermEntity(getIntent().getIntExtra("termID", 0), mEditName.getText().toString(), mEditStart.getText().toString(),
+                entity_term term = new entity_term(getIntent().getIntExtra("termID", 0), mEditName.getText().toString(), mEditStart.getText().toString(),
                         mEditEnd.getText().toString());
                 mTermViewModel.delete(term);
 

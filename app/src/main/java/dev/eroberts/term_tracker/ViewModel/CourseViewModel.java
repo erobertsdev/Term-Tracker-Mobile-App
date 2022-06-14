@@ -6,15 +6,15 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import dev.eroberts.term_tracker.Database.ScheduleManagementRepository;
-import dev.eroberts.term_tracker.Entities.CourseEntity;
+import dev.eroberts.term_tracker.Entities.entity_course;
 
 import java.util.List;
 
 public class CourseViewModel extends AndroidViewModel {
     int termID;
     private ScheduleManagementRepository mRepository;
-    private LiveData<List<CourseEntity>> mAssociatedCourses;
-    private LiveData<List<CourseEntity>> mAllCourses;
+    private LiveData<List<entity_course>> mAssociatedCourses;
+    private LiveData<List<entity_course>> mAllCourses;
 
     public CourseViewModel(Application application, int termID){
         super(application);
@@ -29,12 +29,12 @@ public class CourseViewModel extends AndroidViewModel {
         mAssociatedCourses=mRepository.getAssociatedCourses(termID);
     }
 
-    public LiveData<List<CourseEntity>> getAssociatedCourses(int termID){
+    public LiveData<List<entity_course>> getAssociatedCourses(int termID){
         return mRepository.getAssociatedCourses(termID);
     }
 
-    public LiveData<List<CourseEntity>> getAllCourses() { return mAllCourses; };
-    public void insert(CourseEntity courseEntity) { mRepository.insert(courseEntity); }
-    public void delete(CourseEntity courseEntity) { mRepository.delete(courseEntity);}
+    public LiveData<List<entity_course>> getAllCourses() { return mAllCourses; };
+    public void insert(entity_course entitycourse) { mRepository.insert(entitycourse); }
+    public void delete(entity_course entitycourse) { mRepository.delete(entitycourse);}
     public int lastID() { return mAllCourses.getValue().size(); }
 }

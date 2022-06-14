@@ -3,9 +3,7 @@ package dev.eroberts.term_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.TermEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_term;
 
 import dev.eroberts.term_tracker.ViewModel.TermViewModel;
 import dev.eroberts.term_tracker.UI.TermAdapter;
@@ -49,9 +47,9 @@ public class TermsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mTermViewModel.getAllTerms().observe(this, new Observer<List<TermEntity>>() {
+        mTermViewModel.getAllTerms().observe(this, new Observer<List<entity_term>>() {
             @Override
-            public void onChanged(@Nullable final List<TermEntity> words) {
+            public void onChanged(@Nullable final List<entity_term> words) {
                 adapter.setWords(words);
             }
         });
@@ -61,7 +59,7 @@ public class TermsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK) {
 
-            TermEntity term = new TermEntity(mTermViewModel.lastID()+1, data.getStringExtra("termName"), data.getStringExtra("termStart"), data.getStringExtra("termEnd"));
+            entity_term term = new entity_term(mTermViewModel.lastID()+1, data.getStringExtra("termName"), data.getStringExtra("termStart"), data.getStringExtra("termEnd"));
             mTermViewModel.insert(term);
         }
     }

@@ -6,9 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.AssessmentEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_assessment;
 
 import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -87,9 +85,9 @@ public class AssessmentsAddActivity extends AppCompatActivity implements Adapter
 
             try {
 
-                mAssessmentViewModel.getAllAssessments().observe(this, new Observer<List<AssessmentEntity>>() {
+                mAssessmentViewModel.getAllAssessments().observe(this, new Observer<List<entity_assessment>>() {
                     @Override
-                    public void onChanged(@Nullable final List<AssessmentEntity> words) {
+                    public void onChanged(@Nullable final List<entity_assessment> words) {
 
                     }
                 });
@@ -112,7 +110,7 @@ public class AssessmentsAddActivity extends AppCompatActivity implements Adapter
                         }
                     else {
                             String spinnerTxt = spinner.getSelectedItem().toString();
-                            AssessmentEntity assessment = new AssessmentEntity(mAssessmentViewModel.lastID() + 1, mEditName.getText().toString(), mEditDate.getText().toString(),
+                            entity_assessment assessment = new entity_assessment(mAssessmentViewModel.lastID() + 1, mEditName.getText().toString(), mEditDate.getText().toString(),
                                     spinnerTxt, 0);
                             mAssessmentViewModel.insert(assessment);
                             Intent intent = new Intent(AssessmentsAddActivity.this, AssessmentsActivity.class);

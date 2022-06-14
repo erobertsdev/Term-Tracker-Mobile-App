@@ -3,9 +3,7 @@ package dev.eroberts.term_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.AssessmentEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_assessment;
 
 import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
 import dev.eroberts.term_tracker.UI.AssessmentAdapter;
@@ -50,9 +48,9 @@ public class AssessmentsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mAssessmentViewModel.getAllAssessments().observe(this, new Observer<List<AssessmentEntity>>() {
+        mAssessmentViewModel.getAllAssessments().observe(this, new Observer<List<entity_assessment>>() {
             @Override
-            public void onChanged(@Nullable final List<AssessmentEntity> words) {
+            public void onChanged(@Nullable final List<entity_assessment> words) {
                 adapter.setWords(words);
             }
         });
@@ -62,7 +60,7 @@ public class AssessmentsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK) {
 
-            AssessmentEntity assessment = new AssessmentEntity(mAssessmentViewModel.lastID()+1, data.getStringExtra("assessmentName"), data.getStringExtra("assessmentDate"),
+            entity_assessment assessment = new entity_assessment(mAssessmentViewModel.lastID()+1, data.getStringExtra("assessmentName"), data.getStringExtra("assessmentDate"),
                     data.getStringExtra("assessmentType"), data.getIntExtra("courseID", 0));
             mAssessmentViewModel.insert(assessment);
         }

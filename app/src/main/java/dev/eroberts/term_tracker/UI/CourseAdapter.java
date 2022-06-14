@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import dev.eroberts.term_tracker.CoursesDetailsActivity;
-import dev.eroberts.term_tracker.Entities.CourseEntity;
+import dev.eroberts.term_tracker.Entities.entity_course;
 import dev.eroberts.term_tracker.R;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             courseItemView = itemView.findViewById(R.id.coursesTextView);
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
-                final CourseEntity current = mCourses.get(position);
+                final entity_course current = mCourses.get(position);
                 Intent intent = new Intent(context, CoursesDetailsActivity.class);
                 intent.putExtra("courseID", current.getCourseID());
                 intent.putExtra("courseName", current.getCourseName());
@@ -41,7 +41,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
 
     private final LayoutInflater mInflater;
     private final Context context;
-    private List<CourseEntity> mCourses;
+    private List<entity_course> mCourses;
 
     public CourseAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
@@ -58,14 +58,14 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
     public void onBindViewHolder(CourseAdapter.CourseViewHolder holder, int position) {
 
         if(mCourses != null) {
-            final CourseEntity current = mCourses.get(position);
+            final entity_course current = mCourses.get(position);
             holder.courseItemView.setText(current.getCourseName());
         } else {
             holder.courseItemView.setText("No Word");
         }
     }
 
-    public void setWords(List<CourseEntity> words) {
+    public void setWords(List<entity_course> words) {
         mCourses = words;
         notifyDataSetChanged();
     }

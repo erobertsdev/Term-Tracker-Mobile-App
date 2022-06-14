@@ -3,9 +3,7 @@ package dev.eroberts.term_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.MentorEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_mentor;
 
 import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -43,9 +41,9 @@ public class MentorsAddActivity extends AppCompatActivity {
 
         try {
 
-            mMentorViewModel.getAllMentors().observe(this, new Observer<List<MentorEntity>>() {
+            mMentorViewModel.getAllMentors().observe(this, new Observer<List<entity_mentor>>() {
                 @Override
-                public void onChanged(List<MentorEntity> mentorEntities) {
+                public void onChanged(List<entity_mentor> mentorEntities) {
 
                 }
             });
@@ -67,7 +65,7 @@ public class MentorsAddActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Name, Email, & Phone fields cannot be blank.",Toast.LENGTH_LONG).show();
                     }
                     else {
-                        MentorEntity mentor = new MentorEntity(mMentorViewModel.lastID() + 1, mEditName.getText().toString(), mEditEmail.getText().toString(),
+                        entity_mentor mentor = new entity_mentor(mMentorViewModel.lastID() + 1, mEditName.getText().toString(), mEditEmail.getText().toString(),
                                 mEditPhone.getText().toString(), 0);
                         mMentorViewModel.insert(mentor);
                         Intent intent = new Intent(MentorsAddActivity.this, MentorsActivity.class);

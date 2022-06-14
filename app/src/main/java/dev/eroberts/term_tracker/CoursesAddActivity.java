@@ -6,9 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.CourseEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_course;
 
 import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -107,9 +105,9 @@ public class CoursesAddActivity extends AppCompatActivity implements AdapterView
 
         try {
 
-            mCourseViewModel.getAllCourses().observe(this, new Observer<List<CourseEntity>>() {
+            mCourseViewModel.getAllCourses().observe(this, new Observer<List<entity_course>>() {
                 @Override
-                public void onChanged(List<CourseEntity> courseEntities) {
+                public void onChanged(List<entity_course> courseEntities) {
 
                 }
             });
@@ -134,7 +132,7 @@ public class CoursesAddActivity extends AppCompatActivity implements AdapterView
                     }
                     else {
                         String spinnerTxt = spinner.getSelectedItem().toString();
-                        CourseEntity course = new CourseEntity(mCourseViewModel.lastID() + 1, mEditName.getText().toString(), mEditStart.getText().toString(),
+                        entity_course course = new entity_course(mCourseViewModel.lastID() + 1, mEditName.getText().toString(), mEditStart.getText().toString(),
                                 mEditEnd.getText().toString(),spinnerTxt, mEditNotes.getText().toString(), 0);
                         mCourseViewModel.insert(course);
                         Intent intent = new Intent(CoursesAddActivity.this, CoursesActivity.class);

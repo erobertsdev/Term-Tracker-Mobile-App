@@ -3,9 +3,7 @@ package dev.eroberts.term_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.MentorEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_mentor;
 
 import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
 
@@ -57,7 +55,7 @@ public class MentorsEditActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Name, Email, & Phone fields cannot be blank.",Toast.LENGTH_LONG).show();
                     }
                     else {
-                        MentorEntity mentor = new MentorEntity(getIntent().getIntExtra("mentorID", 0), mEditName.getText().toString(), mEditEmail.getText().toString(),
+                        entity_mentor mentor = new entity_mentor(getIntent().getIntExtra("mentorID", 0), mEditName.getText().toString(), mEditEmail.getText().toString(),
                                 mEditPhone.getText().toString(), getIntent().getIntExtra("courseID", 0));
                         mMentorViewModel.insert(mentor);
                         Intent intent = new Intent(MentorsEditActivity.this, MentorsActivity.class);
@@ -74,7 +72,7 @@ public class MentorsEditActivity extends AppCompatActivity {
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MentorEntity mentor = new MentorEntity(getIntent().getIntExtra("mentorID", 0), mEditName.getText().toString(), mEditEmail.getText().toString(),
+                entity_mentor mentor = new entity_mentor(getIntent().getIntExtra("mentorID", 0), mEditName.getText().toString(), mEditEmail.getText().toString(),
                         mEditPhone.getText().toString(), getIntent().getIntExtra("courseID", 0));
                 mMentorViewModel.delete(mentor);
                 Toast.makeText(getApplicationContext(), "Mentor Deleted",Toast.LENGTH_LONG).show();

@@ -6,9 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.AssessmentEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_assessment;
 
 import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -109,7 +107,7 @@ public class AssessmentsEditActivity extends AppCompatActivity implements Adapte
                     }
                     else {
                         String spinnerTxt = spinner.getSelectedItem().toString();
-                        AssessmentEntity assessment = new AssessmentEntity(getIntent().getIntExtra("assessmentID", 0), mEditName.getText().toString(), mEditDate.getText().toString(),
+                        entity_assessment assessment = new entity_assessment(getIntent().getIntExtra("assessmentID", 0), mEditName.getText().toString(), mEditDate.getText().toString(),
                                 spinnerTxt, getIntent().getIntExtra("courseID", 0));
                         mAssessmentViewModel.insert(assessment);
                         Intent intent = new Intent(AssessmentsEditActivity.this, AssessmentsActivity.class);
@@ -127,7 +125,7 @@ public class AssessmentsEditActivity extends AppCompatActivity implements Adapte
             String spinnerTxt = spinner.getSelectedItem().toString();
             @Override
             public void onClick(View view) {
-                AssessmentEntity assessment = new AssessmentEntity(getIntent().getIntExtra("assessmentID", 0), mEditName.getText().toString(), mEditDate.getText().toString(),
+                entity_assessment assessment = new entity_assessment(getIntent().getIntExtra("assessmentID", 0), mEditName.getText().toString(), mEditDate.getText().toString(),
                         spinnerTxt, getIntent().getIntExtra("courseID", 0));
                 mAssessmentViewModel.delete(assessment);
                 Toast.makeText(getApplicationContext(), "Assessment Deleted",Toast.LENGTH_LONG).show();

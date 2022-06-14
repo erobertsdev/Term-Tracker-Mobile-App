@@ -8,26 +8,26 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import dev.eroberts.term_tracker.Entities.AssessmentEntity;
+import dev.eroberts.term_tracker.Entities.entity_assessment;
 
 import java.util.List;
 
 @Dao
 public interface dao_assessments {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insert(AssessmentEntity assessment);
+    void insert(entity_assessment assessment);
 
     @Delete
-    void delete(AssessmentEntity assessment);
+    void delete(entity_assessment assessment);
 
     @Query("DELETE FROM assessment_table")
     void deleteAllAssessments();
 
     @Query("SELECT * FROM assessment_table ORDER BY assessmentID ASC")
-    LiveData<List<AssessmentEntity>> getAllAssessments();
+    LiveData<List<entity_assessment>> getAllAssessments();
 
     @Query ("SELECT * FROM assessment_table WHERE courseID= :courseID ORDER BY assessmentName ASC")
-    LiveData<List<AssessmentEntity>> getAllAssociatedAssessments(int courseID);
+    LiveData<List<entity_assessment>> getAllAssociatedAssessments(int courseID);
 
 }
 

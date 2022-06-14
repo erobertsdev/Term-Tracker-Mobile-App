@@ -3,9 +3,7 @@ package dev.eroberts.term_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.CourseEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_course;
 
 import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
 import dev.eroberts.term_tracker.UI.CourseAdapter;
@@ -49,9 +47,9 @@ public class CoursesActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mCourseViewModel.getAllCourses().observe(this, new Observer<List<CourseEntity>>() {
+        mCourseViewModel.getAllCourses().observe(this, new Observer<List<entity_course>>() {
             @Override
-            public void onChanged(@Nullable final List<CourseEntity> words) {
+            public void onChanged(@Nullable final List<entity_course> words) {
                 adapter.setWords(words);
             }
         });
@@ -61,7 +59,7 @@ public class CoursesActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode==RESULT_OK) {
 
-            CourseEntity course = new CourseEntity(mCourseViewModel.lastID()+1, data.getStringExtra("courseName"), data.getStringExtra("courseStart"),
+            entity_course course = new entity_course(mCourseViewModel.lastID()+1, data.getStringExtra("courseName"), data.getStringExtra("courseStart"),
                     data.getStringExtra("courseEnd"), data.getStringExtra("status"), data.getStringExtra("notes"), data.getIntExtra("termID", 0));
             mCourseViewModel.insert(course);
         }

@@ -6,9 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.CourseEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_course;
 
 import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -145,7 +143,7 @@ public class CoursesEditActivity extends AppCompatActivity implements AdapterVie
                     }
                     else {
                         String spinnerTxt = spinner.getSelectedItem().toString();
-                        CourseEntity course = new CourseEntity(getIntent().getIntExtra("courseID", 0), mEditName.getText().toString(), mEditStart.getText().toString(),
+                        entity_course course = new entity_course(getIntent().getIntExtra("courseID", 0), mEditName.getText().toString(), mEditStart.getText().toString(),
                                 mEditEnd.getText().toString(), spinnerTxt, mEditNotes.getText().toString(), getIntent().getIntExtra("termID", 0));
                         mCourseViewModel.insert(course);
                         Intent intent = new Intent(CoursesEditActivity.this, CoursesActivity.class);
@@ -166,7 +164,7 @@ public class CoursesEditActivity extends AppCompatActivity implements AdapterVie
             public void onClick(View v) {
                 String spinnerTxt = spinner.getSelectedItem().toString();
                 if(getIntent().getIntExtra("numAssessments", 1)==0 && getIntent().getIntExtra("numMentors", 1)==0) {
-                    CourseEntity course = new CourseEntity(getIntent().getIntExtra("courseID", 0), mEditName.getText().toString(), mEditStart.getText().toString(),
+                    entity_course course = new entity_course(getIntent().getIntExtra("courseID", 0), mEditName.getText().toString(), mEditStart.getText().toString(),
                             mEditEnd.getText().toString(), spinnerTxt, mEditNotes.getText().toString(), getIntent().getIntExtra("termID", 0));
                     mCourseViewModel.delete(course);
                     Toast.makeText(getApplicationContext(), "Course Deleted",Toast.LENGTH_LONG).show();

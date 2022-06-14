@@ -6,23 +6,23 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import dev.eroberts.term_tracker.Database.ScheduleManagementRepository;
-import dev.eroberts.term_tracker.Entities.TermEntity;
+import dev.eroberts.term_tracker.Entities.entity_term;
 
 import java.util.List;
 
 public class TermViewModel extends AndroidViewModel {
 
     private ScheduleManagementRepository mRepository;
-    private LiveData<List<TermEntity>> mAllTerms;
+    private LiveData<List<entity_term>> mAllTerms;
     public TermViewModel(Application application) {
         super(application);
         mRepository = new ScheduleManagementRepository(application);
         mAllTerms = mRepository.getAllTerms();
     }
 
-    public LiveData<List<TermEntity>> getAllTerms() { return mAllTerms; }
-    public void insert(TermEntity termEntity) { mRepository.insert(termEntity); }
-    public void delete(TermEntity termEntity) { mRepository.delete(termEntity); }
+    public LiveData<List<entity_term>> getAllTerms() { return mAllTerms; }
+    public void insert(entity_term entityterm) { mRepository.insert(entityterm); }
+    public void delete(entity_term entityterm) { mRepository.delete(entityterm); }
     public int lastID() { return mAllTerms.getValue().size(); }
 
 }

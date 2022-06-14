@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import dev.eroberts.term_tracker.AssessmentsDetailsActivity;
-import dev.eroberts.term_tracker.Entities.AssessmentEntity;
+import dev.eroberts.term_tracker.Entities.entity_assessment;
 import dev.eroberts.term_tracker.R;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.As
             assessmentItemView = itemView.findViewById(R.id.assessmentsTextView);
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
-                final AssessmentEntity current = mAssessments.get(position);
+                final entity_assessment current = mAssessments.get(position);
                 Intent intent = new Intent(context, AssessmentsDetailsActivity.class);
                 intent.putExtra("assessmentID", current.getAssessmentID());
                 intent.putExtra("assessmentName", current.getAssessmentName());
@@ -39,7 +39,7 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.As
 
     private final LayoutInflater mInflater;
     private final Context context;
-    private List<AssessmentEntity> mAssessments;
+    private List<entity_assessment> mAssessments;
 
     public AssessmentAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
@@ -56,14 +56,14 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.As
     public void onBindViewHolder(AssessmentAdapter.AssessmentViewHolder holder, int position) {
 
         if(mAssessments != null) {
-            final AssessmentEntity current = mAssessments.get(position);
+            final entity_assessment current = mAssessments.get(position);
             holder.assessmentItemView.setText(current.getAssessmentName());
         } else {
             holder.assessmentItemView.setText("No Word");
         }
     }
 
-    public void setWords(List<AssessmentEntity> words) {
+    public void setWords(List<entity_assessment> words) {
         mAssessments = words;
         notifyDataSetChanged();
     }

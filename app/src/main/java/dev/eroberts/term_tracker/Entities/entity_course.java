@@ -4,7 +4,7 @@ import androidx.room.*;
 
 @Entity(tableName = "course_table")
 
-public class CourseEntity {
+public class entity_course {
     @PrimaryKey
     private int courseID;
 
@@ -17,7 +17,7 @@ public class CourseEntity {
 
     @Override
     public String toString() {
-        return "CourseEntity{" +
+        return "entity_course{" +
                 "courseID=" + courseID +
                 ", courseName=" + courseName +
                 ", courseStart=" + courseStart +
@@ -28,7 +28,7 @@ public class CourseEntity {
                 '}';
     }
 
-    public CourseEntity(int courseID, String courseName, String courseStart, String courseEnd, String courseStatus, String courseNotes, int termID) {
+    public entity_course(int courseID, String courseName, String courseStart, String courseEnd, String courseStatus, String courseNotes, int termID) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.courseStart = courseStart;

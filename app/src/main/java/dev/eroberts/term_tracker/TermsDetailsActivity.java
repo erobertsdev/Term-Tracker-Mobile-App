@@ -6,9 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.CourseEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_course;
 
 import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
 import dev.eroberts.term_tracker.ViewModel.MyReceiver;
@@ -45,7 +43,7 @@ public class TermsDetailsActivity extends AppCompatActivity {
     private EditText mEditStart;
     private EditText mEditEnd;
     public static int numCourses;
-    private List<CourseEntity> filteredCourses;
+    private List<entity_course> filteredCourses;
     long date;
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
     @Override
@@ -93,11 +91,11 @@ public class TermsDetailsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mCourseViewModel = new ViewModelProvider(this).get(CourseViewModel.class);
-        mCourseViewModel.getAllCourses().observe(this, new Observer<List<CourseEntity>>() {
+        mCourseViewModel.getAllCourses().observe(this, new Observer<List<entity_course>>() {
             @Override
-            public void onChanged(@Nullable final List<CourseEntity> words) {
+            public void onChanged(@Nullable final List<entity_course> words) {
                 filteredCourses=new ArrayList<>();
-                for(CourseEntity t:words) if(t.getTermID()==getIntent().getIntExtra("termID",0))filteredCourses.add(t);
+                for(entity_course t:words) if(t.getTermID()==getIntent().getIntExtra("termID",0))filteredCourses.add(t);
                 adapter.setWords(filteredCourses);
                 numCourses=filteredCourses.size();
             }
@@ -106,14 +104,14 @@ public class TermsDetailsActivity extends AppCompatActivity {
 
     private void showPopup(View v) {
         PopupMenu popup = new PopupMenu(this, v);
-        for(CourseEntity c : mCourseViewModel.getAllCourses().getValue()) {
+        for(entity_course c : mCourseViewModel.getAllCourses().getValue()) {
             popup.getMenu().add(c.getCourseName());
         }
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
 
-                for(CourseEntity c : mCourseViewModel.getAllCourses().getValue()) {
+                for(entity_course c : mCourseViewModel.getAllCourses().getValue()) {
                     if(c.getCourseName().equals(item.toString())) {
                         c.setTermID(getIntent().getIntExtra("termID", 0));
                         mCourseViewModel.insert(c);

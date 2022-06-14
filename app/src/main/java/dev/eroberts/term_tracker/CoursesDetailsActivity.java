@@ -6,10 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.Entities.AssessmentEntity;
-import dev.eroberts.term_tracker.Entities.MentorEntity;
-
-import dev.eroberts.term_tracker.R;
+import dev.eroberts.term_tracker.Entities.entity_assessment;
+import dev.eroberts.term_tracker.Entities.entity_mentor;
 
 import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
 import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
@@ -52,8 +50,8 @@ public class CoursesDetailsActivity extends AppCompatActivity {
     long date;
     public static int numAssessments;
     public static int numMentors;
-    private List<AssessmentEntity> filteredAssessments;
-    private List<MentorEntity> filteredMentors;
+    private List<entity_assessment> filteredAssessments;
+    private List<entity_mentor> filteredMentors;
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
@@ -83,11 +81,11 @@ public class CoursesDetailsActivity extends AppCompatActivity {
 
 
         mAssessmentViewModel = new ViewModelProvider(this).get(AssessmentViewModel.class);
-        mAssessmentViewModel.getAllAssessments().observe(this, new Observer<List<AssessmentEntity>>() {
+        mAssessmentViewModel.getAllAssessments().observe(this, new Observer<List<entity_assessment>>() {
             @Override
-            public void onChanged(@Nullable final List<AssessmentEntity> words) {
-                List<AssessmentEntity> aNames = new ArrayList<>();
-                for (AssessmentEntity a : words)
+            public void onChanged(@Nullable final List<entity_assessment> words) {
+                List<entity_assessment> aNames = new ArrayList<>();
+                for (entity_assessment a : words)
                     aNames.add(a);
             }
         });
@@ -124,11 +122,11 @@ public class CoursesDetailsActivity extends AppCompatActivity {
             recyclerView1.setAdapter(adapter1);
             recyclerView1.setLayoutManager(new LinearLayoutManager(this));
             mAssessmentViewModel = new ViewModelProvider(this).get(AssessmentViewModel.class);
-            mAssessmentViewModel.getAllAssessments().observe(this, new Observer<List<AssessmentEntity>>() {
+            mAssessmentViewModel.getAllAssessments().observe(this, new Observer<List<entity_assessment>>() {
                 @Override
-                public void onChanged(@Nullable final List<AssessmentEntity> words) {
+                public void onChanged(@Nullable final List<entity_assessment> words) {
                     filteredAssessments = new ArrayList<>();
-                    for (AssessmentEntity a : words)
+                    for (entity_assessment a : words)
                         if (a.getCourseID() == getIntent().getIntExtra("courseID", 0))
                             filteredAssessments.add(a);
                     adapter1.setWords(filteredAssessments);
@@ -141,11 +139,11 @@ public class CoursesDetailsActivity extends AppCompatActivity {
             recyclerView2.setAdapter(adapter2);
             recyclerView2.setLayoutManager(new LinearLayoutManager(this));
             mMentorViewModel = new ViewModelProvider(this).get(MentorViewModel.class);
-            mMentorViewModel.getAllMentors().observe(this, new Observer<List<MentorEntity>>() {
+            mMentorViewModel.getAllMentors().observe(this, new Observer<List<entity_mentor>>() {
                 @Override
-                public void onChanged(@Nullable final List<MentorEntity> words) {
+                public void onChanged(@Nullable final List<entity_mentor> words) {
                     filteredMentors = new ArrayList<>();
-                    for (MentorEntity m : words)
+                    for (entity_mentor m : words)
                         if (m.getCourseID() == getIntent().getIntExtra("courseID", 0))
                             filteredMentors.add(m);
                     adapter2.setWords(filteredMentors);
@@ -159,14 +157,14 @@ public class CoursesDetailsActivity extends AppCompatActivity {
 
     private void showPopupA(View v) {
         PopupMenu popup = new PopupMenu(this, v);
-        for(AssessmentEntity a : mAssessmentViewModel.getAllAssessments().getValue()) {
+        for(entity_assessment a : mAssessmentViewModel.getAllAssessments().getValue()) {
             popup.getMenu().add(a.getAssessmentName());
         }
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
 
-                for(AssessmentEntity a : mAssessmentViewModel.getAllAssessments().getValue()) {
+                for(entity_assessment a : mAssessmentViewModel.getAllAssessments().getValue()) {
                          if(a.getAssessmentName().equals(item.toString())) {
                              a.setCourseID(getIntent().getIntExtra("courseID", 0));
                              mAssessmentViewModel.insert(a);
@@ -180,13 +178,13 @@ public class CoursesDetailsActivity extends AppCompatActivity {
 
     private void showPopupM(View v) {
         PopupMenu popup = new PopupMenu(this, v);
-        for(MentorEntity m : mMentorViewModel.getAllMentors().getValue())
+        for(entity_mentor m : mMentorViewModel.getAllMentors().getValue())
             popup.getMenu().add(m.getMentorName());
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
 
-                for(MentorEntity m : mMentorViewModel.getAllMentors().getValue()) {
+                for(entity_mentor m : mMentorViewModel.getAllMentors().getValue()) {
                     if(m.getMentorName().equals(item.toString())) {
                         m.setCourseID(getIntent().getIntExtra("courseID", 0));
                         mMentorViewModel.insert(m);
