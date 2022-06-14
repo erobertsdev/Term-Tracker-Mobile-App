@@ -5,18 +5,18 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import dev.eroberts.term_tracker.Database.ScheduleManagementRepository;
+import dev.eroberts.term_tracker.Database.TermTrackerRepo;
 import dev.eroberts.term_tracker.Entities.entity_term;
 
 import java.util.List;
 
 public class TermViewModel extends AndroidViewModel {
 
-    private ScheduleManagementRepository mRepository;
+    private TermTrackerRepo mRepository;
     private LiveData<List<entity_term>> mAllTerms;
     public TermViewModel(Application application) {
         super(application);
-        mRepository = new ScheduleManagementRepository(application);
+        mRepository = new TermTrackerRepo(application);
         mAllTerms = mRepository.getAllTerms();
     }
 

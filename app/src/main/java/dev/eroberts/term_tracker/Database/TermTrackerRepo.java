@@ -16,7 +16,7 @@ import dev.eroberts.term_tracker.Entities.entity_course;
 import dev.eroberts.term_tracker.Entities.entity_mentor;
 import dev.eroberts.term_tracker.Entities.entity_term;
 
-public class ScheduleManagementRepository {
+public class TermTrackerRepo {
     private final dao_assessments mDaoassessments;
     private final dao_courses mDaocourses;
     private final dao_mentors mDaomentors;
@@ -31,7 +31,7 @@ public class ScheduleManagementRepository {
     private int courseID;
     private int termID;
 
-    public ScheduleManagementRepository(Application application){
+    public TermTrackerRepo(Application application){
         TermTrackerDB db= TermTrackerDB.getDatabase(application);
         mDaoassessments =db.dao_assessments();
         mAllAssessments= mDaoassessments.getAllAssessments();

@@ -59,6 +59,7 @@ public abstract class TermTrackerDB extends RoomDatabase {
             dao_terms daoTerms = db.dao_terms();
         }
 
+        // TODO: Ended here so far
         @Override
         protected Void doInBackground(final Void... params) {
             return null;

@@ -5,26 +5,26 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import dev.eroberts.term_tracker.Database.ScheduleManagementRepository;
+import dev.eroberts.term_tracker.Database.TermTrackerRepo;
 import dev.eroberts.term_tracker.Entities.entity_assessment;
 
 import java.util.List;
 
 public class AssessmentViewModel extends AndroidViewModel {
     int courseID;
-    private ScheduleManagementRepository mRepository;
+    private TermTrackerRepo mRepository;
     private LiveData<List<entity_assessment>> mAssociatedAssessments;
     private LiveData<List<entity_assessment>> mAllAssessments;
 
     public AssessmentViewModel(Application application, int courseID){
         super(application);
-        mRepository=new ScheduleManagementRepository(application);
+        mRepository=new TermTrackerRepo(application);
         mAssociatedAssessments=mRepository.getAssociatedAssessments(courseID);
     }
 
     public AssessmentViewModel(Application application){
         super(application);
-        mRepository=new ScheduleManagementRepository(application);
+        mRepository=new TermTrackerRepo(application);
         mAllAssessments=mRepository.getAllAssessments();
         mAssociatedAssessments=mRepository.getAssociatedAssessments(courseID);
     }
