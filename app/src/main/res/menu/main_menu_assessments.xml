@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.c196_degree_tracker.MainActivity">
+    <item
+        android:id="@+id/notifications"
+        android:orderInCategory="100"
+        android:title="@string/notifications"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/AssessmentDateReminder"
+                android:orderInCategory="100"
+                android:title="Add Assessment Date Reminder"
+                app:showAsAction="never"
+                >
+            </item>
+        </menu>
+        </item>
+</menu>

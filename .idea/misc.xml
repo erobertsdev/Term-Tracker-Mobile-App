@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout-land/content_main.xml" value="0.30687830687830686" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_assessments.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_assessments_add.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_assessments_details.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_assessments_edit.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_courses.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_courses_add.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_courses_details.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_courses_edit.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_main.xml" value="0.1762917933130699" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_mentors.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_mentors_add.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_mentors_details.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_mentors_edit.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_terms.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_terms_add.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_terms_details.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/activity_terms_edit.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/assessment_item.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/assessments_list_items.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_assessments.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_assessments_add.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_assessments_details.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_assessments_edit.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_courses.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_courses_add.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_courses_details.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_courses_edit.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_main.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_mentors.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_mentors_add.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_mentors_details.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_mentors_edit.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_terms.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_terms_add.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_terms_details.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/content_terms_edit.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/courses_list_items.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/mentors_list_items.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/popup_menu.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/spinner_item.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/layout/terms_list_items.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/menu/main_menu_assessments.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/menu/main_menu_courses.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/menu/main_menu_terms.xml" value="0.3625" />
+        <entry key="..\:/Users/erobe/Downloads/WGU_C196_Java_Degree_Tracker-master/WGU_C196_Java_Degree_Tracker-master/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.332" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

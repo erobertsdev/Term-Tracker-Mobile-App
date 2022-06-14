@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.c196_degree_tracker.MainActivity">
+    <item
+        android:id="@+id/sharing"
+        android:orderInCategory="100"
+        android:title="Sharing"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/notifications"
+        android:orderInCategory="100"
+        android:title="@string/notifications"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/CourseStartReminder"
+                android:orderInCategory="100"
+                android:title="Add Start Date Reminder"
+                app:showAsAction="never"
+                >
+            </item>
+            <item
+                android:id="@+id/CourseEndReminder"
+                android:orderInCategory="100"
+                android:title="Add End Date Reminder"
+                app:showAsAction="never">
+            </item>
+        </menu>
+        </item>
+</menu>

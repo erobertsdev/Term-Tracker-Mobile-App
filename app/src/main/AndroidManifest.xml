@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.c196_degree_tracker">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <receiver
+            android:name=".ViewModel.MyReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
+        <activity
+            android:name=".TermsDetailsActivity"
+            android:label="@string/title_activity_terms_details"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TermsEditActivity"
+            android:label="@string/title_activity_terms_edit"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".TermsAddActivity"
+            android:label="@string/title_activity_terms_add"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".CoursesDetailsActivity"
+            android:label="@string/title_activity_courses_details"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CoursesEditActivity"
+            android:label="@string/title_activity_courses_edit"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".CoursesAddActivity"
+            android:label="@string/title_activity_courses_add"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".AssessmentsDetailsActivity"
+            android:label="@string/title_activity_assessments_details"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AssessmentsEditActivity"
+            android:label="@string/title_activity_assessment_edit"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".AssessmentsAddActivity"
+            android:label="@string/title_activity_assessments_add"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".MentorsDetailsActivity"
+            android:label="@string/title_activity_mentors_details"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MentorsAddActivity"
+            android:label="@string/title_activity_mentors_add"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".MentorsEditActivity"
+            android:label="@string/title_activity_mentors_edit"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".MentorsActivity"
+            android:label="@string/title_activity_mentors"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AssessmentsActivity"
+            android:label="@string/title_activity_assessments"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CoursesActivity"
+            android:label="@string/title_activity_courses"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TermsActivity"
+            android:label="@string/title_activity_terms"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
