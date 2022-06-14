@@ -13,7 +13,7 @@ import com.example.c196_degree_tracker.Entities.AssessmentEntity;
 import java.util.List;
 
 @Dao
-public interface AssessmentDAO {
+public interface AssessmentsDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(AssessmentEntity assessment);
 

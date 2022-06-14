@@ -5,7 +5,6 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.c196_degree_tracker.DAO.AssessmentDAO;
 import com.example.c196_degree_tracker.Database.ScheduleManagementRepository;
 import com.example.c196_degree_tracker.Entities.AssessmentEntity;
 

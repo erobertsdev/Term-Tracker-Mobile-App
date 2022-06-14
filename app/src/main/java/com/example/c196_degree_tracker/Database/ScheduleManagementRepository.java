@@ -11,33 +11,33 @@ import com.example.c196_degree_tracker.Entities.*;
 import java.util.List;
 
 public class ScheduleManagementRepository {
-    private AssessmentDAO mAssessmentDAO;
-    private CourseDAO mCourseDAO;
-    private MentorDAO mMentorDAO;
-    private TermDAO mTermDAO;
-    private LiveData<List<AssessmentEntity>> mAllAssessments;
-    private LiveData<List<AssessmentEntity>> mAssociatedAssessments;
-    private LiveData<List<CourseEntity>> mAllCourses;
-    private LiveData<List<CourseEntity>> mAssociatedCourses;
-    private LiveData<List<MentorEntity>> mAllMentors;
-    private LiveData<List<MentorEntity>> mAssociatedMentors;
-    private LiveData<List<TermEntity>> mAllTerms;
+    private final AssessmentsDAO mAssessmentsDAO;
+    private final CoursesDAO mCoursesDAO;
+    private final MentorsDAO mMentorsDAO;
+    private final TermsDAO mTermsDAO;
+    private final LiveData<List<AssessmentEntity>> mAllAssessments;
+    private final LiveData<List<AssessmentEntity>> mAssociatedAssessments;
+    private final LiveData<List<CourseEntity>> mAllCourses;
+    private final LiveData<List<CourseEntity>> mAssociatedCourses;
+    private final LiveData<List<MentorEntity>> mAllMentors;
+    private final LiveData<List<MentorEntity>> mAssociatedMentors;
+    private final LiveData<List<TermEntity>> mAllTerms;
     private int courseID;
     private int termID;
 
     public ScheduleManagementRepository(Application application){
         ScheduleManagementDatabase db=ScheduleManagementDatabase.getDatabase(application);
-        mAssessmentDAO=db.assessmentDAO();
-        mAllAssessments=mAssessmentDAO.getAllAssessments();
-        mAssociatedAssessments=mAssessmentDAO.getAllAssociatedAssessments(courseID);
-        mCourseDAO=db.courseDAO();
-        mAllCourses=mCourseDAO.getAllCourses();
-        mAssociatedCourses=mCourseDAO.getAllAssociatedCourses(termID);
-        mMentorDAO=db.mentorDAO();
-        mAllMentors=mMentorDAO.getAllMentors();
-        mAssociatedMentors=mMentorDAO.getAllAssociatedMentors(courseID);
-        mTermDAO=db.termDAO();
-        mAllTerms=mTermDAO.getAllTerms();
+        mAssessmentsDAO =db.assessmentDAO();
+        mAllAssessments= mAssessmentsDAO.getAllAssessments();
+        mAssociatedAssessments= mAssessmentsDAO.getAllAssociatedAssessments(courseID);
+        mCoursesDAO =db.courseDAO();
+        mAllCourses= mCoursesDAO.getAllCourses();
+        mAssociatedCourses= mCoursesDAO.getAllAssociatedCourses(termID);
+        mMentorsDAO =db.mentorDAO();
+        mAllMentors= mMentorsDAO.getAllMentors();
+        mAssociatedMentors= mMentorsDAO.getAllAssociatedMentors(courseID);
+        mTermsDAO =db.termDAO();
+        mAllTerms= mTermsDAO.getAllTerms();
 
     }
     public LiveData<List<AssessmentEntity>> getAllAssessments(){
@@ -54,14 +54,14 @@ public class ScheduleManagementRepository {
     public LiveData<List<TermEntity>> getAllTerms() { return mAllTerms;}
 
     public void insert (AssessmentEntity assessmentEntity) {
-        new insertAsyncTask1(mAssessmentDAO).execute(assessmentEntity);
+        new insertAsyncTask1(mAssessmentsDAO).execute(assessmentEntity);
     }
 
     private static class insertAsyncTask1 extends AsyncTask<AssessmentEntity, Void, Void> {
 
-        private AssessmentDAO mAsyncTaskDao;
+        private final AssessmentsDAO mAsyncTaskDao;
 
-        insertAsyncTask1(AssessmentDAO dao) {
+        insertAsyncTask1(AssessmentsDAO dao) {
             mAsyncTaskDao = dao;
         }
 
@@ -73,14 +73,14 @@ public class ScheduleManagementRepository {
     }
 
     public void insert (CourseEntity courseEntity) {
-        new insertAsyncTask2(mCourseDAO).execute(courseEntity);
+        new insertAsyncTask2(mCoursesDAO).execute(courseEntity);
     }
 
     private static class insertAsyncTask2 extends AsyncTask<CourseEntity, Void, Void> {
 
-        private CourseDAO mAsyncTaskDao;
+        private final CoursesDAO mAsyncTaskDao;
 
-        insertAsyncTask2(CourseDAO dao) {
+        insertAsyncTask2(CoursesDAO dao) {
             mAsyncTaskDao = dao;
         }
 
@@ -92,14 +92,14 @@ public class ScheduleManagementRepository {
     }
 
     public void insert (MentorEntity mentorEntity) {
-        new insertAsyncTask3(mMentorDAO).execute(mentorEntity);
+        new insertAsyncTask3(mMentorsDAO).execute(mentorEntity);
     }
 
     private static class insertAsyncTask3 extends AsyncTask<MentorEntity, Void, Void> {
 
-        private MentorDAO mAsyncTaskDao;
+        private final MentorsDAO mAsyncTaskDao;
 
-        insertAsyncTask3(MentorDAO dao) {
+        insertAsyncTask3(MentorsDAO dao) {
             mAsyncTaskDao = dao;
         }
 
@@ -111,14 +111,14 @@ public class ScheduleManagementRepository {
     }
 
     public void insert (TermEntity termEntity) {
-        new insertAsyncTask4(mTermDAO).execute(termEntity);
+        new insertAsyncTask4(mTermsDAO).execute(termEntity);
     }
 
     private static class insertAsyncTask4 extends AsyncTask<TermEntity, Void, Void> {
 
-        private TermDAO mAsyncTaskDao;
+        private final TermsDAO mAsyncTaskDao;
 
-        insertAsyncTask4(TermDAO dao) {
+        insertAsyncTask4(TermsDAO dao) {
             mAsyncTaskDao = dao;
         }
 
@@ -130,14 +130,14 @@ public class ScheduleManagementRepository {
     }
 
     public void delete (AssessmentEntity assessmentEntity) {
-        new deleteAsyncTask1(mAssessmentDAO).execute(assessmentEntity);
+        new deleteAsyncTask1(mAssessmentsDAO).execute(assessmentEntity);
     }
 
     private static class deleteAsyncTask1 extends AsyncTask<AssessmentEntity, Void, Void> {
 
-        private AssessmentDAO mAsyncTaskDao;
+        private final AssessmentsDAO mAsyncTaskDao;
 
-        deleteAsyncTask1(AssessmentDAO dao) {
+        deleteAsyncTask1(AssessmentsDAO dao) {
             mAsyncTaskDao = dao;
         }
 
@@ -149,14 +149,14 @@ public class ScheduleManagementRepository {
     }
 
     public void delete (CourseEntity courseEntity) {
-        new deleteAsyncTask2(mCourseDAO).execute(courseEntity);
+        new deleteAsyncTask2(mCoursesDAO).execute(courseEntity);
     }
 
     private static class deleteAsyncTask2 extends AsyncTask<CourseEntity, Void, Void> {
 
-        private CourseDAO mAsyncTaskDao;
+        private final CoursesDAO mAsyncTaskDao;
 
-        deleteAsyncTask2(CourseDAO dao) {
+        deleteAsyncTask2(CoursesDAO dao) {
             mAsyncTaskDao = dao;
         }
 
@@ -168,14 +168,14 @@ public class ScheduleManagementRepository {
     }
 
     public void delete (MentorEntity mentorEntity) {
-        new deleteAsyncTask3(mMentorDAO).execute(mentorEntity);
+        new deleteAsyncTask3(mMentorsDAO).execute(mentorEntity);
     }
 
     private static class deleteAsyncTask3 extends AsyncTask<MentorEntity, Void, Void> {
 
-        private MentorDAO mAsyncTaskDao;
+        private final MentorsDAO mAsyncTaskDao;
 
-        deleteAsyncTask3(MentorDAO dao) {
+        deleteAsyncTask3(MentorsDAO dao) {
             mAsyncTaskDao = dao;
         }
 
@@ -187,14 +187,14 @@ public class ScheduleManagementRepository {
     }
 
     public void delete (TermEntity termEntity) {
-        new deleteAsyncTask4(mTermDAO).execute(termEntity);
+        new deleteAsyncTask4(mTermsDAO).execute(termEntity);
     }
 
     private static class deleteAsyncTask4 extends AsyncTask<TermEntity, Void, Void> {
 
-        private TermDAO mAsyncTaskDao;
+        private final TermsDAO mAsyncTaskDao;
 
-        deleteAsyncTask4(TermDAO dao) {
+        deleteAsyncTask4(TermsDAO dao) {
             mAsyncTaskDao = dao;
         }
 

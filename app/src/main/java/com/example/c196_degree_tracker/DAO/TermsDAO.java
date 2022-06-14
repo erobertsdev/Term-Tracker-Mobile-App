@@ -12,7 +12,7 @@ import com.example.c196_degree_tracker.Entities.TermEntity;
 import java.util.List;
 
 @Dao
-public interface TermDAO {
+public interface TermsDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(TermEntity term);
 

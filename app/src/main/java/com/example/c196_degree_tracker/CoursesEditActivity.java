@@ -1,25 +1,17 @@
 package com.example.c196_degree_tracker;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.icu.text.Transliterator;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
-import com.example.c196_degree_tracker.DAO.CourseDAO;
 import com.example.c196_degree_tracker.Entities.CourseEntity;
 import com.example.c196_degree_tracker.ViewModel.CourseViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.View;
@@ -29,14 +21,9 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Objects;
 
 public class CoursesEditActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {

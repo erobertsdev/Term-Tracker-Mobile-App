@@ -15,10 +15,10 @@ import com.example.c196_degree_tracker.Entities.*;
 @Database(entities = {AssessmentEntity.class,CourseEntity.class, MentorEntity.class, TermEntity.class}, version = 4, exportSchema = false)
 
 public abstract class ScheduleManagementDatabase extends RoomDatabase {
-    public abstract AssessmentDAO assessmentDAO();
-    public abstract CourseDAO courseDAO();
-    public abstract MentorDAO mentorDAO();
-    public abstract TermDAO termDAO();
+    public abstract AssessmentsDAO assessmentDAO();
+    public abstract CoursesDAO courseDAO();
+    public abstract MentorsDAO mentorDAO();
+    public abstract TermsDAO termDAO();
 
     private static volatile ScheduleManagementDatabase INSTANCE;
 
@@ -48,41 +48,41 @@ public abstract class ScheduleManagementDatabase extends RoomDatabase {
 
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
-        private final AssessmentDAO mAssessmentDao;
-        private final CourseDAO mCourseDao;
-        private final MentorDAO mMentorDAO;
-        private final TermDAO mTermDAO;
+        private final AssessmentsDAO mAssessmentsDao;
+        private final CoursesDAO mCoursesDao;
+        private final MentorsDAO mMentorsDAO;
+        private final TermsDAO mTermsDAO;
 
         PopulateDbAsync(ScheduleManagementDatabase db) {
-            mAssessmentDao = db.assessmentDAO();
-            mCourseDao = db.courseDAO();
-            mMentorDAO = db.mentorDAO();
-            mTermDAO = db.termDAO();
+            mAssessmentsDao = db.assessmentDAO();
+            mCoursesDao = db.courseDAO();
+            mMentorsDAO = db.mentorDAO();
+            mTermsDAO = db.termDAO();
         }
 
         @Override
         protected Void doInBackground(final Void... params) {
             // Start the app with a clean database every time.
             // Not needed if you only populate on creation.
-            mAssessmentDao.deleteAllAssessments();
-            mCourseDao.deleteAllCourses();
-            mMentorDAO.deleteAllMentors();
-            mTermDAO.deleteAllTerms();
+            mAssessmentsDao.deleteAllAssessments();
+            mCoursesDao.deleteAllCourses();
+            mMentorsDAO.deleteAllMentors();
+            mTermsDAO.deleteAllTerms();
 
         TermEntity term1=new TermEntity(1, "Term 1", "2/1/2020", "8/1/2020");
-        mTermDAO.insert(term1);
+        mTermsDAO.insert(term1);
 
         CourseEntity course=new CourseEntity(1, "C196 Mobile Testing", "2/1/2020",
                 "4/1/2020", "In Progress", "Uses Android Studio", 1);
-        mCourseDao.insert(course);
+        mCoursesDao.insert(course);
 
         AssessmentEntity assessment=new AssessmentEntity(1, "C196 PA", "4/1/2020",
                 "Performance Assessment", 1);
-        mAssessmentDao.insert(assessment);
+        mAssessmentsDao.insert(assessment);
 
         MentorEntity mentor=new MentorEntity(1, "Natasha Abner", "natasha.abner@wgu.edu",
                 "877.435.7948 Ext. 4125", 1);
-        mMentorDAO.insert(mentor);
+        mMentorsDAO.insert(mentor);
 
             return null;
         }

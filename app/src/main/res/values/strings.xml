@@ -1,20 +1,27 @@
 <resources>
-    <string name="app_name">Term Tracker</string>
-    <string name="action_settings">Settings</string>
+    <!--App Strings -->
+    <string name="main_title">Term Tracker</string>
+    <string name="main_settings">Settings</string>
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+
+    <!-- Main Menu Strings-->
+    <string name="terms">Terms</string>
     <string name="mentors">Mentors</string>
     <string name="assessments">Assessments</string>
     <string name="courses">Courses</string>
-    <string name="terms">Terms</string>
-    <string name="wgu_logo">WGU Logo</string>
+
+<!--    <string name="wgu_logo">WGU Logo</string>-->
+    <!-- Activity Strings -->
     <string name="title_activity_terms">Terms</string>
     <string name="title_activity_courses">Courses</string>
     <string name="title_activity_assessments">Assessments</string>
     <string name="title_activity_mentors">Mentors</string>
     <string name="title_activity_mentors_edit">Edit Mentor</string>
+
+    <!-- -->
     <string name="mentor_name">Name</string>
     <string name="email">Email</string>
     <string name="phone">Phone</string>

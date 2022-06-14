@@ -13,7 +13,7 @@ import com.example.c196_degree_tracker.Entities.MentorEntity;
 import java.util.List;
 
 @Dao
-public interface MentorDAO {
+public interface MentorsDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(MentorEntity mentor);
 

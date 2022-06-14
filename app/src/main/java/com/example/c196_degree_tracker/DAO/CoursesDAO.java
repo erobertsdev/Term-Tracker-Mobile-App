@@ -12,7 +12,7 @@ import com.example.c196_degree_tracker.Entities.CourseEntity;
 import java.util.List;
 
 @Dao
-public interface CourseDAO {
+public interface CoursesDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(CourseEntity course);
 
