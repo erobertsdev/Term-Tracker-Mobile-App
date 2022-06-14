@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import dev.eroberts.term_tracker.Entities.TermEntity;
-import com.example.c196_degree_tracker.R;
+import dev.eroberts.term_tracker.R;
 import dev.eroberts.term_tracker.TermsDetailsActivity;
 
 import java.util.List;

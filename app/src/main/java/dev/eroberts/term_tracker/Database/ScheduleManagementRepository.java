@@ -5,8 +5,8 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.c196_degree_tracker.DAO.*;
-import com.example.c196_degree_tracker.Entities.*;
+import dev.eroberts.term_tracker.DAO.*;
+import dev.eroberts.term_tracker.Entities.*;
 
 import java.util.List;
 

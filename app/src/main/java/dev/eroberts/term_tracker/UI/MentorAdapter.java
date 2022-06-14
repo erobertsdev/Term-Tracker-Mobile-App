@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import dev.eroberts.term_tracker.Entities.MentorEntity;
 import dev.eroberts.term_tracker.MentorsDetailsActivity;
-import com.example.c196_degree_tracker.R;
+import dev.eroberts.term_tracker.R;
 
 import java.util.List;
 

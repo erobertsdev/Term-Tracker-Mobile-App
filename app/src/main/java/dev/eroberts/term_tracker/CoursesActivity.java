@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import dev.eroberts.term_tracker.Entities.CourseEntity;
 
-import com.example.c196_degree_tracker.R;
+import dev.eroberts.term_tracker.R;
 
 import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
 import dev.eroberts.term_tracker.UI.CourseAdapter;

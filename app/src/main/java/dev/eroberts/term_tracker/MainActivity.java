@@ -8,7 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.widget.ImageView;
 
-import com.example.c196_degree_tracker.R;
+import dev.eroberts.term_tracker.R;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import dev.eroberts.term_tracker.Entities.AssessmentEntity;
 
-import com.example.c196_degree_tracker.R;
+import dev.eroberts.term_tracker.R;
 
 import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

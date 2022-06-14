@@ -3,7 +3,7 @@ package dev.eroberts.term_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.c196_degree_tracker.R;
+import dev.eroberts.term_tracker.R;
 
 import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
 

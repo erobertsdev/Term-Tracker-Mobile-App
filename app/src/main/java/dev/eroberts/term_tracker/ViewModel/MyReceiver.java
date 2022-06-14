@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.c196_degree_tracker.R;
+import dev.eroberts.term_tracker.R;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 

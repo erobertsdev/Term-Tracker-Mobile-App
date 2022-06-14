@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.c196_degree_tracker">
+    package="dev.eroberts.term_tracker">
 
     <application
         android:allowBackup="true"
