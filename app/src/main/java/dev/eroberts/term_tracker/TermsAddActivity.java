@@ -1,124 +1,112 @@
 package dev.eroberts.term_tracker;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-
 import dev.eroberts.term_tracker.Entities.entity_term;
-
 import dev.eroberts.term_tracker.ViewModel.term_view_model;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import java.util.Calendar;
 import java.util.List;
 
+/**
+ * The type Terms add activity.
+ */
 public class TermsAddActivity extends AppCompatActivity {
-    private term_view_model mTermViewModel;
-    private EditText mEditName;
-    private EditText mEditStart;
-    private EditText mEditEnd;
-    private ImageView calStartDP;
-    private ImageView calEndDP;
-    DatePickerDialog.OnDateSetListener setListener;
+    private term_view_model term_view_model_e;
+    private EditText edit_name_text;
+    private EditText edit_start_text;
+    private EditText edit_end_text;
+    private ImageView start_dp;
+    private ImageView end_dp;
+    /**
+     * The On date set listener.
+     */
+    DatePickerDialog.OnDateSetListener onDateSetListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mTermViewModel = new ViewModelProvider(this).get(term_view_model.class);
+        term_view_model_e = new ViewModelProvider(this).get(term_view_model.class);
         setContentView(R.layout.activity_terms_add);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        mEditName=findViewById(R.id.termNameTxt);
-
-        mEditStart = findViewById(R.id.termStartTxt);
-        mEditEnd = findViewById(R.id.termEndTxt);
-        calStartDP = findViewById(R.id.calStartDP);
-        calEndDP = findViewById(R.id.calEndDP);
-
+        edit_name_text =findViewById(R.id.termNameTxt);
+        edit_start_text = findViewById(R.id.termStartTxt);
+        edit_end_text = findViewById(R.id.termEndTxt);
+        start_dp = findViewById(R.id.calStartDP);
+        end_dp = findViewById(R.id.calEndDP);
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-        calStartDP.setOnClickListener(new View.OnClickListener() {
+        start_dp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
                         TermsAddActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month = month+1;
-                        String date = month+"/"+dayOfMonth+"/"+year;
-                        mEditStart.setText(date);
+                        month = month + 1;
+                        String date = month + "/" +dayOfMonth+ "/" +year;
+                        edit_start_text.setText(date);
                     }
                 }, year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
                 datePickerDialog.show();
             }
         });
-
-        calEndDP.setOnClickListener(new View.OnClickListener() {
+        end_dp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
                         TermsAddActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month = month+1;
-                        String date = month+"/"+dayOfMonth+"/"+year;
-                        mEditEnd.setText(date);
+                        month = month + 1;
+                        String date = month + "/" + dayOfMonth + "/" + year;
+                        edit_end_text.setText(date);
                     }
                 }, year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
                 datePickerDialog.show();
             }
         });
-
         try {
-
-            mTermViewModel.getAllTerms().observe(this, new Observer<List<entity_term>>() {
+            term_view_model_e.getAllTerms().observe(this, new Observer<List<entity_term>>() {
                 @Override
                 public void onChanged(List<entity_term> termEntities) {
-
                 }
             });
-
         } catch (NullPointerException e) {
-
         }
         try {
             FloatingActionButton fab = findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    String name = mEditName.getText().toString();
-                    String start = mEditStart.getText().toString();
-                    String end = mEditEnd.getText().toString();
-
+                    String name = edit_name_text.getText().toString();
+                    String start = edit_start_text.getText().toString();
+                    String end = edit_end_text.getText().toString();
                     if(name.matches("") || start.matches("") || end.matches("")) {
-                        Toast.makeText(getApplicationContext(), "Name and Date fields cannot be blank.",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "All fields are required.",Toast.LENGTH_LONG).show();
                     }
                     else {
-                        entity_term term = new entity_term(mTermViewModel.lastID() + 1, mEditName.getText().toString(), mEditStart.getText().toString(),
-                                mEditEnd.getText().toString());
-                        mTermViewModel.insert(term);
+                        entity_term term = new entity_term(term_view_model_e.lastID() + 1, edit_name_text.getText().toString(), edit_start_text.getText().toString(),
+                                edit_end_text.getText().toString());
+                        term_view_model_e.insert(term);
                         Intent intent = new Intent(TermsAddActivity.this, TermsActivity.class);
                         startActivity(intent);
                     }
@@ -126,7 +114,6 @@ public class TermsAddActivity extends AppCompatActivity {
             });
         }
         catch(NullPointerException e) {
-
         }
     }
     @Override

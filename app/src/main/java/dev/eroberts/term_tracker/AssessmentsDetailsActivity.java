@@ -24,9 +24,7 @@ import java.util.Date;
  */
 public class AssessmentsDetailsActivity extends AppCompatActivity {
     private assessment_view_model assessment_view_model_e;
-    private EditText edit_name_e;
     private EditText edit_date_e;
-    private EditText edit_type_e;
     /**
      * The Date.
      */
@@ -45,9 +43,9 @@ public class AssessmentsDetailsActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        edit_name_e =findViewById(R.id.assessment_details_name);
+        EditText edit_name_e = findViewById(R.id.assessment_details_name);
         edit_date_e =findViewById(R.id.assessment_details_date);
-        edit_type_e =findViewById(R.id.assessment_details_type);
+        EditText edit_type_e = findViewById(R.id.assessment_details_type);
         String temp=getIntent().getStringExtra("assessmentName");
         if(getIntent().getStringExtra("assessmentName")!=null) {
             edit_name_e.setText(getIntent().getStringExtra("assessmentName"));

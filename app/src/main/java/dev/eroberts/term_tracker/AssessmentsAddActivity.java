@@ -46,7 +46,7 @@ public class AssessmentsAddActivity extends AppCompatActivity implements Adapter
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        edit_name_e = findViewById(R.id.assessmentNameTxt);
+        edit_name_e = findViewById(R.id.assessment_name_text);
         edit_date_e = findViewById(R.id.assessmentDateTxt);
         Spinner spinner = findViewById(R.id.assessmentTypeSpin);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type, R.layout.spinner_item);

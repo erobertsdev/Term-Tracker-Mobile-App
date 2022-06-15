@@ -1,52 +1,47 @@
 package dev.eroberts.term_tracker;
-
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.widget.EditText;
+import android.widget.ImageView;
 import dev.eroberts.term_tracker.ViewModel.mentor_view_model;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.widget.EditText;
-import android.widget.ImageView;
-
+/**
+ * The type Mentors details activity.
+ */
 public class MentorsDetailsActivity extends AppCompatActivity {
-    private mentor_view_model mMentorViewModel;
-    private EditText mEditName;
-    private EditText mEditEmail;
-    private EditText mEditPhone;
-    public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
+    private mentor_view_model mentor_view_model_e;
+    /**
+     * The constant REQUEST.
+     */
+    public static final int REQUEST = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mMentorViewModel = new ViewModelProvider(this).get(mentor_view_model.class);
+        mentor_view_model_e = new ViewModelProvider(this).get(mentor_view_model.class);
         setContentView(R.layout.activity_mentors_details);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        mEditName=findViewById(R.id.assessment_details_name);
-        mEditEmail=findViewById(R.id.assessment_details_date);
-        mEditPhone=findViewById(R.id.assessment_details_type);
-
+        EditText edit_name_text = findViewById(R.id.assessment_details_name);
+        EditText edit_email_text = findViewById(R.id.assessment_details_date);
+        EditText edit_phone_text = findViewById(R.id.assessment_details_type);
         String temp=getIntent().getStringExtra("mentorName");
         if(getIntent().getStringExtra("mentorName")!=null) {
-            mEditName.setText(getIntent().getStringExtra("mentorName"));
-            mEditEmail.setText(getIntent().getStringExtra("mentorEmail"));
-            mEditPhone.setText(getIntent().getStringExtra("mentorPhone"));
+            edit_name_text.setText(getIntent().getStringExtra("mentorName"));
+            edit_email_text.setText(getIntent().getStringExtra("mentorEmail"));
+            edit_phone_text.setText(getIntent().getStringExtra("mentorPhone"));
         }
-
-
         FloatingActionButton fab = findViewById(R.id.fab);
         ImageView mentorsEdit = findViewById(R.id.fab);
         mentorsEdit.setOnClickListener((view) -> {
             Intent intent = new Intent( MentorsDetailsActivity.this, MentorsEditActivity.class);
-            startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+            startActivityForResult(intent, REQUEST);
             intent.putExtra("Name", temp);
             intent.putExtra("Email", getIntent().getStringExtra("mentorEmail"));
             intent.putExtra("Phone", getIntent().getStringExtra("mentorPhone"));

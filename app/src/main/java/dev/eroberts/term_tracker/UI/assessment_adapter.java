@@ -25,7 +25,7 @@ public class assessment_adapter extends RecyclerView.Adapter<assessment_adapter.
 
         private AssessmentViewHolder(View itemView) {
             super(itemView);
-            assessment_item_view = itemView.findViewById(R.id.assessmentsTextView);
+            assessment_item_view = itemView.findViewById(R.id.assessments_text_view);
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
                 final entity_assessment current = assessments_list.get(position);

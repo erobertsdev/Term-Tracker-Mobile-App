@@ -5,7 +5,7 @@
     android:orientation="horizontal" >
 
     <TextView
-        android:id="@+id/assessmentsTextView"
+        android:id="@+id/assessments_text_view"
         style="@style/word_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
