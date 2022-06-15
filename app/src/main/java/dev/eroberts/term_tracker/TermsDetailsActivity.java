@@ -82,7 +82,7 @@ public class TermsDetailsActivity extends AppCompatActivity {
             intent.putExtra("numCourses", number_of_courses);
             startActivity(intent);
         });
-        FloatingActionButton cFAB = findViewById(R.id.cFAB);
+        FloatingActionButton cFAB = findViewById(R.id.course_fab);
         cFAB.setOnClickListener((view) -> {
             showPopup(cFAB);
         });

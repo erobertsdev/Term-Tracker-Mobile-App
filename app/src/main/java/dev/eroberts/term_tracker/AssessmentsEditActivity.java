@@ -53,8 +53,8 @@ public class AssessmentsEditActivity extends AppCompatActivity implements Adapte
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         edit_name_e =findViewById(R.id.assessment_name_text);
-        edit_date_e =findViewById(R.id.assessmentDateTxt);
-        Spinner spinner = findViewById(R.id.assessmentTypeSpin);
+        edit_date_e =findViewById(R.id.assessment_date_text);
+        Spinner spinner = findViewById(R.id.assessment_type_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.type, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -69,8 +69,8 @@ public class AssessmentsEditActivity extends AppCompatActivity implements Adapte
         spinner.setSelection(spinnerSelect);
         edit_name_e.setText(getIntent().getStringExtra("Name"));
         edit_date_e.setText(getIntent().getStringExtra("Date"));
-        date_text = findViewById(R.id.assessmentDateTxt);
-        start_dp = findViewById(R.id.calStartDP);
+        date_text = findViewById(R.id.assessment_date_text);
+        start_dp = findViewById(R.id.start_date_picker);
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);

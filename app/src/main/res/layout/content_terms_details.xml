@@ -81,7 +81,7 @@
             app:layout_constraintTop_toBottomOf="@+id/assessment_details_date" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/course_assessment_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -94,14 +94,14 @@
             app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/cFAB"
+            android:id="@+id/course_fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginTop="15dp"
             android:clickable="true"
             app:backgroundTint="@color/colorPrimaryDark"
-            app:layout_constraintStart_toEndOf="@+id/textView16"
+            app:layout_constraintStart_toEndOf="@+id/course_assessment_title"
             app:layout_constraintTop_toBottomOf="@+id/assessment_details_type"
             app:srcCompat="@drawable/ic_baseline_add_circle_24" />
 
@@ -112,7 +112,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="28dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+            app:layout_constraintTop_toBottomOf="@+id/course_assessment_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

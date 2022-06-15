@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/mentorNameTxt"
+            android:id="@+id/mentor_name_text_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/mentor_name"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout9">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/mentorEmailTxt"
+            android:id="@+id/mentor_email_text_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/mentorPhoneTxt"
+            android:id="@+id/mentor_phone_text_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/phone"

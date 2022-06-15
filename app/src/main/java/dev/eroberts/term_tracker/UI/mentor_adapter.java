@@ -22,7 +22,7 @@ public class mentor_adapter extends RecyclerView.Adapter<mentor_adapter.mentor_v
         private final TextView mentor_item_view;
         private mentor_view_holder(View itemView) {
             super(itemView);
-            mentor_item_view = itemView.findViewById(R.id.mentorsTextView);
+            mentor_item_view = itemView.findViewById(R.id.mentors_text_view_list);
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
                 final entity_mentor current = mentors_list.get(position);

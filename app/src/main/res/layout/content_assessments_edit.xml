@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/assessmentDateTxt"
+            android:id="@+id/assessment_date_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:editable="false"
@@ -45,7 +45,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/course_type_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -58,16 +58,16 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     <Spinner
-        android:id="@+id/assessmentTypeSpin"
+        android:id="@+id/assessment_type_spinner"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
         android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/course_type_text_view" />
 
         <ImageView
-            android:id="@+id/calStartDP"
+            android:id="@+id/start_date_picker"
             android:layout_width="63dp"
             android:layout_height="54dp"
             android:layout_marginStart="10dp"

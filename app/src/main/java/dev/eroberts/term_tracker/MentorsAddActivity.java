@@ -31,9 +31,9 @@ public class MentorsAddActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        edit_name_text =findViewById(R.id.mentorNameTxt);
-        edit_email_text =findViewById(R.id.mentorEmailTxt);
-        edit_phone_text =findViewById(R.id.mentorPhoneTxt);
+        edit_name_text =findViewById(R.id.mentor_name_text_field);
+        edit_email_text =findViewById(R.id.mentor_email_text_field);
+        edit_phone_text =findViewById(R.id.mentor_phone_text_field);
         try {
             mentor_view_model_e.getAllMentors().observe(this, new Observer<List<entity_mentor>>() {
                 @Override

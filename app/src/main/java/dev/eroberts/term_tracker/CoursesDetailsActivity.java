@@ -74,7 +74,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         edit_start_txt = findViewById(R.id.assessment_details_date);
         edit_end_txt = findViewById(R.id.assessment_details_type);
         EditText edit_status_txt = findViewById(R.id.textView13);
-        EditText edit_notes_txt = findViewById(R.id.textView14);
+        EditText edit_notes_txt = findViewById(R.id.course_status_text_view);
         String temp = getIntent().getStringExtra("courseName");
         if (getIntent().getStringExtra("courseName") != null) {
             edit_name_txt.setText(getIntent().getStringExtra("courseName"));
@@ -202,7 +202,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.sharing) {
+        if (id == R.id.sharing_menu) {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_TEXT, getIntent().getStringExtra("courseName") + " Course Notes: " + getIntent().getStringExtra("courseNotes"));

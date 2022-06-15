@@ -22,7 +22,7 @@ public class term_adapter extends RecyclerView.Adapter<term_adapter.term_view_ho
         private final TextView termItemView;
         private term_view_holder(View itemView) {
             super(itemView);
-            termItemView = itemView.findViewById(R.id.termsTextView);
+            termItemView = itemView.findViewById(R.id.terms_text_view_list);
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
                 final entity_term current = terms_list.get(position);

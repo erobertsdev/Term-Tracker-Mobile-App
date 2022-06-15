@@ -43,11 +43,11 @@ public class TermsAddActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        edit_name_text =findViewById(R.id.termNameTxt);
-        edit_start_text = findViewById(R.id.termStartTxt);
-        edit_end_text = findViewById(R.id.termEndTxt);
-        start_dp = findViewById(R.id.calStartDP);
-        end_dp = findViewById(R.id.calEndDP);
+        edit_name_text =findViewById(R.id.term_name_text_field);
+        edit_start_text = findViewById(R.id.term_start_text_field);
+        edit_end_text = findViewById(R.id.term_end_text_field);
+        start_dp = findViewById(R.id.start_date_picker);
+        end_dp = findViewById(R.id.end_date_picker);
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);

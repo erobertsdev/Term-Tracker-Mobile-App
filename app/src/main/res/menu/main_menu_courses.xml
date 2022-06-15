@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="dev.eroberts.term_tracker.dev.example.c196_degree_tracker.MainActivity">
     <item
-        android:id="@+id/sharing"
+        android:id="@+id/sharing_menu"
         android:orderInCategory="100"
         android:title="Sharing"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/notifications"
+        android:id="@+id/notifications_menu"
         android:orderInCategory="100"
         android:title="@string/notifications"
         app:showAsAction="never">

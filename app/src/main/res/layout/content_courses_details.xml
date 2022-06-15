@@ -104,7 +104,7 @@
             app:layout_constraintTop_toBottomOf="@+id/assessment_details_type" />
 
         <EditText
-            android:id="@+id/textView14"
+            android:id="@+id/course_status_text_view"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -116,7 +116,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/course_assessment_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -126,10 +126,10 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+            app:layout_constraintTop_toBottomOf="@+id/course_status_text_view" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/course_mentor_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -149,8 +149,8 @@
             android:layout_marginTop="15dp"
             android:clickable="true"
             app:backgroundTint="@color/colorPrimaryDark"
-            app:layout_constraintStart_toEndOf="@+id/textView16"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            app:layout_constraintStart_toEndOf="@+id/course_assessment_title"
+            app:layout_constraintTop_toBottomOf="@+id/course_status_text_view"
             app:srcCompat="@drawable/ic_baseline_add_circle_24" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -161,7 +161,7 @@
             android:layout_marginTop="15dp"
             android:clickable="true"
             app:backgroundTint="@color/colorPrimaryDark"
-            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintStart_toEndOf="@+id/course_mentor_title"
             app:layout_constraintTop_toBottomOf="@+id/assessmentsRV"
             app:srcCompat="@drawable/ic_baseline_add_circle_24" />
 
@@ -172,7 +172,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="28dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+            app:layout_constraintTop_toBottomOf="@+id/course_assessment_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mentorsRV"
@@ -181,7 +181,7 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="28dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            app:layout_constraintTop_toBottomOf="@+id/course_mentor_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

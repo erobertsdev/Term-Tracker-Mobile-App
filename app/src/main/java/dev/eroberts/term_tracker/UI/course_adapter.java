@@ -22,7 +22,7 @@ public class course_adapter extends RecyclerView.Adapter<course_adapter.course_v
         private final TextView course_item_view;
         private course_view_holder(View itemView) {
             super(itemView);
-            course_item_view = itemView.findViewById(R.id.coursesTextView);
+            course_item_view = itemView.findViewById(R.id.courses_text_view_list);
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
                 final entity_course current = courses_list.get(position);
