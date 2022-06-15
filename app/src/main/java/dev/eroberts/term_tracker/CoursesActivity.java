@@ -6,7 +6,7 @@ import android.os.Bundle;
 import dev.eroberts.term_tracker.Entities.entity_course;
 
 import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
-import dev.eroberts.term_tracker.UI.CourseAdapter;
+import dev.eroberts.term_tracker.UI.course_adapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;
@@ -43,7 +43,7 @@ public class CoursesActivity extends AppCompatActivity {
             startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
         });
         RecyclerView recyclerView = findViewById(R.id.coursesRV);
-        final CourseAdapter adapter = new CourseAdapter(this);
+        final course_adapter adapter = new course_adapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

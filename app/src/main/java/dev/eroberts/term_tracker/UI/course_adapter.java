@@ -1,31 +1,27 @@
 package dev.eroberts.term_tracker.UI;
-
-import android.content.Context;
 import android.content.Intent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.view.View;
+import android.content.Context;
+import android.widget.TextView;
 import dev.eroberts.term_tracker.CoursesDetailsActivity;
 import dev.eroberts.term_tracker.Entities.entity_course;
 import dev.eroberts.term_tracker.R;
-
 import java.util.List;
 
-public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder> {
+public class course_adapter extends RecyclerView.Adapter<course_adapter.course_view_holder> {
 
-    class CourseViewHolder extends RecyclerView.ViewHolder {
-        private final TextView courseItemView;
+    class course_view_holder extends RecyclerView.ViewHolder {
+        private final TextView course_item_view;
 
-        private CourseViewHolder(View itemView) {
+        private course_view_holder(View itemView) {
             super(itemView);
-            courseItemView = itemView.findViewById(R.id.coursesTextView);
+            course_item_view = itemView.findViewById(R.id.coursesTextView);
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
-                final entity_course current = mCourses.get(position);
+                final entity_course current = courses_list.get(position);
                 Intent intent = new Intent(context, CoursesDetailsActivity.class);
                 intent.putExtra("courseID", current.getCourseID());
                 intent.putExtra("courseName", current.getCourseName());
@@ -39,41 +35,41 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         }
     }
 
-    private final LayoutInflater mInflater;
+    private final LayoutInflater inflater_e;
     private final Context context;
-    private List<entity_course> mCourses;
+    private List<entity_course> courses_list;
 
-    public CourseAdapter(Context context) {
-        mInflater = LayoutInflater.from(context);
+    public course_adapter(Context context) {
+        inflater_e = LayoutInflater.from(context);
         this.context=context;
     }
 
     @Override
-    public CourseAdapter.CourseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = mInflater.inflate(R.layout.courses_list_items, parent, false);
-        return new CourseAdapter.CourseViewHolder(itemView);
+    public course_view_holder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = inflater_e.inflate(R.layout.courses_list_items, parent, false);
+        return new course_view_holder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(CourseAdapter.CourseViewHolder holder, int position) {
+    public void onBindViewHolder(course_view_holder holder, int position) {
 
-        if(mCourses != null) {
-            final entity_course current = mCourses.get(position);
-            holder.courseItemView.setText(current.getCourseName());
+        if(courses_list != null) {
+            final entity_course current = courses_list.get(position);
+            holder.course_item_view.setText(current.getCourseName());
         } else {
-            holder.courseItemView.setText("No Word");
+            holder.course_item_view.setText("No Word");
         }
     }
 
     public void setWords(List<entity_course> words) {
-        mCourses = words;
+        courses_list = words;
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        if (mCourses != null)
-            return mCourses.size();
+        if (courses_list != null)
+            return courses_list.size();
         else return 0;
     }
 }

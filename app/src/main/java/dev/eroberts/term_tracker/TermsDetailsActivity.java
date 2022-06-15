@@ -11,7 +11,7 @@ import dev.eroberts.term_tracker.Entities.entity_course;
 import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
 import dev.eroberts.term_tracker.ViewModel.MyReceiver;
 import dev.eroberts.term_tracker.ViewModel.TermViewModel;
-import dev.eroberts.term_tracker.UI.CourseAdapter;
+import dev.eroberts.term_tracker.UI.course_adapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;
@@ -87,7 +87,7 @@ public class TermsDetailsActivity extends AppCompatActivity {
         });
 
         RecyclerView recyclerView = findViewById(R.id.termsRV);
-        final CourseAdapter adapter = new CourseAdapter(this);
+        final course_adapter adapter = new course_adapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mCourseViewModel = new ViewModelProvider(this).get(CourseViewModel.class);
