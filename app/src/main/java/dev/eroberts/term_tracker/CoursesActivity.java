@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import dev.eroberts.term_tracker.Entities.entity_course;
 
-import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
+import dev.eroberts.term_tracker.ViewModel.course_view_model;
 import dev.eroberts.term_tracker.UI.course_adapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -22,13 +22,13 @@ import android.widget.ImageView;
 import java.util.List;
 
 public class CoursesActivity extends AppCompatActivity {
-    private CourseViewModel mCourseViewModel;
+    private course_view_model mCourseViewModel;
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCourseViewModel=new ViewModelProvider(this).get(CourseViewModel.class);
+        mCourseViewModel=new ViewModelProvider(this).get(course_view_model.class);
         setContentView(R.layout.activity_courses);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import dev.eroberts.term_tracker.Entities.entity_course;
 
-import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
+import dev.eroberts.term_tracker.ViewModel.course_view_model;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +28,7 @@ import java.util.Calendar;
 import java.util.Objects;
 
 public class CoursesEditActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private CourseViewModel mCourseViewModel;
+    private course_view_model mCourseViewModel;
     private EditText mEditName;
     private EditText mEditStart;
     private EditText mEditEnd;
@@ -42,7 +42,7 @@ public class CoursesEditActivity extends AppCompatActivity implements AdapterVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCourseViewModel = new ViewModelProvider(this).get(CourseViewModel.class);
+        mCourseViewModel = new ViewModelProvider(this).get(course_view_model.class);
         setContentView(R.layout.activity_courses_edit);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

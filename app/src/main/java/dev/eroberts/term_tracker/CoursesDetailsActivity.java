@@ -10,7 +10,7 @@ import dev.eroberts.term_tracker.Entities.entity_assessment;
 import dev.eroberts.term_tracker.Entities.entity_mentor;
 
 import dev.eroberts.term_tracker.ViewModel.assessment_view_model;
-import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
+import dev.eroberts.term_tracker.ViewModel.course_view_model;
 import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
 import dev.eroberts.term_tracker.ViewModel.MyReceiver;
 import dev.eroberts.term_tracker.UI.assessment_adapter;
@@ -39,7 +39,7 @@ import java.util.Date;
 import java.util.List;
 
 public class CoursesDetailsActivity extends AppCompatActivity {
-    private CourseViewModel mCourseViewModel;
+    private course_view_model mCourseViewModel;
     private assessment_view_model mAssessmentViewModel;
     private MentorViewModel mMentorViewModel;
     private EditText mEditName;
@@ -57,7 +57,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCourseViewModel = new ViewModelProvider(this).get(CourseViewModel.class);
+        mCourseViewModel = new ViewModelProvider(this).get(course_view_model.class);
         setContentView(R.layout.activity_courses_details);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import dev.eroberts.term_tracker.Entities.entity_course;
 
-import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
+import dev.eroberts.term_tracker.ViewModel.course_view_model;
 import dev.eroberts.term_tracker.ViewModel.MyReceiver;
 import dev.eroberts.term_tracker.ViewModel.TermViewModel;
 import dev.eroberts.term_tracker.UI.course_adapter;
@@ -38,7 +38,7 @@ import java.util.List;
 
 public class TermsDetailsActivity extends AppCompatActivity {
     private TermViewModel mTermViewModel;
-    private CourseViewModel mCourseViewModel;
+    private course_view_model mCourseViewModel;
     private EditText mEditName;
     private EditText mEditStart;
     private EditText mEditEnd;
@@ -90,7 +90,7 @@ public class TermsDetailsActivity extends AppCompatActivity {
         final course_adapter adapter = new course_adapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mCourseViewModel = new ViewModelProvider(this).get(CourseViewModel.class);
+        mCourseViewModel = new ViewModelProvider(this).get(course_view_model.class);
         mCourseViewModel.getAllCourses().observe(this, new Observer<List<entity_course>>() {
             @Override
             public void onChanged(@Nullable final List<entity_course> words) {
