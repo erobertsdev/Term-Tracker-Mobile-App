@@ -2,24 +2,19 @@ package dev.eroberts.term_tracker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 
-import dev.eroberts.term_tracker.Entities.entity_assessment;
-
-import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
-import dev.eroberts.term_tracker.UI.AssessmentAdapter;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.widget.ImageView;
+import java.util.Objects;
 
-import java.util.List;
+import dev.eroberts.term_tracker.Entities.entity_assessment;
+import dev.eroberts.term_tracker.UI.AssessmentAdapter;
+import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
 
 public class AssessmentsActivity extends AppCompatActivity {
     private AssessmentViewModel mAssessmentViewModel;
@@ -33,10 +28,10 @@ public class AssessmentsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        findViewById(R.id.fab);
         ImageView assessmentsAdd = findViewById(R.id.fab);
         assessmentsAdd.setOnClickListener((view) -> {
             Intent intent = new Intent( AssessmentsActivity.this, AssessmentsAddActivity.class);
@@ -48,12 +43,7 @@ public class AssessmentsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mAssessmentViewModel.getAllAssessments().observe(this, new Observer<List<entity_assessment>>() {
-            @Override
-            public void onChanged(@Nullable final List<entity_assessment> words) {
-                adapter.setWords(words);
-            }
-        });
+        mAssessmentViewModel.getAllAssessments().observe(this, words -> adapter.setWords(words));
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -1,14 +1,6 @@
 package dev.eroberts.term_tracker.Database;
-
 import android.content.Context;
 import android.os.AsyncTask;
-
-import androidx.annotation.NonNull;
-import androidx.room.Database;
-import androidx.room.Room;
-import androidx.room.RoomDatabase;
-import androidx.sqlite.db.SupportSQLiteDatabase;
-
 import dev.eroberts.term_tracker.DAO.dao_assessments;
 import dev.eroberts.term_tracker.DAO.dao_courses;
 import dev.eroberts.term_tracker.DAO.dao_mentors;
@@ -17,6 +9,11 @@ import dev.eroberts.term_tracker.Entities.entity_assessment;
 import dev.eroberts.term_tracker.Entities.entity_course;
 import dev.eroberts.term_tracker.Entities.entity_mentor;
 import dev.eroberts.term_tracker.Entities.entity_term;
+import androidx.room.Room;
+import androidx.annotation.NonNull;
+import androidx.room.RoomDatabase;
+import androidx.room.Database;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(entities = {entity_assessment.class, entity_course.class, entity_mentor.class, entity_term.class}, version = 4, exportSchema = false)
 
@@ -26,27 +23,24 @@ public abstract class TermTrackerDB extends RoomDatabase {
     public abstract dao_mentors dao_mentors();
     public abstract dao_terms dao_terms();
 
-    private static volatile TermTrackerDB INSTANCE;
+    private static volatile TermTrackerDB tdb;
 
-    static TermTrackerDB getDatabase(final Context context) {
-        if (INSTANCE == null) {
+    static TermTrackerDB get_database(final Context context) {
+        if (tdb == null) {
             synchronized (TermTrackerDB.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), TermTrackerDB.class, "schedule_management_database")
-                            .fallbackToDestructiveMigration()
-                            .addCallback(sRoomDatabaseCallback)
-                            .build();
+                if (tdb == null) {
+                    tdb = Room.databaseBuilder(context.getApplicationContext(), TermTrackerDB.class, "schedule_management_database").fallbackToDestructiveMigration().addCallback(S_ROOM_DATABASE_CALLBACK).build();
                 }
             }
         }
-        return INSTANCE;
+        return tdb;
     }
-    private static final RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
+    private static final RoomDatabase.Callback S_ROOM_DATABASE_CALLBACK = new RoomDatabase.Callback() {
 
         @Override
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
-            new DB_Fill(INSTANCE).execute();
+            new DB_Fill(tdb).execute();
         }
     };
 
@@ -59,7 +53,6 @@ public abstract class TermTrackerDB extends RoomDatabase {
             dao_terms daoTerms = db.dao_terms();
         }
 
-        // TODO: Ended here so far
         @Override
         protected Void doInBackground(final Void... params) {
             return null;

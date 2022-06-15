@@ -29,7 +29,7 @@ public class AssessmentViewModel extends AndroidViewModel {
         mAssociatedAssessments=mRepository.getAssociatedAssessments(courseID);
     }
 
-    public LiveData<List<entity_assessment>> getAssociatedAssessments(int courseID){
+    public LiveData<List<entity_assessment>> get_course_assessments(int courseID){
         return mRepository.getAssociatedAssessments(courseID);
     }
 

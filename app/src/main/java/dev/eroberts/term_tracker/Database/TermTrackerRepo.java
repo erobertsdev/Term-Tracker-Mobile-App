@@ -32,18 +32,18 @@ public class TermTrackerRepo {
     private int termID;
 
     public TermTrackerRepo(Application application){
-        TermTrackerDB db= TermTrackerDB.getDatabase(application);
+        TermTrackerDB db= TermTrackerDB.get_database(application);
         mDaoassessments =db.dao_assessments();
-        mAllAssessments= mDaoassessments.getAllAssessments();
-        mAssociatedAssessments= mDaoassessments.getAllAssociatedAssessments(courseID);
+        mAllAssessments= mDaoassessments.get_all_assessments();
+        mAssociatedAssessments= mDaoassessments.get_course_assessments(courseID);
         mDaocourses =db.dao_courses();
-        mAllCourses= mDaocourses.getAllCourses();
-        mAssociatedCourses= mDaocourses.getAllAssociatedCourses(termID);
+        mAllCourses= mDaocourses.get_all_courses();
+        mAssociatedCourses= mDaocourses.get_associated_courses(termID);
         mDaomentors =db.dao_mentors();
-        mAllMentors= mDaomentors.getAllMentors();
-        mAssociatedMentors= mDaomentors.getAllAssociatedMentors(courseID);
+        mAllMentors= mDaomentors.get_all_mentors();
+        mAssociatedMentors= mDaomentors.get_course_mentors(courseID);
         mDaoterms =db.dao_terms();
-        mAllTerms= mDaoterms.getAllTerms();
+        mAllTerms= mDaoterms.get_all_terms();
 
     }
     public LiveData<List<entity_assessment>> getAllAssessments(){

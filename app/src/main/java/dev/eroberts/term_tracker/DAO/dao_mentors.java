@@ -1,10 +1,10 @@
 package dev.eroberts.term_tracker.DAO;
-import androidx.lifecycle.LiveData;
-import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.Delete;
+import androidx.lifecycle.LiveData;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Dao;
 
 import dev.eroberts.term_tracker.Entities.entity_mentor;
 
@@ -18,13 +18,10 @@ public interface dao_mentors {
     @Delete
     void delete(entity_mentor mentor);
 
-    @Query("DELETE FROM mentor_table")
-    void deleteAllMentors();
-
     @Query("SELECT * FROM mentor_table ORDER BY mentorID ASC")
-    LiveData<List<entity_mentor>> getAllMentors();
+    LiveData<List<entity_mentor>> get_all_mentors();
 
     @Query ("SELECT * FROM mentor_table WHERE courseID= :courseID ORDER BY mentorName ASC")
-    LiveData<List<entity_mentor>> getAllAssociatedMentors(int courseID);
+    LiveData<List<entity_mentor>> get_course_mentors(int courseID);
 }
 
