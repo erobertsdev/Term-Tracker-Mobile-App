@@ -15,16 +15,48 @@ import androidx.room.RoomDatabase;
 import androidx.room.Database;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+/**
+ * The type Term tracker db.
+ */
 @Database(entities = {entity_assessment.class, entity_course.class, entity_mentor.class, entity_term.class}, version = 4, exportSchema = false)
 
 public abstract class TermTrackerDB extends RoomDatabase {
+    /**
+     * Dao assessments dao assessments.
+     *
+     * @return the dao assessments
+     */
     public abstract dao_assessments dao_assessments();
+
+    /**
+     * Dao courses dao courses.
+     *
+     * @return the dao courses
+     */
     public abstract dao_courses dao_courses();
+
+    /**
+     * Dao mentors dao mentors.
+     *
+     * @return the dao mentors
+     */
     public abstract dao_mentors dao_mentors();
+
+    /**
+     * Dao terms dao terms.
+     *
+     * @return the dao terms
+     */
     public abstract dao_terms dao_terms();
 
     private static volatile TermTrackerDB tdb;
 
+    /**
+     * Gets database.
+     *
+     * @param context the context
+     * @return the database
+     */
     static TermTrackerDB get_database(final Context context) {
         if (tdb == null) {
             synchronized (TermTrackerDB.class) {
@@ -46,6 +78,11 @@ public abstract class TermTrackerDB extends RoomDatabase {
 
     private static class DB_Fill extends AsyncTask<Void, Void, Void> {
 
+        /**
+         * Instantiates a new Db fill.
+         *
+         * @param db the db
+         */
         DB_Fill(TermTrackerDB db) {
             db.dao_assessments();
             db.dao_courses();

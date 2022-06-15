@@ -11,7 +11,13 @@ import dev.eroberts.term_tracker.MentorsDetailsActivity;
 import dev.eroberts.term_tracker.R;
 import java.util.List;
 
+/**
+ * The type Mentor adapter.
+ */
 public class mentor_adapter extends RecyclerView.Adapter<mentor_adapter.mentor_view_holder> {
+    /**
+     * The type Mentor view holder.
+     */
     class mentor_view_holder extends RecyclerView.ViewHolder {
         private final TextView mentor_item_view;
         private mentor_view_holder(View itemView) {
@@ -36,6 +42,11 @@ public class mentor_adapter extends RecyclerView.Adapter<mentor_adapter.mentor_v
     private final Context context;
 
 
+    /**
+     * Instantiates a new Mentor adapter.
+     *
+     * @param context the context
+     */
     public mentor_adapter(Context context) {
         inflater_e = LayoutInflater.from(context);
         this.context=context;
@@ -57,6 +68,11 @@ public class mentor_adapter extends RecyclerView.Adapter<mentor_adapter.mentor_v
         }
     }
 
+    /**
+     * Sets words.
+     *
+     * @param words the words
+     */
     public void setWords(List<entity_mentor> words) {
         mentors_list = words;
         notifyDataSetChanged();

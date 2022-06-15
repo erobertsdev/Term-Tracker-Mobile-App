@@ -3,9 +3,7 @@ package dev.eroberts.term_tracker;
 import android.content.Intent;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.R;
-
-import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
+import dev.eroberts.term_tracker.ViewModel.mentor_view_model;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -17,7 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 public class MentorsDetailsActivity extends AppCompatActivity {
-    private MentorViewModel mMentorViewModel;
+    private mentor_view_model mMentorViewModel;
     private EditText mEditName;
     private EditText mEditEmail;
     private EditText mEditPhone;
@@ -25,16 +23,16 @@ public class MentorsDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mMentorViewModel = new ViewModelProvider(this).get(MentorViewModel.class);
+        mMentorViewModel = new ViewModelProvider(this).get(mentor_view_model.class);
         setContentView(R.layout.activity_mentors_details);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        mEditName=findViewById(R.id.textView9);
-        mEditEmail=findViewById(R.id.textView10);
-        mEditPhone=findViewById(R.id.textView11);
+        mEditName=findViewById(R.id.assessment_details_name);
+        mEditEmail=findViewById(R.id.assessment_details_date);
+        mEditPhone=findViewById(R.id.assessment_details_type);
 
         String temp=getIntent().getStringExtra("mentorName");
         if(getIntent().getStringExtra("mentorName")!=null) {

@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import dev.eroberts.term_tracker.Entities.entity_term;
 
-import dev.eroberts.term_tracker.ViewModel.TermViewModel;
+import dev.eroberts.term_tracker.ViewModel.term_view_model;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +26,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class TermsAddActivity extends AppCompatActivity {
-    private TermViewModel mTermViewModel;
+    private term_view_model mTermViewModel;
     private EditText mEditName;
     private EditText mEditStart;
     private EditText mEditEnd;
@@ -36,7 +36,7 @@ public class TermsAddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mTermViewModel = new ViewModelProvider(this).get(TermViewModel.class);
+        mTermViewModel = new ViewModelProvider(this).get(term_view_model.class);
         setContentView(R.layout.activity_terms_add);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

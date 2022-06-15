@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import dev.eroberts.term_tracker.Entities.entity_term;
 
-import dev.eroberts.term_tracker.ViewModel.TermViewModel;
+import dev.eroberts.term_tracker.ViewModel.term_view_model;
 import dev.eroberts.term_tracker.UI.term_adapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -22,13 +22,13 @@ import android.widget.ImageView;
 import java.util.List;
 
 public class TermsActivity extends AppCompatActivity {
-    private TermViewModel mTermViewModel;
+    private term_view_model mTermViewModel;
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mTermViewModel=new ViewModelProvider(this).get(TermViewModel.class);
+        mTermViewModel=new ViewModelProvider(this).get(term_view_model.class);
         setContentView(R.layout.activity_terms);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

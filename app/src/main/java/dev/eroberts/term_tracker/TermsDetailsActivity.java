@@ -9,8 +9,8 @@ import android.os.Bundle;
 import dev.eroberts.term_tracker.Entities.entity_course;
 
 import dev.eroberts.term_tracker.ViewModel.course_view_model;
-import dev.eroberts.term_tracker.ViewModel.MyReceiver;
-import dev.eroberts.term_tracker.ViewModel.TermViewModel;
+import dev.eroberts.term_tracker.ViewModel.notification_receiver;
+import dev.eroberts.term_tracker.ViewModel.term_view_model;
 import dev.eroberts.term_tracker.UI.course_adapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -37,7 +37,7 @@ import java.util.Date;
 import java.util.List;
 
 public class TermsDetailsActivity extends AppCompatActivity {
-    private TermViewModel mTermViewModel;
+    private term_view_model mTermViewModel;
     private course_view_model mCourseViewModel;
     private EditText mEditName;
     private EditText mEditStart;
@@ -49,16 +49,16 @@ public class TermsDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mTermViewModel = new ViewModelProvider(this).get(TermViewModel.class);
+        mTermViewModel = new ViewModelProvider(this).get(term_view_model.class);
         setContentView(R.layout.activity_terms_details);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        mEditName=findViewById(R.id.textView9);
-        mEditStart=findViewById(R.id.textView10);
-        mEditEnd=findViewById(R.id.textView11);
+        mEditName=findViewById(R.id.assessment_details_name);
+        mEditStart=findViewById(R.id.assessment_details_date);
+        mEditEnd=findViewById(R.id.assessment_details_type);
 
         String temp=getIntent().getStringExtra("termName");
         if(getIntent().getStringExtra("termName")!=null) {
@@ -135,7 +135,7 @@ public class TermsDetailsActivity extends AppCompatActivity {
 
 
         if(id == R.id.TermStartReminder) {
-            Intent intent = new Intent(TermsDetailsActivity.this, MyReceiver.class);
+            Intent intent = new Intent(TermsDetailsActivity.this, notification_receiver.class);
             intent.putExtra("key", "You have a Term starting today!");
             PendingIntent sender= PendingIntent.getBroadcast(TermsDetailsActivity.this, 3, intent, 0);
             AlarmManager alarmManager=(AlarmManager)getSystemService((Context.ALARM_SERVICE));
@@ -153,7 +153,7 @@ public class TermsDetailsActivity extends AppCompatActivity {
             }
         }
         if(id == R.id.TermEndReminder) {
-            Intent intent = new Intent(TermsDetailsActivity.this, MyReceiver.class);
+            Intent intent = new Intent(TermsDetailsActivity.this, notification_receiver.class);
             intent.putExtra("key", "You have a Term ending today!");
             PendingIntent sender= PendingIntent.getBroadcast(TermsDetailsActivity.this, 4, intent, 0);
             AlarmManager alarmManager=(AlarmManager)getSystemService((Context.ALARM_SERVICE));

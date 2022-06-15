@@ -11,7 +11,13 @@ import dev.eroberts.term_tracker.Entities.entity_course;
 import dev.eroberts.term_tracker.R;
 import java.util.List;
 
+/**
+ * The type Course adapter.
+ */
 public class course_adapter extends RecyclerView.Adapter<course_adapter.course_view_holder> {
+    /**
+     * The type Course view holder.
+     */
     class course_view_holder extends RecyclerView.ViewHolder {
         private final TextView course_item_view;
         private course_view_holder(View itemView) {
@@ -38,6 +44,11 @@ public class course_adapter extends RecyclerView.Adapter<course_adapter.course_v
     private final Context context;
 
 
+    /**
+     * Instantiates a new Course adapter.
+     *
+     * @param context the context
+     */
     public course_adapter(Context context) {
         inflater_e = LayoutInflater.from(context);
         this.context=context;
@@ -59,6 +70,11 @@ public class course_adapter extends RecyclerView.Adapter<course_adapter.course_v
         }
     }
 
+    /**
+     * Sets words.
+     *
+     * @param words the words
+     */
     public void setWords(List<entity_course> words) {
         courses_list = words;
         notifyDataSetChanged();

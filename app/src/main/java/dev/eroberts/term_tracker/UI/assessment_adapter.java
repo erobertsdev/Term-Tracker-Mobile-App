@@ -12,8 +12,14 @@ import dev.eroberts.term_tracker.R;
 
 import java.util.List;
 
+/**
+ * The type Assessment adapter.
+ */
 public class assessment_adapter extends RecyclerView.Adapter<assessment_adapter.AssessmentViewHolder> {
 
+    /**
+     * The type Assessment view holder.
+     */
     class AssessmentViewHolder extends RecyclerView.ViewHolder {
         private final TextView assessment_item_view;
 
@@ -38,6 +44,11 @@ public class assessment_adapter extends RecyclerView.Adapter<assessment_adapter.
     private final Context context;
     private List<entity_assessment> assessments_list;
 
+    /**
+     * Instantiates a new Assessment adapter.
+     *
+     * @param context the context
+     */
     public assessment_adapter(Context context) {
         inflater_e = LayoutInflater.from(context);
         this.context=context;
@@ -60,6 +71,11 @@ public class assessment_adapter extends RecyclerView.Adapter<assessment_adapter.
         }
     }
 
+    /**
+     * Sets words.
+     *
+     * @param words the words
+     */
     public void setWords(List<entity_assessment> words) {
         assessments_list = words;
         notifyDataSetChanged();

@@ -11,8 +11,8 @@ import dev.eroberts.term_tracker.Entities.entity_mentor;
 
 import dev.eroberts.term_tracker.ViewModel.assessment_view_model;
 import dev.eroberts.term_tracker.ViewModel.course_view_model;
-import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
-import dev.eroberts.term_tracker.ViewModel.MyReceiver;
+import dev.eroberts.term_tracker.ViewModel.mentor_view_model;
+import dev.eroberts.term_tracker.ViewModel.notification_receiver;
 import dev.eroberts.term_tracker.UI.assessment_adapter;
 import dev.eroberts.term_tracker.UI.mentor_adapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -41,7 +41,7 @@ import java.util.List;
 public class CoursesDetailsActivity extends AppCompatActivity {
     private course_view_model mCourseViewModel;
     private assessment_view_model mAssessmentViewModel;
-    private MentorViewModel mMentorViewModel;
+    private mentor_view_model mMentorViewModel;
     private EditText mEditName;
     private EditText mEditStart;
     private EditText mEditEnd;
@@ -64,9 +64,9 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        mEditName = findViewById(R.id.textView9);
-        mEditStart = findViewById(R.id.textView10);
-        mEditEnd = findViewById(R.id.textView11);
+        mEditName = findViewById(R.id.assessment_details_name);
+        mEditStart = findViewById(R.id.assessment_details_date);
+        mEditEnd = findViewById(R.id.assessment_details_type);
         mEditStatus = findViewById(R.id.textView13);
         mEditNotes = findViewById(R.id.textView14);
 
@@ -138,7 +138,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
             final mentor_adapter adapter2 = new mentor_adapter(this);
             recyclerView2.setAdapter(adapter2);
             recyclerView2.setLayoutManager(new LinearLayoutManager(this));
-            mMentorViewModel = new ViewModelProvider(this).get(MentorViewModel.class);
+            mMentorViewModel = new ViewModelProvider(this).get(mentor_view_model.class);
             mMentorViewModel.getAllMentors().observe(this, new Observer<List<entity_mentor>>() {
                 @Override
                 public void onChanged(@Nullable final List<entity_mentor> words) {
@@ -219,7 +219,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
             return true;
         }
         if(id == R.id.CourseStartReminder) {
-            Intent intent = new Intent(CoursesDetailsActivity.this, MyReceiver.class);
+            Intent intent = new Intent(CoursesDetailsActivity.this, notification_receiver.class);
             intent.putExtra("key", "You have a course starting today!");
             PendingIntent sender= PendingIntent.getBroadcast(CoursesDetailsActivity.this, 0, intent, 0);
             AlarmManager alarmManager=(AlarmManager)getSystemService((Context.ALARM_SERVICE));
@@ -237,7 +237,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
             }
         }
         if(id == R.id.CourseEndReminder) {
-            Intent intent = new Intent(CoursesDetailsActivity.this, MyReceiver.class);
+            Intent intent = new Intent(CoursesDetailsActivity.this, notification_receiver.class);
             intent.putExtra("key", "You have a course ending today!");
             PendingIntent sender= PendingIntent.getBroadcast(CoursesDetailsActivity.this, 1, intent, 0);
             AlarmManager alarmManager=(AlarmManager)getSystemService((Context.ALARM_SERVICE));

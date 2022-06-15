@@ -1,62 +1,64 @@
 package dev.eroberts.term_tracker;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
 import dev.eroberts.term_tracker.ViewModel.assessment_view_model;
-import dev.eroberts.term_tracker.ViewModel.MyReceiver;
+import dev.eroberts.term_tracker.ViewModel.notification_receiver;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * The type Assessments details activity.
+ */
 public class AssessmentsDetailsActivity extends AppCompatActivity {
-    private assessment_view_model mAssessmentViewModel;
-    private EditText mEditName;
-    private EditText mEditDate;
-    private EditText mEditType;
+    private assessment_view_model assessment_view_model_e;
+    private EditText edit_name_e;
+    private EditText edit_date_e;
+    private EditText edit_type_e;
+    /**
+     * The Date.
+     */
     long date;
-    public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
+    /**
+     * The constant REQUEST.
+     */
+    public static final int REQUEST = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAssessmentViewModel = new ViewModelProvider(this).get(assessment_view_model.class);
+        assessment_view_model_e = new ViewModelProvider(this).get(assessment_view_model.class);
         setContentView(R.layout.activity_assessments_details);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        mEditName=findViewById(R.id.textView9);
-        mEditDate=findViewById(R.id.textView10);
-        mEditType=findViewById(R.id.textView11);
-
+        edit_name_e =findViewById(R.id.assessment_details_name);
+        edit_date_e =findViewById(R.id.assessment_details_date);
+        edit_type_e =findViewById(R.id.assessment_details_type);
         String temp=getIntent().getStringExtra("assessmentName");
         if(getIntent().getStringExtra("assessmentName")!=null) {
-            mEditName.setText(getIntent().getStringExtra("assessmentName"));
-            mEditDate.setText(getIntent().getStringExtra("assessmentDate"));
-            mEditType.setText(getIntent().getStringExtra("assessmentType"));
+            edit_name_e.setText(getIntent().getStringExtra("assessmentName"));
+            edit_date_e.setText(getIntent().getStringExtra("assessmentDate"));
+            edit_type_e.setText(getIntent().getStringExtra("assessmentType"));
         }
-
         FloatingActionButton fab = findViewById(R.id.fab);
         ImageView assessmentsEdit = findViewById(R.id.fab);
         assessmentsEdit.setOnClickListener((view) -> {
             Intent intent = new Intent( AssessmentsDetailsActivity.this, AssessmentsEditActivity.class);
-            startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+            startActivityForResult(intent, REQUEST);
             intent.putExtra("assessmentID", getIntent().getIntExtra("assessmentID", 0));
             intent.putExtra("Name", temp);
             intent.putExtra("Date", getIntent().getStringExtra("assessmentDate"));
@@ -76,16 +78,14 @@ public class AssessmentsDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-
-        if(id == R.id.AssessmentDateReminder) {
-            Intent intent = new Intent(AssessmentsDetailsActivity.this, MyReceiver.class);
+        if (id == R.id.AssessmentDateReminder) {
+            Intent intent = new Intent(AssessmentsDetailsActivity.this, notification_receiver.class);
             intent.putExtra("key", "You have an Assessment today!");
-            PendingIntent sender= PendingIntent.getBroadcast(AssessmentsDetailsActivity.this, 5, intent, 0);
-            AlarmManager alarmManager=(AlarmManager)getSystemService((Context.ALARM_SERVICE));
+            PendingIntent sender = PendingIntent.getBroadcast(AssessmentsDetailsActivity.this, 5, intent, 0);
+            AlarmManager alarmManager = (AlarmManager)getSystemService((Context.ALARM_SERVICE));
             SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy");
             try {
-                Date d = f.parse(mEditDate.getText().toString());
+                Date d = f.parse(edit_date_e.getText().toString());
                 long milli = d.getTime();
                 date = milli;
                 alarmManager.set(AlarmManager.RTC_WAKEUP, date, sender);

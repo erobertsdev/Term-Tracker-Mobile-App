@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <receiver
-            android:name="dev.eroberts.term_tracker.ViewModel.MyReceiver"
+            android:name="dev.eroberts.term_tracker.ViewModel.notification_receiver"
             android:enabled="true"
             android:exported="true"></receiver>
 

@@ -11,7 +11,13 @@ import dev.eroberts.term_tracker.R;
 import dev.eroberts.term_tracker.TermsDetailsActivity;
 import java.util.List;
 
+/**
+ * The type Term adapter.
+ */
 public class term_adapter extends RecyclerView.Adapter<term_adapter.term_view_holder> {
+    /**
+     * The type Term view holder.
+     */
     class term_view_holder extends RecyclerView.ViewHolder {
         private final TextView termItemView;
         private term_view_holder(View itemView) {
@@ -35,6 +41,11 @@ public class term_adapter extends RecyclerView.Adapter<term_adapter.term_view_ho
     private final Context context;
 
 
+    /**
+     * Instantiates a new Term adapter.
+     *
+     * @param context the context
+     */
     public term_adapter(Context context) {
         inflater_e = LayoutInflater.from(context);
         this.context=context;
@@ -56,6 +67,11 @@ public class term_adapter extends RecyclerView.Adapter<term_adapter.term_view_ho
         }
     }
 
+    /**
+     * Sets words.
+     *
+     * @param words the words
+     */
     public void setWords(List<entity_term> words) {
         terms_list = words;
         notifyDataSetChanged();

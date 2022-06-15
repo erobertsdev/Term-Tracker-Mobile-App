@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import dev.eroberts.term_tracker.Entities.entity_mentor;
 
-import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
+import dev.eroberts.term_tracker.ViewModel.mentor_view_model;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,14 +20,14 @@ import android.widget.Toast;
 import java.util.List;
 
 public class MentorsAddActivity extends AppCompatActivity {
-    private MentorViewModel mMentorViewModel;
+    private mentor_view_model mMentorViewModel;
     private EditText mEditName;
     private EditText mEditEmail;
     private EditText mEditPhone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mMentorViewModel = new ViewModelProvider(this).get(MentorViewModel.class);
+        mMentorViewModel = new ViewModelProvider(this).get(mentor_view_model.class);
         setContentView(R.layout.activity_mentors_add);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
