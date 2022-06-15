@@ -6,7 +6,7 @@ import android.os.Bundle;
 import dev.eroberts.term_tracker.Entities.entity_mentor;
 
 import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
-import dev.eroberts.term_tracker.UI.MentorAdapter;
+import dev.eroberts.term_tracker.UI.mentor_adapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;
@@ -43,7 +43,7 @@ public class MentorsActivity extends AppCompatActivity {
             startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
         });
         RecyclerView recyclerView = findViewById(R.id.mentorsRV);
-        final MentorAdapter adapter = new MentorAdapter(this);
+        final mentor_adapter adapter = new mentor_adapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

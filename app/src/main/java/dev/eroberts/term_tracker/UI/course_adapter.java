@@ -12,10 +12,8 @@ import dev.eroberts.term_tracker.R;
 import java.util.List;
 
 public class course_adapter extends RecyclerView.Adapter<course_adapter.course_view_holder> {
-
     class course_view_holder extends RecyclerView.ViewHolder {
         private final TextView course_item_view;
-
         private course_view_holder(View itemView) {
             super(itemView);
             course_item_view = itemView.findViewById(R.id.coursesTextView);
@@ -35,9 +33,10 @@ public class course_adapter extends RecyclerView.Adapter<course_adapter.course_v
         }
     }
 
+    private List<entity_course> courses_list;
     private final LayoutInflater inflater_e;
     private final Context context;
-    private List<entity_course> courses_list;
+
 
     public course_adapter(Context context) {
         inflater_e = LayoutInflater.from(context);
@@ -52,7 +51,6 @@ public class course_adapter extends RecyclerView.Adapter<course_adapter.course_v
 
     @Override
     public void onBindViewHolder(course_view_holder holder, int position) {
-
         if(courses_list != null) {
             final entity_course current = courses_list.get(position);
             holder.course_item_view.setText(current.getCourseName());

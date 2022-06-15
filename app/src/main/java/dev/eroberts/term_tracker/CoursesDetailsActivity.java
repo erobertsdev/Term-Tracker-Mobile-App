@@ -14,7 +14,7 @@ import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
 import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
 import dev.eroberts.term_tracker.ViewModel.MyReceiver;
 import dev.eroberts.term_tracker.UI.assessment_adapter;
-import dev.eroberts.term_tracker.UI.MentorAdapter;
+import dev.eroberts.term_tracker.UI.mentor_adapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;
@@ -135,7 +135,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
             });
 
             RecyclerView recyclerView2 = findViewById(R.id.mentorsRV);
-            final MentorAdapter adapter2 = new MentorAdapter(this);
+            final mentor_adapter adapter2 = new mentor_adapter(this);
             recyclerView2.setAdapter(adapter2);
             recyclerView2.setLayoutManager(new LinearLayoutManager(this));
             mMentorViewModel = new ViewModelProvider(this).get(MentorViewModel.class);

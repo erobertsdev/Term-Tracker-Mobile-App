@@ -6,7 +6,7 @@ import android.os.Bundle;
 import dev.eroberts.term_tracker.Entities.entity_term;
 
 import dev.eroberts.term_tracker.ViewModel.TermViewModel;
-import dev.eroberts.term_tracker.UI.TermAdapter;
+import dev.eroberts.term_tracker.UI.term_adapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.Nullable;
@@ -43,7 +43,7 @@ public class TermsActivity extends AppCompatActivity {
             startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
         });
         RecyclerView recyclerView = findViewById(R.id.termsRV);
-        final TermAdapter adapter = new TermAdapter(this);
+        final term_adapter adapter = new term_adapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
