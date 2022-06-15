@@ -17,7 +17,7 @@ public class TermViewModel extends AndroidViewModel {
     public TermViewModel(Application application) {
         super(application);
         mRepository = new TermTrackerRepo(application);
-        mAllTerms = mRepository.getAllTerms();
+        mAllTerms = mRepository.get_all_terms();
     }
 
     public LiveData<List<entity_term>> getAllTerms() { return mAllTerms; }

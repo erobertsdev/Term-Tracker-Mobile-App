@@ -47,10 +47,10 @@ public abstract class TermTrackerDB extends RoomDatabase {
     private static class DB_Fill extends AsyncTask<Void, Void, Void> {
 
         DB_Fill(TermTrackerDB db) {
-            dao_assessments daoAssessments = db.dao_assessments();
-            dao_courses daoCourses = db.dao_courses();
-            dao_mentors daoMentors = db.dao_mentors();
-            dao_terms daoTerms = db.dao_terms();
+            db.dao_assessments();
+            db.dao_courses();
+            db.dao_mentors();
+            db.dao_terms();
         }
 
         @Override

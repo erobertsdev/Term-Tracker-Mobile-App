@@ -19,18 +19,18 @@ public class CourseViewModel extends AndroidViewModel {
     public CourseViewModel(Application application, int termID){
         super(application);
         mRepository=new TermTrackerRepo(application);
-        mAssociatedCourses=mRepository.getAssociatedCourses(termID);
+        mAssociatedCourses=mRepository.get_associated_courses(termID);
     }
 
     public CourseViewModel(Application application){
         super(application);
         mRepository=new TermTrackerRepo(application);
-        mAllCourses=mRepository.getAllCourses();
-        mAssociatedCourses=mRepository.getAssociatedCourses(termID);
+        mAllCourses=mRepository.get_all_courses();
+        mAssociatedCourses=mRepository.get_associated_courses(termID);
     }
 
     public LiveData<List<entity_course>> getAssociatedCourses(int termID){
-        return mRepository.getAssociatedCourses(termID);
+        return mRepository.get_associated_courses(termID);
     }
 
     public LiveData<List<entity_course>> getAllCourses() { return mAllCourses; };

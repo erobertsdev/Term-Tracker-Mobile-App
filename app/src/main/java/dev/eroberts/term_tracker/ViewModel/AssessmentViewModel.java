@@ -19,18 +19,18 @@ public class AssessmentViewModel extends AndroidViewModel {
     public AssessmentViewModel(Application application, int courseID){
         super(application);
         mRepository=new TermTrackerRepo(application);
-        mAssociatedAssessments=mRepository.getAssociatedAssessments(courseID);
+        mAssociatedAssessments=mRepository.get_associated_assessments(courseID);
     }
 
     public AssessmentViewModel(Application application){
         super(application);
         mRepository=new TermTrackerRepo(application);
-        mAllAssessments=mRepository.getAllAssessments();
-        mAssociatedAssessments=mRepository.getAssociatedAssessments(courseID);
+        mAllAssessments=mRepository.get_all_assessments();
+        mAssociatedAssessments=mRepository.get_associated_assessments(courseID);
     }
 
     public LiveData<List<entity_assessment>> get_course_assessments(int courseID){
-        return mRepository.getAssociatedAssessments(courseID);
+        return mRepository.get_associated_assessments(courseID);
     }
 
     public LiveData<List<entity_assessment>> getAllAssessments() { return mAllAssessments; };

@@ -19,18 +19,18 @@ public class MentorViewModel extends AndroidViewModel {
     public MentorViewModel(Application application, int courseID){
         super(application);
         mRepository=new TermTrackerRepo(application);
-        mAssociatedMentors=mRepository.getAssociatedMentors(courseID);
+        mAssociatedMentors=mRepository.get_associated_mentors(courseID);
     }
 
     public MentorViewModel(Application application){
         super(application);
         mRepository=new TermTrackerRepo(application);
-        mAllMentors=mRepository.getAllMentors();
-        mAssociatedMentors=mRepository.getAssociatedMentors(courseID);
+        mAllMentors=mRepository.get_all_mentors();
+        mAssociatedMentors=mRepository.get_associated_mentors(courseID);
     }
 
     public LiveData<List<entity_mentor>> getAssociatedMentors(int courseID){
-        return mRepository.getAssociatedMentors(courseID);
+        return mRepository.get_associated_mentors(courseID);
     }
 
     public LiveData<List<entity_mentor>> getAllMentors() { return mAllMentors; };

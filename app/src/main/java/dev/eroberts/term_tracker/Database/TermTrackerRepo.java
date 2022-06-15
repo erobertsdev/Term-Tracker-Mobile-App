@@ -17,196 +17,196 @@ import dev.eroberts.term_tracker.Entities.entity_mentor;
 import dev.eroberts.term_tracker.Entities.entity_term;
 
 public class TermTrackerRepo {
-    private final dao_assessments mDaoassessments;
-    private final dao_courses mDaocourses;
-    private final dao_mentors mDaomentors;
-    private final dao_terms mDaoterms;
-    private final LiveData<List<entity_assessment>> mAllAssessments;
-    private final LiveData<List<entity_assessment>> mAssociatedAssessments;
-    private final LiveData<List<entity_course>> mAllCourses;
-    private final LiveData<List<entity_course>> mAssociatedCourses;
-    private final LiveData<List<entity_mentor>> mAllMentors;
-    private final LiveData<List<entity_mentor>> mAssociatedMentors;
-    private final LiveData<List<entity_term>> mAllTerms;
-    private int courseID;
-    private int termID;
+    private final dao_assessments dao_assessments_e;
+    private final dao_courses dao_courses_e;
+    private final dao_mentors dao_mentors_e;
+    private final dao_terms dao_terms_e;
+    private final LiveData<List<entity_assessment>> all_assessments_e;
+    private final LiveData<List<entity_assessment>> associated_assessments_e;
+    private final LiveData<List<entity_course>> all_courses_e;
+    private final LiveData<List<entity_course>> associated_courses_e;
+    private final LiveData<List<entity_mentor>> all_mentors_e;
+    private final LiveData<List<entity_mentor>> associated_mentors_e;
+    private final LiveData<List<entity_term>> all_terms_e;
+    private int course_id;
+    private int term_id;
 
     public TermTrackerRepo(Application application){
-        TermTrackerDB db= TermTrackerDB.get_database(application);
-        mDaoassessments =db.dao_assessments();
-        mAllAssessments= mDaoassessments.get_all_assessments();
-        mAssociatedAssessments= mDaoassessments.get_course_assessments(courseID);
-        mDaocourses =db.dao_courses();
-        mAllCourses= mDaocourses.get_all_courses();
-        mAssociatedCourses= mDaocourses.get_associated_courses(termID);
-        mDaomentors =db.dao_mentors();
-        mAllMentors= mDaomentors.get_all_mentors();
-        mAssociatedMentors= mDaomentors.get_course_mentors(courseID);
-        mDaoterms =db.dao_terms();
-        mAllTerms= mDaoterms.get_all_terms();
+        TermTrackerDB db = TermTrackerDB.get_database(application);
+        dao_assessments_e = db.dao_assessments();
+        all_assessments_e = dao_assessments_e.get_all_assessments();
+        associated_assessments_e = dao_assessments_e.get_course_assessments(course_id);
+        dao_courses_e = db.dao_courses();
+        all_courses_e = dao_courses_e.get_all_courses();
+        associated_courses_e = dao_courses_e.get_associated_courses(term_id);
+        dao_mentors_e = db.dao_mentors();
+        all_mentors_e = dao_mentors_e.get_all_mentors();
+        associated_mentors_e = dao_mentors_e.get_course_mentors(course_id);
+        dao_terms_e = db.dao_terms();
+        all_terms_e = dao_terms_e.get_all_terms();
 
     }
-    public LiveData<List<entity_assessment>> getAllAssessments(){
-        return mAllAssessments;
+    public LiveData<List<entity_assessment>> get_all_assessments(){
+        return all_assessments_e;
     }
-    public LiveData<List<entity_assessment>> getAssociatedAssessments(int courseID){
-        return mAssociatedAssessments;}
-    public LiveData<List<entity_course>> getAllCourses(){
-        return mAllCourses;
+    public LiveData<List<entity_assessment>> get_associated_assessments(int course_id){
+        return associated_assessments_e;}
+    public LiveData<List<entity_course>> get_all_courses(){
+        return all_courses_e;
     }
-    public LiveData<List<entity_course>> getAssociatedCourses(int termID) { return mAssociatedCourses;}
-    public LiveData<List<entity_mentor>> getAllMentors() { return mAllMentors;}
-    public LiveData<List<entity_mentor>> getAssociatedMentors(int courseID) { return mAssociatedMentors;}
-    public LiveData<List<entity_term>> getAllTerms() { return mAllTerms;}
+    public LiveData<List<entity_course>> get_associated_courses(int term_id) { return associated_courses_e;}
+    public LiveData<List<entity_mentor>> get_all_mentors() { return all_mentors_e;}
+    public LiveData<List<entity_mentor>> get_associated_mentors(int course_id) { return associated_mentors_e;}
+    public LiveData<List<entity_term>> get_all_terms() { return all_terms_e;}
 
     public void insert (entity_assessment entityassessment) {
-        new insertAsyncTask1(mDaoassessments).execute(entityassessment);
+        new insert_async_task_1(dao_assessments_e).execute(entityassessment);
     }
 
-    private static class insertAsyncTask1 extends AsyncTask<entity_assessment, Void, Void> {
+    private static class insert_async_task_1 extends AsyncTask<entity_assessment, Void, Void> {
 
-        private final dao_assessments mAsyncTaskDao;
+        private final dao_assessments async_task_dao_e;
 
-        insertAsyncTask1(dao_assessments dao) {
-            mAsyncTaskDao = dao;
+        insert_async_task_1(dao_assessments dao) {
+            async_task_dao_e = dao;
         }
 
         @Override
         protected Void doInBackground(final entity_assessment... params) {
-            mAsyncTaskDao.insert(params[0]);
+            async_task_dao_e.insert(params[0]);
             return null;
         }
     }
 
     public void insert (entity_course entitycourse) {
-        new insertAsyncTask2(mDaocourses).execute(entitycourse);
+        new insert_async_task_2(dao_courses_e).execute(entitycourse);
     }
 
-    private static class insertAsyncTask2 extends AsyncTask<entity_course, Void, Void> {
+    private static class insert_async_task_2 extends AsyncTask<entity_course, Void, Void> {
 
-        private final dao_courses mAsyncTaskDao;
+        private final dao_courses async_task_dao_e;
 
-        insertAsyncTask2(dao_courses dao) {
-            mAsyncTaskDao = dao;
+        insert_async_task_2(dao_courses dao) {
+            async_task_dao_e = dao;
         }
 
         @Override
         protected Void doInBackground(final entity_course... params) {
-            mAsyncTaskDao.insert(params[0]);
+            async_task_dao_e.insert(params[0]);
             return null;
         }
     }
 
     public void insert (entity_mentor entitymentor) {
-        new insertAsyncTask3(mDaomentors).execute(entitymentor);
+        new insert_async_task_3(dao_mentors_e).execute(entitymentor);
     }
 
-    private static class insertAsyncTask3 extends AsyncTask<entity_mentor, Void, Void> {
+    private static class insert_async_task_3 extends AsyncTask<entity_mentor, Void, Void> {
 
-        private final dao_mentors mAsyncTaskDao;
+        private final dao_mentors async_task_dao_e;
 
-        insertAsyncTask3(dao_mentors dao) {
-            mAsyncTaskDao = dao;
+        insert_async_task_3(dao_mentors dao) {
+            async_task_dao_e = dao;
         }
 
         @Override
         protected Void doInBackground(final entity_mentor... params) {
-            mAsyncTaskDao.insert(params[0]);
+            async_task_dao_e.insert(params[0]);
             return null;
         }
     }
 
     public void insert (entity_term entityterm) {
-        new insertAsyncTask4(mDaoterms).execute(entityterm);
+        new insert_async_task_4(dao_terms_e).execute(entityterm);
     }
 
-    private static class insertAsyncTask4 extends AsyncTask<entity_term, Void, Void> {
+    private static class insert_async_task_4 extends AsyncTask<entity_term, Void, Void> {
 
-        private final dao_terms mAsyncTaskDao;
+        private final dao_terms async_task_dao_e;
 
-        insertAsyncTask4(dao_terms dao) {
-            mAsyncTaskDao = dao;
+        insert_async_task_4(dao_terms dao) {
+            async_task_dao_e = dao;
         }
 
         @Override
         protected Void doInBackground(final entity_term... params) {
-            mAsyncTaskDao.insert(params[0]);
+            async_task_dao_e.insert(params[0]);
             return null;
         }
     }
 
     public void delete (entity_assessment entityassessment) {
-        new deleteAsyncTask1(mDaoassessments).execute(entityassessment);
+        new delete_async_task_1(dao_assessments_e).execute(entityassessment);
     }
 
-    private static class deleteAsyncTask1 extends AsyncTask<entity_assessment, Void, Void> {
+    private static class delete_async_task_1 extends AsyncTask<entity_assessment, Void, Void> {
 
-        private final dao_assessments mAsyncTaskDao;
+        private final dao_assessments async_task_dao_e;
 
-        deleteAsyncTask1(dao_assessments dao) {
-            mAsyncTaskDao = dao;
+        delete_async_task_1(dao_assessments dao) {
+            async_task_dao_e = dao;
         }
 
         @Override
         protected Void doInBackground(final entity_assessment... params) {
-            mAsyncTaskDao.delete(params[0]);
+            async_task_dao_e.delete(params[0]);
             return null;
         }
     }
 
     public void delete (entity_course entitycourse) {
-        new deleteAsyncTask2(mDaocourses).execute(entitycourse);
+        new delete_async_task_2(dao_courses_e).execute(entitycourse);
     }
 
-    private static class deleteAsyncTask2 extends AsyncTask<entity_course, Void, Void> {
+    private static class delete_async_task_2 extends AsyncTask<entity_course, Void, Void> {
 
-        private final dao_courses mAsyncTaskDao;
+        private final dao_courses async_task_dao_e;
 
-        deleteAsyncTask2(dao_courses dao) {
-            mAsyncTaskDao = dao;
+        delete_async_task_2(dao_courses dao) {
+            async_task_dao_e = dao;
         }
 
         @Override
         protected Void doInBackground(final entity_course... params) {
-            mAsyncTaskDao.delete(params[0]);
+            async_task_dao_e.delete(params[0]);
             return null;
         }
     }
 
     public void delete (entity_mentor entitymentor) {
-        new deleteAsyncTask3(mDaomentors).execute(entitymentor);
+        new delete_async_task_3(dao_mentors_e).execute(entitymentor);
     }
 
-    private static class deleteAsyncTask3 extends AsyncTask<entity_mentor, Void, Void> {
+    private static class delete_async_task_3 extends AsyncTask<entity_mentor, Void, Void> {
 
-        private final dao_mentors mAsyncTaskDao;
+        private final dao_mentors async_task_dao_e;
 
-        deleteAsyncTask3(dao_mentors dao) {
-            mAsyncTaskDao = dao;
+        delete_async_task_3(dao_mentors dao) {
+            async_task_dao_e = dao;
         }
 
         @Override
         protected Void doInBackground(final entity_mentor... params) {
-            mAsyncTaskDao.delete(params[0]);
+            async_task_dao_e.delete(params[0]);
             return null;
         }
     }
 
     public void delete (entity_term entityterm) {
-        new deleteAsyncTask4(mDaoterms).execute(entityterm);
+        new delete_async_task_4(dao_terms_e).execute(entityterm);
     }
 
-    private static class deleteAsyncTask4 extends AsyncTask<entity_term, Void, Void> {
+    private static class delete_async_task_4 extends AsyncTask<entity_term, Void, Void> {
 
-        private final dao_terms mAsyncTaskDao;
+        private final dao_terms async_task_dao_e;
 
-        deleteAsyncTask4(dao_terms dao) {
-            mAsyncTaskDao = dao;
+        delete_async_task_4(dao_terms dao) {
+            async_task_dao_e = dao;
         }
 
         @Override
         protected Void doInBackground(final entity_term... params) {
-            mAsyncTaskDao.delete(params[0]);
+            async_task_dao_e.delete(params[0]);
             return null;
         }
     }
