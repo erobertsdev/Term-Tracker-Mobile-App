@@ -6,9 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import dev.eroberts.term_tracker.R;
-
-import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
+import dev.eroberts.term_tracker.ViewModel.assessment_view_model;
 import dev.eroberts.term_tracker.ViewModel.MyReceiver;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -27,7 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class AssessmentsDetailsActivity extends AppCompatActivity {
-    private AssessmentViewModel mAssessmentViewModel;
+    private assessment_view_model mAssessmentViewModel;
     private EditText mEditName;
     private EditText mEditDate;
     private EditText mEditType;
@@ -36,7 +34,7 @@ public class AssessmentsDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAssessmentViewModel = new ViewModelProvider(this).get(AssessmentViewModel.class);
+        mAssessmentViewModel = new ViewModelProvider(this).get(assessment_view_model.class);
         setContentView(R.layout.activity_assessments_details);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

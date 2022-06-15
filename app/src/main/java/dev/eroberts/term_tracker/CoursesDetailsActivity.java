@@ -9,7 +9,7 @@ import android.os.Bundle;
 import dev.eroberts.term_tracker.Entities.entity_assessment;
 import dev.eroberts.term_tracker.Entities.entity_mentor;
 
-import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
+import dev.eroberts.term_tracker.ViewModel.assessment_view_model;
 import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
 import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
 import dev.eroberts.term_tracker.ViewModel.MyReceiver;
@@ -40,7 +40,7 @@ import java.util.List;
 
 public class CoursesDetailsActivity extends AppCompatActivity {
     private CourseViewModel mCourseViewModel;
-    private AssessmentViewModel mAssessmentViewModel;
+    private assessment_view_model mAssessmentViewModel;
     private MentorViewModel mMentorViewModel;
     private EditText mEditName;
     private EditText mEditStart;
@@ -80,7 +80,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         }
 
 
-        mAssessmentViewModel = new ViewModelProvider(this).get(AssessmentViewModel.class);
+        mAssessmentViewModel = new ViewModelProvider(this).get(assessment_view_model.class);
         mAssessmentViewModel.getAllAssessments().observe(this, new Observer<List<entity_assessment>>() {
             @Override
             public void onChanged(@Nullable final List<entity_assessment> words) {
@@ -121,7 +121,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
             final assessment_adapter adapter1 = new assessment_adapter(this);
             recyclerView1.setAdapter(adapter1);
             recyclerView1.setLayoutManager(new LinearLayoutManager(this));
-            mAssessmentViewModel = new ViewModelProvider(this).get(AssessmentViewModel.class);
+            mAssessmentViewModel = new ViewModelProvider(this).get(assessment_view_model.class);
             mAssessmentViewModel.getAllAssessments().observe(this, new Observer<List<entity_assessment>>() {
                 @Override
                 public void onChanged(@Nullable final List<entity_assessment> words) {

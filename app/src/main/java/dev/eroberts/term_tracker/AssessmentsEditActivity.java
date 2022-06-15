@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import dev.eroberts.term_tracker.Entities.entity_assessment;
 
-import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
+import dev.eroberts.term_tracker.ViewModel.assessment_view_model;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +28,7 @@ import java.util.Calendar;
 import java.util.Objects;
 
 public class AssessmentsEditActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private AssessmentViewModel mAssessmentViewModel;
+    private assessment_view_model mAssessmentViewModel;
     private EditText mEditName;
     private EditText mEditDate;
     EditText DateTxt;
@@ -38,7 +38,7 @@ public class AssessmentsEditActivity extends AppCompatActivity implements Adapte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAssessmentViewModel = new ViewModelProvider(this).get(AssessmentViewModel.class);
+        mAssessmentViewModel = new ViewModelProvider(this).get(assessment_view_model.class);
         setContentView(R.layout.activity_assessments_edit);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

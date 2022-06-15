@@ -14,16 +14,16 @@ import java.util.Objects;
 
 import dev.eroberts.term_tracker.Entities.entity_assessment;
 import dev.eroberts.term_tracker.UI.assessment_adapter;
-import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
+import dev.eroberts.term_tracker.ViewModel.assessment_view_model;
 
 public class AssessmentsActivity extends AppCompatActivity {
-    private AssessmentViewModel mAssessmentViewModel;
+    private assessment_view_model mAssessmentViewModel;
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAssessmentViewModel=new ViewModelProvider(this).get(AssessmentViewModel.class);
+        mAssessmentViewModel=new ViewModelProvider(this).get(assessment_view_model.class);
         setContentView(R.layout.activity_assessments);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
