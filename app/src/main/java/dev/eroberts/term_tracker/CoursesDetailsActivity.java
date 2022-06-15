@@ -13,7 +13,7 @@ import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
 import dev.eroberts.term_tracker.ViewModel.CourseViewModel;
 import dev.eroberts.term_tracker.ViewModel.MentorViewModel;
 import dev.eroberts.term_tracker.ViewModel.MyReceiver;
-import dev.eroberts.term_tracker.UI.AssessmentAdapter;
+import dev.eroberts.term_tracker.UI.assessment_adapter;
 import dev.eroberts.term_tracker.UI.MentorAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -118,7 +118,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
 
         try {
             RecyclerView recyclerView1 = findViewById(R.id.assessmentsRV);
-            final AssessmentAdapter adapter1 = new AssessmentAdapter(this);
+            final assessment_adapter adapter1 = new assessment_adapter(this);
             recyclerView1.setAdapter(adapter1);
             recyclerView1.setLayoutManager(new LinearLayoutManager(this));
             mAssessmentViewModel = new ViewModelProvider(this).get(AssessmentViewModel.class);

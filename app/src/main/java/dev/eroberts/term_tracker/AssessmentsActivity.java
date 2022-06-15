@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Objects;
 
 import dev.eroberts.term_tracker.Entities.entity_assessment;
-import dev.eroberts.term_tracker.UI.AssessmentAdapter;
+import dev.eroberts.term_tracker.UI.assessment_adapter;
 import dev.eroberts.term_tracker.ViewModel.AssessmentViewModel;
 
 public class AssessmentsActivity extends AppCompatActivity {
@@ -39,7 +39,7 @@ public class AssessmentsActivity extends AppCompatActivity {
         });
 
         RecyclerView recyclerView = findViewById(R.id.assessmentsRV);
-        final AssessmentAdapter adapter = new AssessmentAdapter(this);
+        final assessment_adapter adapter = new assessment_adapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

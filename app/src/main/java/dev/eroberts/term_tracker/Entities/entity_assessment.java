@@ -6,8 +6,8 @@ import androidx.room.*;
 
 public class entity_assessment {
     @PrimaryKey
+    // DO NOT RENAME, breaks everythang
     private int assessmentID;
-
     private String assessmentName;
     private String assessmentDate;
     private String assessmentType;
