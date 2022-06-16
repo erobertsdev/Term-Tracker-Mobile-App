@@ -20,7 +20,7 @@ import java.util.Calendar;
 /**
  * The type Terms edit activity.
  */
-public class TermsEditActivity extends AppCompatActivity {
+public class Terms_Edit_Activity extends AppCompatActivity {
     private term_view_model view_term_model_e;
     private EditText edit_name_text;
     private EditText edit_start_text;
@@ -74,7 +74,7 @@ public class TermsEditActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        TermsEditActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        Terms_Edit_Activity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         month = month + 1;
@@ -90,7 +90,7 @@ public class TermsEditActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        TermsEditActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        Terms_Edit_Activity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         month = month + 1;
@@ -117,7 +117,7 @@ public class TermsEditActivity extends AppCompatActivity {
                         entity_term term = new entity_term(getIntent().getIntExtra("termID", 0), edit_name_text.getText().toString(), edit_start_text.getText().toString(),
                                 edit_end_text.getText().toString());
                         view_term_model_e.insert(term);
-                        Intent intent = new Intent(TermsEditActivity.this, TermsActivity.class);
+                        Intent intent = new Intent(Terms_Edit_Activity.this, Terms_Activity.class);
                         startActivity(intent);
                     }
                 }
@@ -135,7 +135,7 @@ public class TermsEditActivity extends AppCompatActivity {
                 view_term_model_e.delete(term);
 
                 Toast.makeText(getApplicationContext(), "Term Deleted",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(TermsEditActivity.this, TermsActivity.class);
+                Intent intent = new Intent(Terms_Edit_Activity.this, Terms_Activity.class);
                 startActivity(intent);
             }
             else {
@@ -146,7 +146,7 @@ public class TermsEditActivity extends AppCompatActivity {
     }
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent( TermsEditActivity.this, TermsDetailsActivity.class);
+        Intent intent = new Intent( Terms_Edit_Activity.this, Terms_Details_Activity.class);
         intent.putExtra("termName", getIntent().getStringExtra("Name"));
         intent.putExtra("termStart", getIntent().getStringExtra("Start"));
         intent.putExtra("termEnd", getIntent().getStringExtra("End"));

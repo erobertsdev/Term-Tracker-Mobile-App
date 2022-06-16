@@ -15,7 +15,7 @@ import dev.eroberts.term_tracker.ViewModel.assessment_view_model;
 /**
  * The type Assessments activity.
  */
-public class AssessmentsActivity extends AppCompatActivity {
+public class Assessments_Activity extends AppCompatActivity {
     private assessment_view_model assessment_view_model_e;
     /**
      * The constant REQUEST.
@@ -35,7 +35,7 @@ public class AssessmentsActivity extends AppCompatActivity {
         findViewById(R.id.fab);
         ImageView assessmentsAdd = findViewById(R.id.fab);
         assessmentsAdd.setOnClickListener((view) -> {
-            Intent intent = new Intent( AssessmentsActivity.this, AssessmentsAddActivity.class);
+            Intent intent = new Intent( Assessments_Activity.this, Assessments_Add_Activity.class);
             startActivityForResult(intent, REQUEST);
         });
 
@@ -55,7 +55,7 @@ public class AssessmentsActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent( AssessmentsActivity.this, MainActivity.class);
+        Intent intent = new Intent( Assessments_Activity.this, Main_Activity.class);
         startActivity(intent);
         super.onBackPressed();
         return true;

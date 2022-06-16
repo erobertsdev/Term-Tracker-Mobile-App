@@ -22,7 +22,7 @@ import java.util.Date;
 /**
  * The type Assessments details activity.
  */
-public class AssessmentsDetailsActivity extends AppCompatActivity {
+public class Assessments_Details_Activity extends AppCompatActivity {
     private assessment_view_model assessment_view_model_e;
     private EditText edit_date_e;
     /**
@@ -55,7 +55,7 @@ public class AssessmentsDetailsActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         ImageView assessmentsEdit = findViewById(R.id.fab);
         assessmentsEdit.setOnClickListener((view) -> {
-            Intent intent = new Intent( AssessmentsDetailsActivity.this, AssessmentsEditActivity.class);
+            Intent intent = new Intent( Assessments_Details_Activity.this, Assessments_Edit_Activity.class);
             startActivityForResult(intent, REQUEST);
             intent.putExtra("assessmentID", getIntent().getIntExtra("assessmentID", 0));
             intent.putExtra("Name", temp);
@@ -77,9 +77,9 @@ public class AssessmentsDetailsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.AssessmentDateReminder) {
-            Intent intent = new Intent(AssessmentsDetailsActivity.this, notification_receiver.class);
+            Intent intent = new Intent(Assessments_Details_Activity.this, notification_receiver.class);
             intent.putExtra("key", "You have an Assessment today!");
-            PendingIntent sender = PendingIntent.getBroadcast(AssessmentsDetailsActivity.this, 5, intent, 0);
+            PendingIntent sender = PendingIntent.getBroadcast(Assessments_Details_Activity.this, 5, intent, 0);
             AlarmManager alarmManager = (AlarmManager)getSystemService((Context.ALARM_SERVICE));
             SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy");
             try {
@@ -99,7 +99,7 @@ public class AssessmentsDetailsActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent( AssessmentsDetailsActivity.this, AssessmentsActivity.class);
+        Intent intent = new Intent( Assessments_Details_Activity.this, Assessments_Activity.class);
         startActivity(intent);
         super.onBackPressed();
         return true;

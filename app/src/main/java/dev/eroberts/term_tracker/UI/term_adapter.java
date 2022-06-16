@@ -8,7 +8,7 @@ import android.content.Intent;
 import androidx.recyclerview.widget.RecyclerView;
 import dev.eroberts.term_tracker.Entities.entity_term;
 import dev.eroberts.term_tracker.R;
-import dev.eroberts.term_tracker.TermsDetailsActivity;
+import dev.eroberts.term_tracker.Terms_Details_Activity;
 import java.util.List;
 
 /**
@@ -26,7 +26,7 @@ public class term_adapter extends RecyclerView.Adapter<term_adapter.term_view_ho
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
                 final entity_term current = terms_list.get(position);
-                Intent intent = new Intent(context, TermsDetailsActivity.class);
+                Intent intent = new Intent(context, Terms_Details_Activity.class);
                 intent.putExtra("termID", current.getTermID());
                 intent.putExtra("termName", current.getTermName());
                 intent.putExtra("termStart", current.getTermStart());

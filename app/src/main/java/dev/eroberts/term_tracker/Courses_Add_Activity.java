@@ -4,48 +4,59 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import dev.eroberts.term_tracker.Entities.entity_term;
-import dev.eroberts.term_tracker.ViewModel.term_view_model;
+import dev.eroberts.term_tracker.Entities.entity_course;
+import dev.eroberts.term_tracker.ViewModel.course_view_model;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import android.widget.Spinner;
+import android.widget.Toast;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
 import java.util.Calendar;
 import java.util.List;
 
 /**
- * The type Terms add activity.
+ * The type Courses add activity.
  */
-public class TermsAddActivity extends AppCompatActivity {
-    private term_view_model term_view_model_e;
-    private EditText edit_name_text;
-    private EditText edit_start_text;
-    private EditText edit_end_text;
+public class Courses_Add_Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+    private course_view_model course_view_model_e;
+    private EditText edit_name_e;
+    private EditText edit_start_e;
+    private EditText edit_end_e;
+    private EditText edit_notes_e;
     private ImageView start_dp;
     private ImageView end_dp;
     /**
-     * The On date set listener.
+     * The Set listener.
      */
-    DatePickerDialog.OnDateSetListener onDateSetListener;
+    DatePickerDialog.OnDateSetListener setListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        term_view_model_e = new ViewModelProvider(this).get(term_view_model.class);
-        setContentView(R.layout.activity_terms_add);
+        course_view_model_e = new ViewModelProvider(this).get(course_view_model.class);
+        setContentView(R.layout.activity_courses_add);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        edit_name_text =findViewById(R.id.term_name_text_field);
-        edit_start_text = findViewById(R.id.term_start_text_field);
-        edit_end_text = findViewById(R.id.term_end_text_field);
+        edit_name_e =findViewById(R.id.course_name_text);
+        edit_notes_e =findViewById(R.id.course_notes_text);
+        Spinner spinner = findViewById(R.id.course_status_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.status, R.layout.spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        spinner.setOnItemSelectedListener(this);
+        edit_start_e = findViewById(R.id.course_start_text);
+        edit_end_e = findViewById(R.id.course_end_text);
         start_dp = findViewById(R.id.start_date_picker);
         end_dp = findViewById(R.id.end_date_picker);
         Calendar calendar = Calendar.getInstance();
@@ -56,12 +67,12 @@ public class TermsAddActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        TermsAddActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        Courses_Add_Activity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         month = month + 1;
                         String date = month + "/" +dayOfMonth+ "/" +year;
-                        edit_start_text.setText(date);
+                        edit_start_e.setText(date);
                     }
                 }, year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
@@ -72,12 +83,12 @@ public class TermsAddActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        TermsAddActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        Courses_Add_Activity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        month = month + 1;
-                        String date = month + "/" + dayOfMonth + "/" + year;
-                        edit_end_text.setText(date);
+                        month = month+1;
+                        String date = month+"/"+dayOfMonth+"/"+year;
+                        edit_end_e.setText(date);
                     }
                 }, year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
@@ -85,9 +96,9 @@ public class TermsAddActivity extends AppCompatActivity {
             }
         });
         try {
-            term_view_model_e.getAllTerms().observe(this, new Observer<List<entity_term>>() {
+            course_view_model_e.getAllCourses().observe(this, new Observer<List<entity_course>>() {
                 @Override
-                public void onChanged(List<entity_term> termEntities) {
+                public void onChanged(List<entity_course> courseEntities) {
                 }
             });
         } catch (NullPointerException e) {
@@ -97,28 +108,38 @@ public class TermsAddActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String name = edit_name_text.getText().toString();
-                    String start = edit_start_text.getText().toString();
-                    String end = edit_end_text.getText().toString();
+                    String name = edit_name_e.getText().toString();
+                    String start = edit_start_e.getText().toString();
+                    String end = edit_end_e.getText().toString();
                     if(name.matches("") || start.matches("") || end.matches("")) {
                         Toast.makeText(getApplicationContext(), "All fields are required.",Toast.LENGTH_LONG).show();
                     }
                     else {
-                        entity_term term = new entity_term(term_view_model_e.lastID() + 1, edit_name_text.getText().toString(), edit_start_text.getText().toString(),
-                                edit_end_text.getText().toString());
-                        term_view_model_e.insert(term);
-                        Intent intent = new Intent(TermsAddActivity.this, TermsActivity.class);
+                        String spinnerTxt = spinner.getSelectedItem().toString();
+                        entity_course course = new entity_course(course_view_model_e.lastID() + 1, edit_name_e.getText().toString(), edit_start_e.getText().toString(), edit_end_e.getText().toString(),spinnerTxt, edit_notes_e.getText().toString(), 0);
+                        course_view_model_e.insert(course);
+                        Intent intent = new Intent(Courses_Add_Activity.this, Courses_Activity.class);
                         startActivity(intent);
                     }
-                }
+                    }
             });
         }
-        catch(NullPointerException e) {
+        catch (NullPointerException e) {
         }
     }
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

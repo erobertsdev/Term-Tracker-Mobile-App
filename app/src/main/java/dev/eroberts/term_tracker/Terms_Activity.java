@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * The type Terms activity.
  */
-public class TermsActivity extends AppCompatActivity {
+public class Terms_Activity extends AppCompatActivity {
     private term_view_model term_view_model_e;
     /**
      * The constant REQUEST.
@@ -38,7 +38,7 @@ public class TermsActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         ImageView termsAdd = findViewById(R.id.fab);
         termsAdd.setOnClickListener((view) -> {
-            Intent intent = new Intent( TermsActivity.this, TermsAddActivity.class);
+            Intent intent = new Intent( Terms_Activity.this, Terms_Add_Activity.class);
             startActivityForResult(intent, REQUEST);
         });
         RecyclerView recyclerView = findViewById(R.id.termsRV);
@@ -62,7 +62,7 @@ public class TermsActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent( TermsActivity.this, MainActivity.class);
+        Intent intent = new Intent( Terms_Activity.this, Main_Activity.class);
         startActivity(intent);
         super.onBackPressed();
         return true;

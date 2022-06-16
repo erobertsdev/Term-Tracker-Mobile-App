@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
 import dev.eroberts.term_tracker.Entities.entity_mentor;
-import dev.eroberts.term_tracker.MentorsDetailsActivity;
+import dev.eroberts.term_tracker.Mentors_Details_Activity;
 import dev.eroberts.term_tracker.R;
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class mentor_adapter extends RecyclerView.Adapter<mentor_adapter.mentor_v
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
                 final entity_mentor current = mentors_list.get(position);
-                Intent intent = new Intent(context, MentorsDetailsActivity.class);
+                Intent intent = new Intent(context, Mentors_Details_Activity.class);
                 intent.putExtra("mentorID", current.getMentorID());
                 intent.putExtra("mentorName", current.getMentorName());
                 intent.putExtra("mentorEmail", current.getMentorEmail());

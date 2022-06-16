@@ -6,17 +6,15 @@ import dev.eroberts.term_tracker.ViewModel.mentor_view_model;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import java.util.List;
 
 /**
- * The type Mentors add activity.
+ * The type Mentors edit activity.
  */
-public class MentorsAddActivity extends AppCompatActivity {
+public class Mentors_Edit_Activity extends AppCompatActivity {
     private mentor_view_model mentor_view_model_e;
     private EditText edit_name_text;
     private EditText edit_email_text;
@@ -25,23 +23,18 @@ public class MentorsAddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mentor_view_model_e = new ViewModelProvider(this).get(mentor_view_model.class);
-        setContentView(R.layout.activity_mentors_add);
+        setContentView(R.layout.activity_mentors_edit);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        edit_name_text =findViewById(R.id.mentor_name_text_field);
-        edit_email_text =findViewById(R.id.mentor_email_text_field);
-        edit_phone_text =findViewById(R.id.mentor_phone_text_field);
-        try {
-            mentor_view_model_e.getAllMentors().observe(this, new Observer<List<entity_mentor>>() {
-                @Override
-                public void onChanged(List<entity_mentor> mentorEntities) {
-                }
-            });
-        } catch (NullPointerException e) {
-        }
+        edit_name_text = findViewById(R.id.mentor_name_text_field);
+        edit_email_text = findViewById(R.id.mentor_email_text_field);
+        edit_phone_text = findViewById(R.id.mentor_phone_text_field);
+        edit_name_text.setText(getIntent().getStringExtra("Name"));
+        edit_email_text.setText(getIntent().getStringExtra("Email"));
+        edit_phone_text.setText(getIntent().getStringExtra("Phone"));
         try {
             FloatingActionButton fab = findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
@@ -50,13 +43,15 @@ public class MentorsAddActivity extends AppCompatActivity {
                     String name = edit_name_text.getText().toString();
                     String email = edit_email_text.getText().toString();
                     String phone = edit_phone_text.getText().toString();
+
                     if(name.matches("") || email.matches("") || phone.matches("")) {
                         Toast.makeText(getApplicationContext(), "All fields are required.",Toast.LENGTH_LONG).show();
                     }
                     else {
-                        entity_mentor mentor = new entity_mentor(mentor_view_model_e.lastID() + 1, edit_name_text.getText().toString(), edit_email_text.getText().toString(), edit_phone_text.getText().toString(), 0);
+                        entity_mentor mentor = new entity_mentor(getIntent().getIntExtra("mentorID", 0), edit_name_text.getText().toString(), edit_email_text.getText().toString(),
+                                edit_phone_text.getText().toString(), getIntent().getIntExtra("courseID", 0));
                         mentor_view_model_e.insert(mentor);
-                        Intent intent = new Intent(MentorsAddActivity.this, MentorsActivity.class);
+                        Intent intent = new Intent(Mentors_Edit_Activity.this, Mentors_Activity.class);
                         startActivity(intent);
                     }
                 }
@@ -64,10 +59,27 @@ public class MentorsAddActivity extends AppCompatActivity {
         }
         catch(NullPointerException e) {
         }
+        FloatingActionButton fab2 = findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                entity_mentor mentor = new entity_mentor(getIntent().getIntExtra("mentorID", 0), edit_name_text.getText().toString(), edit_email_text.getText().toString(),
+                        edit_phone_text.getText().toString(), getIntent().getIntExtra("courseID", 0));
+                mentor_view_model_e.delete(mentor);
+                Toast.makeText(getApplicationContext(), "Mentor Deleted",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Mentors_Edit_Activity.this, Mentors_Activity.class);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public boolean onSupportNavigateUp() {
-        onBackPressed();
+        Intent intent = new Intent( Mentors_Edit_Activity.this, Mentors_Details_Activity.class);
+        intent.putExtra("mentorName", getIntent().getStringExtra("Name"));
+        intent.putExtra("mentorEmail", getIntent().getStringExtra("Email"));
+        intent.putExtra("mentorPhone", getIntent().getStringExtra("Phone"));
+        startActivity(intent);
+        super.onBackPressed();
         return true;
     }
 }

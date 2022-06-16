@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * The type Courses activity.
  */
-public class CoursesActivity extends AppCompatActivity {
+public class Courses_Activity extends AppCompatActivity {
     private course_view_model course_view_model_e;
     /**
      * The constant REQUEST.
@@ -38,7 +38,7 @@ public class CoursesActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         ImageView coursesAdd = findViewById(R.id.fab);
         coursesAdd.setOnClickListener((view) -> {
-            Intent intent = new Intent( CoursesActivity.this, CoursesAddActivity.class);
+            Intent intent = new Intent( Courses_Activity.this, Courses_Add_Activity.class);
             startActivityForResult(intent, REQUEST);
         });
         RecyclerView recyclerView = findViewById(R.id.coursesRV);
@@ -60,7 +60,7 @@ public class CoursesActivity extends AppCompatActivity {
     }
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent( CoursesActivity.this, MainActivity.class);
+        Intent intent = new Intent( Courses_Activity.this, Main_Activity.class);
         startActivity(intent);
         super.onBackPressed();
         return true;

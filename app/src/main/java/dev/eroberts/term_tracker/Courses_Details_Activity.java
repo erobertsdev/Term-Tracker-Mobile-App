@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * The type Courses details activity.
  */
-public class CoursesDetailsActivity extends AppCompatActivity {
+public class Courses_Details_Activity extends AppCompatActivity {
     private course_view_model course_view_model_e;
     private assessment_view_model assessment_view_model_e;
     private mentor_view_model mentor_view_model_e;
@@ -94,7 +94,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
         });
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener((view) -> {
-            Intent intent = new Intent( CoursesDetailsActivity.this, CoursesEditActivity.class);
+            Intent intent = new Intent( Courses_Details_Activity.this, Courses_Edit_Activity.class);
             startActivityForResult(intent, REQUEST);
             intent.putExtra("courseID", getIntent().getIntExtra("courseID", 0));
             intent.putExtra("Name", temp);
@@ -213,9 +213,9 @@ public class CoursesDetailsActivity extends AppCompatActivity {
             return true;
         }
         if(id == R.id.CourseStartReminder) {
-            Intent intent = new Intent(CoursesDetailsActivity.this, notification_receiver.class);
+            Intent intent = new Intent(Courses_Details_Activity.this, notification_receiver.class);
             intent.putExtra("key", "A course is starting today");
-            PendingIntent sender= PendingIntent.getBroadcast(CoursesDetailsActivity.this, 0, intent, 0);
+            PendingIntent sender= PendingIntent.getBroadcast(Courses_Details_Activity.this, 0, intent, 0);
             AlarmManager alarmManager=(AlarmManager)getSystemService((Context.ALARM_SERVICE));
             SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy");
             try {
@@ -231,9 +231,9 @@ public class CoursesDetailsActivity extends AppCompatActivity {
             }
         }
         if(id == R.id.CourseEndReminder) {
-            Intent intent = new Intent(CoursesDetailsActivity.this, notification_receiver.class);
+            Intent intent = new Intent(Courses_Details_Activity.this, notification_receiver.class);
             intent.putExtra("key", "A course is ending today");
-            PendingIntent sender= PendingIntent.getBroadcast(CoursesDetailsActivity.this, 1, intent, 0);
+            PendingIntent sender= PendingIntent.getBroadcast(Courses_Details_Activity.this, 1, intent, 0);
             AlarmManager alarmManager=(AlarmManager)getSystemService((Context.ALARM_SERVICE));
             SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy");
             try {
@@ -253,7 +253,7 @@ public class CoursesDetailsActivity extends AppCompatActivity {
 
         @Override
         public boolean onSupportNavigateUp () {
-            Intent intent = new Intent(CoursesDetailsActivity.this, CoursesActivity.class);
+            Intent intent = new Intent(Courses_Details_Activity.this, Courses_Activity.class);
             startActivity(intent);
             super.onBackPressed();
             return true;

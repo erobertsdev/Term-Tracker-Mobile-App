@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * The type Mentors activity.
  */
-public class MentorsActivity extends AppCompatActivity {
+public class Mentors_Activity extends AppCompatActivity {
     private mentor_view_model mentore_view_model_e;
     /**
      * The constant REQUEST.
@@ -38,7 +38,7 @@ public class MentorsActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         ImageView mentorsAdd = findViewById(R.id.fab);
         mentorsAdd.setOnClickListener((view) -> {
-            Intent intent = new Intent( MentorsActivity.this, MentorsAddActivity.class);
+            Intent intent = new Intent( Mentors_Activity.this, Mentors_Add_Activity.class);
             startActivityForResult(intent, REQUEST);
         });
         RecyclerView recyclerView = findViewById(R.id.mentorsRV);
@@ -61,7 +61,7 @@ public class MentorsActivity extends AppCompatActivity {
     }
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent( MentorsActivity.this, MainActivity.class);
+        Intent intent = new Intent( Mentors_Activity.this, Main_Activity.class);
         startActivity(intent);
         super.onBackPressed();
         return true;

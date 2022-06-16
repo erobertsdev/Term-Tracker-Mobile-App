@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.LayoutInflater;
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
-import dev.eroberts.term_tracker.AssessmentsDetailsActivity;
+import dev.eroberts.term_tracker.Assessments_Details_Activity;
 import dev.eroberts.term_tracker.Entities.entity_assessment;
 import dev.eroberts.term_tracker.R;
 
@@ -29,7 +29,7 @@ public class assessment_adapter extends RecyclerView.Adapter<assessment_adapter.
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
                 final entity_assessment current = assessments_list.get(position);
-                Intent intent = new Intent(context, AssessmentsDetailsActivity.class);
+                Intent intent = new Intent(context, Assessments_Details_Activity.class);
                 intent.putExtra("assessmentID", current.getAssessmentID());
                 intent.putExtra("assessmentName", current.getAssessmentName());
                 intent.putExtra("assessmentDate", current.getAssessmentDate());

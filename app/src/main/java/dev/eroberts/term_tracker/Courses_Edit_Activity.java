@@ -24,7 +24,7 @@ import java.util.Objects;
 /**
  * The type Courses edit activity.
  */
-public class CoursesEditActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class Courses_Edit_Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private course_view_model course_view_model_e;
     private EditText edit_name_text;
     private EditText edit_start_text;
@@ -97,7 +97,7 @@ public class CoursesEditActivity extends AppCompatActivity implements AdapterVie
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        CoursesEditActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        Courses_Edit_Activity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         month = month + 1;
@@ -113,7 +113,7 @@ public class CoursesEditActivity extends AppCompatActivity implements AdapterVie
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        CoursesEditActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        Courses_Edit_Activity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         month = month+1;
@@ -141,7 +141,7 @@ public class CoursesEditActivity extends AppCompatActivity implements AdapterVie
                         entity_course course = new entity_course(getIntent().getIntExtra("courseID", 0), edit_name_text.getText().toString(), edit_start_text.getText().toString(),
                                 edit_end_text.getText().toString(), spinnerTxt, edit_notes_text.getText().toString(), getIntent().getIntExtra("termID", 0));
                         course_view_model_e.insert(course);
-                        Intent intent = new Intent(CoursesEditActivity.this, CoursesActivity.class);
+                        Intent intent = new Intent(Courses_Edit_Activity.this, Courses_Activity.class);
                         startActivity(intent);
                     }
                 }
@@ -159,7 +159,7 @@ public class CoursesEditActivity extends AppCompatActivity implements AdapterVie
                             edit_end_text.getText().toString(), spinnerTxt, edit_notes_text.getText().toString(), getIntent().getIntExtra("termID", 0));
                     course_view_model_e.delete(course);
                     Toast.makeText(getApplicationContext(), "Course Deleted",Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(CoursesEditActivity.this, CoursesActivity.class);
+                    Intent intent = new Intent(Courses_Edit_Activity.this, Courses_Activity.class);
                     startActivity(intent);
                 }
                 else {
@@ -172,7 +172,7 @@ public class CoursesEditActivity extends AppCompatActivity implements AdapterVie
 
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent( CoursesEditActivity.this, CoursesDetailsActivity.class);
+        Intent intent = new Intent( Courses_Edit_Activity.this, Courses_Details_Activity.class);
         intent.putExtra("courseID", getIntent().getIntExtra("courseID", 0));
         intent.putExtra("courseName", getIntent().getStringExtra("Name"));
         intent.putExtra("courseStart", getIntent().getStringExtra("Start"));

@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.view.View;
 import android.content.Context;
 import android.widget.TextView;
-import dev.eroberts.term_tracker.CoursesDetailsActivity;
+import dev.eroberts.term_tracker.Courses_Details_Activity;
 import dev.eroberts.term_tracker.Entities.entity_course;
 import dev.eroberts.term_tracker.R;
 import java.util.List;
@@ -26,7 +26,7 @@ public class course_adapter extends RecyclerView.Adapter<course_adapter.course_v
             itemView.setOnClickListener((v) -> {
                 int position = getAdapterPosition();
                 final entity_course current = courses_list.get(position);
-                Intent intent = new Intent(context, CoursesDetailsActivity.class);
+                Intent intent = new Intent(context, Courses_Details_Activity.class);
                 intent.putExtra("courseID", current.getCourseID());
                 intent.putExtra("courseName", current.getCourseName());
                 intent.putExtra("courseStart", current.getCourseStart());

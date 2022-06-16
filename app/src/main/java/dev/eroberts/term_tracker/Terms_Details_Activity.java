@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * The type Terms details activity.
  */
-public class TermsDetailsActivity extends AppCompatActivity {
+public class Terms_Details_Activity extends AppCompatActivity {
     private term_view_model term_view_model_e;
     private course_view_model course_view_model_e;
     private EditText edit_start_text;
@@ -73,7 +73,7 @@ public class TermsDetailsActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         ImageView termsEdit = findViewById(R.id.fab);
         termsEdit.setOnClickListener((view) -> {
-            Intent intent = new Intent( TermsDetailsActivity.this, TermsEditActivity.class);
+            Intent intent = new Intent( Terms_Details_Activity.this, Terms_Edit_Activity.class);
             startActivityForResult(intent, REQUEST);
             intent.putExtra("Name", temp);
             intent.putExtra("Start", getIntent().getStringExtra("termStart"));
@@ -133,9 +133,9 @@ public class TermsDetailsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.TermStartReminder) {
-            Intent intent = new Intent(TermsDetailsActivity.this, notification_receiver.class);
+            Intent intent = new Intent(Terms_Details_Activity.this, notification_receiver.class);
             intent.putExtra("key", "Term starts today!");
-            PendingIntent sender= PendingIntent.getBroadcast(TermsDetailsActivity.this, 3, intent, 0);
+            PendingIntent sender= PendingIntent.getBroadcast(Terms_Details_Activity.this, 3, intent, 0);
             AlarmManager alarmManager=(AlarmManager)getSystemService((Context.ALARM_SERVICE));
             SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy");
             try {
@@ -151,9 +151,9 @@ public class TermsDetailsActivity extends AppCompatActivity {
             }
         }
         if(id == R.id.TermEndReminder) {
-            Intent intent = new Intent(TermsDetailsActivity.this, notification_receiver.class);
+            Intent intent = new Intent(Terms_Details_Activity.this, notification_receiver.class);
             intent.putExtra("key", "Term ends today!");
-            PendingIntent sender= PendingIntent.getBroadcast(TermsDetailsActivity.this, 4, intent, 0);
+            PendingIntent sender= PendingIntent.getBroadcast(Terms_Details_Activity.this, 4, intent, 0);
             AlarmManager alarmManager=(AlarmManager)getSystemService((Context.ALARM_SERVICE));
             SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy");
             try {
@@ -174,7 +174,7 @@ public class TermsDetailsActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent( TermsDetailsActivity.this, TermsActivity.class);
+        Intent intent = new Intent( Terms_Details_Activity.this, Terms_Activity.class);
         startActivity(intent);
         super.onBackPressed();
         return true;

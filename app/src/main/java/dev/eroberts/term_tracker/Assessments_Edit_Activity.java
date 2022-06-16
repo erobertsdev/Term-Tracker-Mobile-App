@@ -25,7 +25,7 @@ import java.util.Objects;
 /**
  * The type Assessments edit activity.
  */
-public class AssessmentsEditActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class Assessments_Edit_Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private assessment_view_model assessment_view_model_e;
     private EditText edit_name_e;
     private EditText edit_date_e;
@@ -79,7 +79,7 @@ public class AssessmentsEditActivity extends AppCompatActivity implements Adapte
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        AssessmentsEditActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        Assessments_Edit_Activity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         month = month+1;
@@ -107,7 +107,7 @@ public class AssessmentsEditActivity extends AppCompatActivity implements Adapte
                         entity_assessment assessment = new entity_assessment(getIntent().getIntExtra("assessmentID", 0), edit_name_e.getText().toString(), edit_date_e.getText().toString(),
                                 spinnerTxt, getIntent().getIntExtra("courseID", 0));
                         assessment_view_model_e.insert(assessment);
-                        Intent intent = new Intent(AssessmentsEditActivity.this, AssessmentsActivity.class);
+                        Intent intent = new Intent(Assessments_Edit_Activity.this, Assessments_Activity.class);
                         startActivity(intent);
                     }
                 }
@@ -124,14 +124,14 @@ public class AssessmentsEditActivity extends AppCompatActivity implements Adapte
                         spinnerTxt, getIntent().getIntExtra("courseID", 0));
                 assessment_view_model_e.delete(assessment);
                 Toast.makeText(getApplicationContext(), "Assessment Deleted",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(AssessmentsEditActivity.this, AssessmentsActivity.class);
+                Intent intent = new Intent(Assessments_Edit_Activity.this, Assessments_Activity.class);
                 startActivity(intent);
             }
         });
     }
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent( AssessmentsEditActivity.this, AssessmentsDetailsActivity.class);
+        Intent intent = new Intent( Assessments_Edit_Activity.this, Assessments_Details_Activity.class);
         intent.putExtra("assessmentName", getIntent().getStringExtra("Name"));
         intent.putExtra("assessmentDate", getIntent().getStringExtra("Date"));
         intent.putExtra("assessmentType", getIntent().getStringExtra("Type"));

@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 /**
  * The type Mentors details activity.
  */
-public class MentorsDetailsActivity extends AppCompatActivity {
+public class Mentors_Details_Activity extends AppCompatActivity {
     private mentor_view_model mentor_view_model_e;
     /**
      * The constant REQUEST.
@@ -40,7 +40,7 @@ public class MentorsDetailsActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         ImageView mentorsEdit = findViewById(R.id.fab);
         mentorsEdit.setOnClickListener((view) -> {
-            Intent intent = new Intent( MentorsDetailsActivity.this, MentorsEditActivity.class);
+            Intent intent = new Intent( Mentors_Details_Activity.this, Mentors_Edit_Activity.class);
             startActivityForResult(intent, REQUEST);
             intent.putExtra("Name", temp);
             intent.putExtra("Email", getIntent().getStringExtra("mentorEmail"));
@@ -52,7 +52,7 @@ public class MentorsDetailsActivity extends AppCompatActivity {
     }
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent( MentorsDetailsActivity.this, MentorsActivity.class);
+        Intent intent = new Intent( Mentors_Details_Activity.this, Mentors_Activity.class);
         startActivity(intent);
         super.onBackPressed();
         return true;

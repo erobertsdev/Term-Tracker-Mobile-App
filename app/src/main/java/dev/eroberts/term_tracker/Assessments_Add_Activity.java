@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * The type Assessments add activity.
  */
-public class AssessmentsAddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class Assessments_Add_Activity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private assessment_view_model assessment_view_model_e;
     private EditText edit_name_e;
     private EditText edit_date_e;
@@ -65,7 +65,7 @@ public class AssessmentsAddActivity extends AppCompatActivity implements Adapter
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        AssessmentsAddActivity.this, new DatePickerDialog.OnDateSetListener() {
+                        Assessments_Add_Activity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         month = month + 1;
@@ -101,7 +101,7 @@ public class AssessmentsAddActivity extends AppCompatActivity implements Adapter
                             entity_assessment assessment = new entity_assessment(assessment_view_model_e.lastID() + 1, edit_name_e.getText().toString(), edit_date_e.getText().toString(),
                                     spinnerTxt, 0);
                             assessment_view_model_e.insert(assessment);
-                            Intent intent = new Intent(AssessmentsAddActivity.this, AssessmentsActivity.class);
+                            Intent intent = new Intent(Assessments_Add_Activity.this, Assessments_Activity.class);
                             startActivity(intent);
                         }
                     }
@@ -113,7 +113,7 @@ public class AssessmentsAddActivity extends AppCompatActivity implements Adapter
     }
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent( AssessmentsAddActivity.this, AssessmentsActivity.class);
+        Intent intent = new Intent( Assessments_Add_Activity.this, Assessments_Activity.class);
         startActivity(intent);
         super.onBackPressed();
         return true;
