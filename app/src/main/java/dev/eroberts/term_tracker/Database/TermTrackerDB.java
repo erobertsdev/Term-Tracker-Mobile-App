@@ -3,11 +3,11 @@ import android.content.Context;
 import android.os.AsyncTask;
 import dev.eroberts.term_tracker.DAO.dao_assessments;
 import dev.eroberts.term_tracker.DAO.dao_courses;
-import dev.eroberts.term_tracker.DAO.dao_mentors;
+import dev.eroberts.term_tracker.DAO.dao_instructors;
 import dev.eroberts.term_tracker.DAO.dao_terms;
 import dev.eroberts.term_tracker.Entities.entity_assessment;
 import dev.eroberts.term_tracker.Entities.entity_course;
-import dev.eroberts.term_tracker.Entities.entity_mentor;
+import dev.eroberts.term_tracker.Entities.entity_instructor;
 import dev.eroberts.term_tracker.Entities.entity_term;
 import androidx.room.Room;
 import androidx.annotation.NonNull;
@@ -18,7 +18,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 /**
  * The type Term tracker db.
  */
-@Database(entities = {entity_assessment.class, entity_course.class, entity_mentor.class, entity_term.class}, version = 4, exportSchema = false)
+@Database(entities = {entity_assessment.class, entity_course.class, entity_instructor.class, entity_term.class}, version = 4, exportSchema = false)
 
 public abstract class TermTrackerDB extends RoomDatabase {
     /**
@@ -36,11 +36,11 @@ public abstract class TermTrackerDB extends RoomDatabase {
     public abstract dao_courses dao_courses();
 
     /**
-     * Dao mentors dao mentors.
+     * Dao instructors dao instructors.
      *
-     * @return the dao mentors
+     * @return the dao instructors
      */
-    public abstract dao_mentors dao_mentors();
+    public abstract dao_instructors dao_instructors();
 
     /**
      * Dao terms dao terms.
@@ -86,7 +86,7 @@ public abstract class TermTrackerDB extends RoomDatabase {
         DB_Fill(TermTrackerDB db) {
             db.dao_assessments();
             db.dao_courses();
-            db.dao_mentors();
+            db.dao_instructors();
             db.dao_terms();
         }
 

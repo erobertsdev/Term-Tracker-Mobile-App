@@ -5,13 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import dev.eroberts.term_tracker.Entities.entity_assessment;
-import dev.eroberts.term_tracker.Entities.entity_mentor;
+import dev.eroberts.term_tracker.Entities.entity_instructor;
 import dev.eroberts.term_tracker.ViewModel.assessment_view_model;
 import dev.eroberts.term_tracker.ViewModel.course_view_model;
-import dev.eroberts.term_tracker.ViewModel.mentor_view_model;
+import dev.eroberts.term_tracker.ViewModel.instructor_view_model;
 import dev.eroberts.term_tracker.ViewModel.notification_receiver;
 import dev.eroberts.term_tracker.UI.assessment_adapter;
-import dev.eroberts.term_tracker.UI.mentor_adapter;
+import dev.eroberts.term_tracker.UI.instructor_adapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,7 +38,7 @@ import java.util.List;
 public class Courses_Details_Activity extends AppCompatActivity {
     private course_view_model course_view_model_e;
     private assessment_view_model assessment_view_model_e;
-    private mentor_view_model mentor_view_model_e;
+    private instructor_view_model instructor_view_model_e;
     private EditText edit_start_txt;
     private EditText edit_end_txt;
     /**
@@ -50,11 +50,11 @@ public class Courses_Details_Activity extends AppCompatActivity {
      */
     public static int number_of_assessments;
     /**
-     * The constant number_of_mentors.
+     * The constant number_of_instructors.
      */
-    public static int number_of_mentors;
+    public static int number_of_instructors;
     private List<entity_assessment> filtered_assessments_list;
-    private List<entity_mentor> filtered_mentors_list;
+    private List<entity_instructor> filtered_instructors_list;
     /**
      * The constant REQUEST.
      */
@@ -104,7 +104,7 @@ public class Courses_Details_Activity extends AppCompatActivity {
             intent.putExtra("Status", getIntent().getStringExtra("courseStatus"));
             intent.putExtra("termID", getIntent().getIntExtra("termID", 0));
             intent.putExtra("numAssessments", number_of_assessments);
-            intent.putExtra("numMentors", number_of_mentors);
+            intent.putExtra("numMentors", number_of_instructors);
             startActivity(intent);
         });
         FloatingActionButton aFAB = findViewById(R.id.aFAB);
@@ -132,20 +132,20 @@ public class Courses_Details_Activity extends AppCompatActivity {
                     number_of_assessments = filtered_assessments_list.size();
                 }
             });
-            RecyclerView recyclerView2 = findViewById(R.id.mentorsRV);
-            final mentor_adapter adapter2 = new mentor_adapter(this);
+            RecyclerView recyclerView2 = findViewById(R.id.instructorsRV);
+            final instructor_adapter adapter2 = new instructor_adapter(this);
             recyclerView2.setAdapter(adapter2);
             recyclerView2.setLayoutManager(new LinearLayoutManager(this));
-            mentor_view_model_e = new ViewModelProvider(this).get(mentor_view_model.class);
-            mentor_view_model_e.getAllMentors().observe(this, new Observer<List<entity_mentor>>() {
+            instructor_view_model_e = new ViewModelProvider(this).get(instructor_view_model.class);
+            instructor_view_model_e.getAllInstructors().observe(this, new Observer<List<entity_instructor>>() {
                 @Override
-                public void onChanged(@Nullable final List<entity_mentor> words) {
-                    filtered_mentors_list = new ArrayList<>();
-                    for (entity_mentor m : words)
+                public void onChanged(@Nullable final List<entity_instructor> words) {
+                    filtered_instructors_list = new ArrayList<>();
+                    for (entity_instructor m : words)
                         if (m.getCourseID() == getIntent().getIntExtra("courseID", 0))
-                            filtered_mentors_list.add(m);
-                    adapter2.setWords(filtered_mentors_list);
-                    number_of_mentors = filtered_mentors_list.size();
+                            filtered_instructors_list.add(m);
+                    adapter2.setWords(filtered_instructors_list);
+                    number_of_instructors = filtered_instructors_list.size();
                 }
             });
         } catch (NullPointerException e) {
@@ -175,16 +175,16 @@ public class Courses_Details_Activity extends AppCompatActivity {
 
     private void showPopupM(View v) {
         PopupMenu popup = new PopupMenu(this, v);
-        for(entity_mentor m : mentor_view_model_e.getAllMentors().getValue())
+        for(entity_instructor m : instructor_view_model_e.getAllInstructors().getValue())
             popup.getMenu().add(m.getMentorName());
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
 
-                for(entity_mentor m : mentor_view_model_e.getAllMentors().getValue()) {
+                for(entity_instructor m : instructor_view_model_e.getAllInstructors().getValue()) {
                     if(m.getMentorName().equals(item.toString())) {
                         m.setCourseID(getIntent().getIntExtra("courseID", 0));
-                        mentor_view_model_e.insert(m);
+                        instructor_view_model_e.insert(m);
                     }
                 }
                 return false;

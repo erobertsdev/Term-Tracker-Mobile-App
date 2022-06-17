@@ -57,22 +57,22 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="dev.eroberts.term_tracker.Mentors_Details_Activity"
-            android:label="@string/title_activity_mentors_details"
+            android:name="dev.eroberts.term_tracker.Instructors_Detail_Activity"
+            android:label="@string/title_activity_instructors_details"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="dev.eroberts.term_tracker.Mentors_Add_Activity"
-            android:label="@string/title_activity_mentors_add"
+            android:name="dev.eroberts.term_tracker.Instructors_Add_Activity"
+            android:label="@string/title_activity_instuctors_add"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="dev.eroberts.term_tracker.Mentors_Edit_Activity"
-            android:label="@string/title_activity_mentors_edit"
+            android:name="dev.eroberts.term_tracker.Instructors_Edit_Activity"
+            android:label="@string/title_activity_instructors_edit"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="dev.eroberts.term_tracker.Mentors_Activity"
-            android:label="@string/title_activity_mentors"
+            android:name="dev.eroberts.term_tracker.Instructors_Activity"
+            android:label="@string/title_activity_instructors"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="dev.eroberts.term_tracker.Assessments_Activity"

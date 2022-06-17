@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <TextView
-        android:id="@+id/mentors_button_title"
+        android:id="@+id/instructors_button_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/mentors"
@@ -15,12 +15,12 @@
         android:textColor="#FF5722"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/mentors_card_view"
-        app:layout_constraintStart_toStartOf="@+id/mentors_card_view"
-        app:layout_constraintTop_toBottomOf="@+id/mentors_card_view" />
+        app:layout_constraintEnd_toEndOf="@+id/instructors_card_view"
+        app:layout_constraintStart_toStartOf="@+id/instructors_card_view"
+        app:layout_constraintTop_toBottomOf="@+id/instructors_card_view" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/mentors_card_view"
+        android:id="@+id/instructors_card_view"
         android:layout_width="160dp"
         android:layout_height="160dp"
         app:cardBackgroundColor="@color/colorPrimaryDark"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/mentors_img"
+            android:id="@+id/instructors_img"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_margin="15dp"
@@ -86,7 +86,7 @@
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/mentors_card_view"
+        app:layout_constraintEnd_toStartOf="@+id/instructors_card_view"
         app:layout_constraintStart_toEndOf="@+id/courses_card_view"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -145,6 +145,6 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="62dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mentors_button_title" />
+        app:layout_constraintTop_toBottomOf="@+id/instructors_button_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,24 +9,26 @@
 
     <!-- Main Menu Strings-->
     <string name="terms">Terms</string>
-    <string name="mentors">Mentors</string>
+    <string name="instructors">Instructors</string>
     <string name="assessments">Assessments</string>
     <string name="courses">Courses</string>
+    <string name="mentors">Instructors</string>
 
-<!--    <string name="wgu_logo">WGU Logo</string>-->
     <!-- Activity Strings -->
     <string name="title_activity_terms">Terms</string>
     <string name="title_activity_courses">Courses</string>
     <string name="title_activity_assessments">Assessments</string>
-    <string name="title_activity_mentors">Mentors</string>
-    <string name="title_activity_mentors_edit">Edit Mentor</string>
+    <string name="title_activity_instructors">Instructors</string>
+    <string name="title_activity_instructors_edit">Edit Instructor</string>
 
     <!-- -->
+    <string name="instructor_name">Name</string>
     <string name="mentor_name">Name</string>
     <string name="email">Email</string>
     <string name="phone">Phone</string>
-    <string name="title_activity_mentors_add">Add Mentors</string>
-    <string name="title_activity_mentors_details">Mentor Details</string>
+    <string name="add_mentor">Add Instructor</string>
+    <string name="title_activity_instuctors_add">Add Instructors</string>
+    <string name="title_activity_instructors_details">Instructor Details</string>
     <string name="title_activity_assessments_add">Add Assessments</string>
     <string name="assessment_name">Assessment Name</string>
     <string name="assessment_date">Assessment Date</string>
@@ -49,7 +51,7 @@
     <string name="end_date_only">End Date</string>
     <string name="status_only">Status</string>
     <string name="add_course">Add Course</string>
-    <string name="add_mentor">Add Mentor</string>
+    <string name="add_instructor">Add Instructor</string>
     <string name="title_activity_terms_add">Add Terms</string>
     <string name="term_name">Term Name</string>
     <string name="title_activity_terms_edit">Edit Term</string>
@@ -58,7 +60,7 @@
     <string name="sharing">Sharing</string>
     <string name="notifications">Notifications</string>
     <string name="addAssessment">Add Assessment</string>
-    <string name="addMentor">Add Mentor</string>
+    <string name="addInstructor">Add Instructor</string>
     <!-- Assessment Type Strings -->
     <string-array name="type">
         <item>Objective Assessment</item>

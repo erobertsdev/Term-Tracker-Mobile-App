@@ -36,9 +36,9 @@ public class Main_Activity extends AppCompatActivity {
             Intent intent = new Intent( Main_Activity.this, Assessments_Activity.class);
             startActivityForResult(intent, REQUEST);
         });
-        ImageView mentors = findViewById(R.id.mentors_img);
+        ImageView mentors = findViewById(R.id.instructors_img);
         mentors.setOnClickListener((view) -> {
-            Intent intent = new Intent( Main_Activity.this, Mentors_Activity.class);
+            Intent intent = new Intent( Main_Activity.this, Instructors_Activity.class);
             startActivityForResult(intent, REQUEST);
         });
     }

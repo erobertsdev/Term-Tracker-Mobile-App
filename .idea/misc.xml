@@ -52,6 +52,10 @@
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/activity_courses_add.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/activity_courses_details.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/activity_courses_edit.xml" value="0.3625" />
+        <entry key="..\:/C196-TermTracker/app/src/main/res/layout/activity_instructors.xml" value="0.3625" />
+        <entry key="..\:/C196-TermTracker/app/src/main/res/layout/activity_instructors_add.xml" value="0.3625" />
+        <entry key="..\:/C196-TermTracker/app/src/main/res/layout/activity_instructors_details.xml" value="0.3625" />
+        <entry key="..\:/C196-TermTracker/app/src/main/res/layout/activity_instructors_edit.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/activity_mentors.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/activity_mentors_add.xml" value="0.3625" />
@@ -71,6 +75,10 @@
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_courses_add.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_courses_details.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_courses_edit.xml" value="0.3625" />
+        <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_instructors.xml" value="0.3625" />
+        <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_instructors_add.xml" value="0.3625" />
+        <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_instructors_details.xml" value="0.3625" />
+        <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_instructors_edit.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_main.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_mentors.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_mentors_add.xml" value="0.3625" />
@@ -81,6 +89,7 @@
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_terms_details.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/content_terms_edit.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/courses_list_items.xml" value="0.3625" />
+        <entry key="..\:/C196-TermTracker/app/src/main/res/layout/instructors_list_items.xml" value="0.3625" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/mentors_list_items.xml" value="0.18541666666666667" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/popup_menu.xml" value="0.18541666666666667" />
         <entry key="..\:/C196-TermTracker/app/src/main/res/layout/spinner_item.xml" value="0.18541666666666667" />

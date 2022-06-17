@@ -9,11 +9,11 @@ import java.util.List;
 
 import dev.eroberts.term_tracker.DAO.dao_assessments;
 import dev.eroberts.term_tracker.DAO.dao_courses;
-import dev.eroberts.term_tracker.DAO.dao_mentors;
+import dev.eroberts.term_tracker.DAO.dao_instructors;
 import dev.eroberts.term_tracker.DAO.dao_terms;
 import dev.eroberts.term_tracker.Entities.entity_assessment;
 import dev.eroberts.term_tracker.Entities.entity_course;
-import dev.eroberts.term_tracker.Entities.entity_mentor;
+import dev.eroberts.term_tracker.Entities.entity_instructor;
 import dev.eroberts.term_tracker.Entities.entity_term;
 
 /**
@@ -22,14 +22,14 @@ import dev.eroberts.term_tracker.Entities.entity_term;
 public class TermTrackerRepo {
     private final dao_assessments dao_assessments_e;
     private final dao_courses dao_courses_e;
-    private final dao_mentors dao_mentors_e;
+    private final dao_instructors dao_instructors_e;
     private final dao_terms dao_terms_e;
     private final LiveData<List<entity_assessment>> all_assessments_e;
     private final LiveData<List<entity_assessment>> associated_assessments_e;
     private final LiveData<List<entity_course>> all_courses_e;
     private final LiveData<List<entity_course>> associated_courses_e;
-    private final LiveData<List<entity_mentor>> all_mentors_e;
-    private final LiveData<List<entity_mentor>> associated_mentors_e;
+    private final LiveData<List<entity_instructor>> all_instructors_e;
+    private final LiveData<List<entity_instructor>> associated_instructors_e;
     private final LiveData<List<entity_term>> all_terms_e;
     private int course_id;
     private int term_id;
@@ -47,9 +47,9 @@ public class TermTrackerRepo {
         dao_courses_e = db.dao_courses();
         all_courses_e = dao_courses_e.get_all_courses();
         associated_courses_e = dao_courses_e.get_associated_courses(term_id);
-        dao_mentors_e = db.dao_mentors();
-        all_mentors_e = dao_mentors_e.get_all_mentors();
-        associated_mentors_e = dao_mentors_e.get_course_mentors(course_id);
+        dao_instructors_e = db.dao_instructors();
+        all_instructors_e = dao_instructors_e.get_all_instructors();
+        associated_instructors_e = dao_instructors_e.get_course_mentors(course_id);
         dao_terms_e = db.dao_terms();
         all_terms_e = dao_terms_e.get_all_terms();
 
@@ -95,7 +95,7 @@ public class TermTrackerRepo {
      *
      * @return the all mentors
      */
-    public LiveData<List<entity_mentor>> get_all_mentors() { return all_mentors_e;}
+    public LiveData<List<entity_instructor>> get_all_instructors() { return all_instructors_e;}
 
     /**
      * Gets associated mentors.
@@ -103,7 +103,7 @@ public class TermTrackerRepo {
      * @param course_id the course id
      * @return the associated mentors
      */
-    public LiveData<List<entity_mentor>> get_associated_mentors(int course_id) { return associated_mentors_e;}
+    public LiveData<List<entity_instructor>> get_associated_instructors(int course_id) { return associated_instructors_e;}
 
     /**
      * Gets all terms.
@@ -175,25 +175,25 @@ public class TermTrackerRepo {
      *
      * @param entitymentor the entitymentor
      */
-    public void insert (entity_mentor entitymentor) {
-        new insert_async_task_3(dao_mentors_e).execute(entitymentor);
+    public void insert (entity_instructor entitymentor) {
+        new insert_async_task_3(dao_instructors_e).execute(entitymentor);
     }
 
-    private static class insert_async_task_3 extends AsyncTask<entity_mentor, Void, Void> {
+    private static class insert_async_task_3 extends AsyncTask<entity_instructor, Void, Void> {
 
-        private final dao_mentors async_task_dao_e;
+        private final dao_instructors async_task_dao_e;
 
         /**
          * Instantiates a new Insert async task 3.
          *
          * @param dao the dao
          */
-        insert_async_task_3(dao_mentors dao) {
+        insert_async_task_3(dao_instructors dao) {
             async_task_dao_e = dao;
         }
 
         @Override
-        protected Void doInBackground(final entity_mentor... params) {
+        protected Void doInBackground(final entity_instructor... params) {
             async_task_dao_e.insert(params[0]);
             return null;
         }
@@ -289,27 +289,27 @@ public class TermTrackerRepo {
     /**
      * Delete.
      *
-     * @param entitymentor the entitymentor
+     * @param entityinstructor the entityinstructor
      */
-    public void delete (entity_mentor entitymentor) {
-        new delete_async_task_3(dao_mentors_e).execute(entitymentor);
+    public void delete (entity_instructor entityinstructor) {
+        new delete_async_task_3(dao_instructors_e).execute(entityinstructor);
     }
 
-    private static class delete_async_task_3 extends AsyncTask<entity_mentor, Void, Void> {
+    private static class delete_async_task_3 extends AsyncTask<entity_instructor, Void, Void> {
 
-        private final dao_mentors async_task_dao_e;
+        private final dao_instructors async_task_dao_e;
 
         /**
          * Instantiates a new Delete async task 3.
          *
          * @param dao the dao
          */
-        delete_async_task_3(dao_mentors dao) {
+        delete_async_task_3(dao_instructors dao) {
             async_task_dao_e = dao;
         }
 
         @Override
-        protected Void doInBackground(final entity_mentor... params) {
+        protected Void doInBackground(final entity_instructor... params) {
             async_task_dao_e.delete(params[0]);
             return null;
         }
