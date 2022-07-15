@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
+        android:id="@+id/instructors_card_view"
         android:layout_width="160dp"
         android:layout_height="160dp"
         app:cardBackgroundColor="@color/colorPrimaryDark"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.653">
 
         <ImageView
-            android:id="@+id/mentors_img"
+            android:id="@+id/instructors_img"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_margin="15dp"
@@ -30,27 +30,27 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/instructors_button_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/mentors"
+        android:text="@string/instructors"
         android:textAllCaps="true"
         android:textColor="#FF5722"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/cardView2"
+        app:layout_constraintEnd_toEndOf="@+id/instructors_card_view"
         app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        app:layout_constraintStart_toStartOf="@+id/instructors_card_view"
+        app:layout_constraintTop_toBottomOf="@+id/instructors_card_view" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/courses_card_view"
         android:layout_width="160dp"
         android:layout_height="160dp"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintBottom_toTopOf="@+id/instructors_card_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.856"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/courses_button_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -77,38 +77,21 @@
         android:textColor="#FF5722"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cardView2"
-        app:layout_constraintEnd_toEndOf="@+id/cardView3"
+        app:layout_constraintBottom_toTopOf="@+id/instructors_card_view"
+        app:layout_constraintEnd_toEndOf="@+id/courses_card_view"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/cardView3"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        app:layout_constraintStart_toStartOf="@+id/courses_card_view"
+        app:layout_constraintTop_toBottomOf="@+id/courses_card_view"
         app:layout_constraintVertical_bias="0.192" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/terms"
-        android:textAllCaps="true"
-        android:textColor="#FF5722"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cardView4"
-        app:layout_constraintEnd_toEndOf="@+id/cardView"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.205" />
-
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/terms_card_view"
         android:layout_width="wrap_content"
         android:layout_height="160dp"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView4"
-        app:layout_constraintEnd_toStartOf="@+id/cardView3"
+        app:layout_constraintBottom_toTopOf="@+id/assessments_card_view"
+        app:layout_constraintEnd_toStartOf="@+id/courses_card_view"
         app:layout_constraintHorizontal_bias="0.345"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -117,21 +100,22 @@
         <ImageView
             android:id="@+id/terms_img"
             android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_height="131dp"
             android:layout_margin="15dp"
             android:contentDescription="@string/terms"
             app:srcCompat="@drawable/ic_baseline_date_range_24"
             tools:ignore="ImageContrastCheck" />
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView4"
+        android:id="@+id/assessments_card_view"
         android:layout_width="160dp"
         android:layout_height="160dp"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         app:cardCornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cardView2"
+        app:layout_constraintEnd_toStartOf="@+id/instructors_card_view"
         app:layout_constraintHorizontal_bias="0.351"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -148,7 +132,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/assessments_button_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -157,10 +141,10 @@
         android:textColor="#FF5722"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/cardView4"
+        app:layout_constraintEnd_toEndOf="@+id/assessments_card_view"
         app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="@+id/cardView4"
-        app:layout_constraintTop_toBottomOf="@+id/cardView4" />
+        app:layout_constraintStart_toStartOf="@+id/assessments_card_view"
+        app:layout_constraintTop_toBottomOf="@+id/assessments_card_view" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
@@ -168,6 +152,22 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="62dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/instructors_button_title" />
+
+    <TextView
+        android:id="@+id/terms_button_title"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:text="@string/terms"
+        android:textAllCaps="true"
+        android:textColor="#FF5722"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/assessments_card_view"
+        app:layout_constraintEnd_toEndOf="@+id/terms_card_view"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/terms_card_view"
+        app:layout_constraintTop_toBottomOf="@+id/terms_card_view"
+        app:layout_constraintVertical_bias="0.231" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,84 +10,84 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <receiver
-            android:name="dev.eroberts.term_tracker.ViewModel.MyReceiver"
+            android:name="dev.eroberts.term_tracker.ViewModel.notification_receiver"
             android:enabled="true"
             android:exported="true"></receiver>
 
         <activity
-            android:name="dev.eroberts.term_tracker.TermsDetailsActivity"
+            android:name="dev.eroberts.term_tracker.Terms_Details_Activity"
             android:label="@string/title_activity_terms_details"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="dev.eroberts.term_tracker.TermsEditActivity"
+            android:name="dev.eroberts.term_tracker.Terms_Edit_Activity"
             android:label="@string/title_activity_terms_edit"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="dev.eroberts.term_tracker.TermsAddActivity"
+            android:name="dev.eroberts.term_tracker.Terms_Add_Activity"
             android:label="@string/title_activity_terms_add"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="dev.eroberts.term_tracker.CoursesDetailsActivity"
+            android:name="dev.eroberts.term_tracker.Courses_Details_Activity"
             android:label="@string/title_activity_courses_details"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="dev.eroberts.term_tracker.CoursesEditActivity"
+            android:name="dev.eroberts.term_tracker.Courses_Edit_Activity"
             android:label="@string/title_activity_courses_edit"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="dev.eroberts.term_tracker.CoursesAddActivity"
+            android:name="dev.eroberts.term_tracker.Courses_Add_Activity"
             android:label="@string/title_activity_courses_add"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="dev.eroberts.term_tracker.AssessmentsDetailsActivity"
+            android:name="dev.eroberts.term_tracker.Assessments_Details_Activity"
             android:label="@string/title_activity_assessments_details"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="dev.eroberts.term_tracker.AssessmentsEditActivity"
+            android:name="dev.eroberts.term_tracker.Assessments_Edit_Activity"
             android:label="@string/title_activity_assessment_edit"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="dev.eroberts.term_tracker.AssessmentsAddActivity"
+            android:name="dev.eroberts.term_tracker.Assessments_Add_Activity"
             android:label="@string/title_activity_assessments_add"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="dev.eroberts.term_tracker.MentorsDetailsActivity"
-            android:label="@string/title_activity_mentors_details"
+            android:name="dev.eroberts.term_tracker.Instructors_Detail_Activity"
+            android:label="@string/title_activity_instructors_details"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="dev.eroberts.term_tracker.MentorsAddActivity"
-            android:label="@string/title_activity_mentors_add"
+            android:name="dev.eroberts.term_tracker.Instructors_Add_Activity"
+            android:label="@string/title_activity_instuctors_add"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="dev.eroberts.term_tracker.MentorsEditActivity"
-            android:label="@string/title_activity_mentors_edit"
+            android:name="dev.eroberts.term_tracker.Instructors_Edit_Activity"
+            android:label="@string/title_activity_instructors_edit"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="dev.eroberts.term_tracker.MentorsActivity"
-            android:label="@string/title_activity_mentors"
+            android:name="dev.eroberts.term_tracker.Instructors_Activity"
+            android:label="@string/title_activity_instructors"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="dev.eroberts.term_tracker.AssessmentsActivity"
+            android:name="dev.eroberts.term_tracker.Assessments_Activity"
             android:label="@string/title_activity_assessments"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="dev.eroberts.term_tracker.CoursesActivity"
+            android:name="dev.eroberts.term_tracker.Courses_Activity"
             android:label="@string/title_activity_courses"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="dev.eroberts.term_tracker.TermsActivity"
+            android:name="dev.eroberts.term_tracker.Terms_Activity"
             android:label="@string/title_activity_terms"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="dev.eroberts.term_tracker.MainActivity"
+            android:name="dev.eroberts.term_tracker.Main_Activity"
             android:label="@string/main_title"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

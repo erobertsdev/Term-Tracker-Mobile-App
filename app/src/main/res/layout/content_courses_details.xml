@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="50dp"
-            android:text="@string/mentor_name"
+            android:text="@string/instructor_name"
             android:textColor="#009688"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,38 +47,38 @@
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <EditText
-            android:id="@+id/textView9"
+            android:id="@+id/assessment_details_name"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginTop="25dp"
             android:editable="false"
-            android:textColor="#000000"
+            android:textColor="@color/colorPrimaryText"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/textView3"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/textView10"
+            android:id="@+id/assessment_details_date"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:editable="false"
-            android:textColor="#000000"
+            android:textColor="@color/colorPrimaryText"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/textView9"
-            app:layout_constraintStart_toStartOf="@+id/textView9"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintEnd_toEndOf="@+id/assessment_details_name"
+            app:layout_constraintStart_toStartOf="@+id/assessment_details_name"
+            app:layout_constraintTop_toBottomOf="@+id/assessment_details_name" />
 
         <EditText
-            android:id="@+id/textView11"
+            android:id="@+id/assessment_details_type"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:editable="false"
-            android:textColor="#000000"
+            android:textColor="@color/colorPrimaryText"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/textView10"
-            app:layout_constraintStart_toStartOf="@+id/textView10"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+            app:layout_constraintEnd_toEndOf="@+id/assessment_details_date"
+            app:layout_constraintStart_toStartOf="@+id/assessment_details_date"
+            app:layout_constraintTop_toBottomOf="@+id/assessment_details_date" />
 
         <TextView
             android:id="@+id/textView12"
@@ -97,26 +97,26 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:editable="false"
-            android:textColor="#000000"
+            android:textColor="@color/colorPrimaryText"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/textView11"
-            app:layout_constraintStart_toStartOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintEnd_toEndOf="@+id/assessment_details_type"
+            app:layout_constraintStart_toStartOf="@+id/assessment_details_type"
+            app:layout_constraintTop_toBottomOf="@+id/assessment_details_type" />
 
         <EditText
-            android:id="@+id/textView14"
+            android:id="@+id/course_status_text_view"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="28dp"
             android:editable="false"
-            android:textColor="#000000"
+            android:textColor="@color/colorPrimaryText"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/course_assessment_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -126,15 +126,15 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+            app:layout_constraintTop_toBottomOf="@+id/course_status_text_view" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/course_mentor_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="28dp"
-            android:text="@string/add_mentor"
+            android:text="@string/add_instructor"
             android:textColor="#009688"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -149,8 +149,8 @@
             android:layout_marginTop="15dp"
             android:clickable="true"
             app:backgroundTint="@color/colorPrimaryDark"
-            app:layout_constraintStart_toEndOf="@+id/textView16"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            app:layout_constraintStart_toEndOf="@+id/course_assessment_title"
+            app:layout_constraintTop_toBottomOf="@+id/course_status_text_view"
             app:srcCompat="@drawable/ic_baseline_add_circle_24" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -161,7 +161,7 @@
             android:layout_marginTop="15dp"
             android:clickable="true"
             app:backgroundTint="@color/colorPrimaryDark"
-            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintStart_toEndOf="@+id/course_mentor_title"
             app:layout_constraintTop_toBottomOf="@+id/assessmentsRV"
             app:srcCompat="@drawable/ic_baseline_add_circle_24" />
 
@@ -172,16 +172,16 @@
             android:layout_marginStart="25dp"
             android:layout_marginTop="28dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+            app:layout_constraintTop_toBottomOf="@+id/course_assessment_title" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mentorsRV"
+            android:id="@+id/instructorsRV"
             android:layout_width="300dp"
             android:layout_height="80dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="28dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            app:layout_constraintTop_toBottomOf="@+id/course_mentor_title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
