@@ -2,6 +2,7 @@
 ## Created as project for Mobile Application Development course
 
 Created with Java, SQLite using Android Studio.
+This was my first attempt at making a UI for Android, so, it's pretty ugly.
 Project can be downloaded and run w/ Android Studio
 
 ### Screenshots
