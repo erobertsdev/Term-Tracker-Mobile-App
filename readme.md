@@ -1,8 +1,10 @@
 # Term Tracker Mobile App
 ## Created as project for Mobile Application Development course
 
-Created with Java, SQLite using Android Studio.
+Created with Java, SQLite using Android Studio. Features reminders and alerts via push notifications, a SQLite database for storage, ability to add unlimited classes, courses, etc.
+
 This was my first attempt at making a UI for Android so it's pretty ugly.
+
 Project can be downloaded and run w/ Android Studio
 
 ### Screenshots
